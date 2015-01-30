@@ -1,0 +1,93 @@
+[09-Oct-2014 02:44:06 America/Chicago] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home3/disposal/public_html/geetu/classes/mail.php on line 37
+[09-Oct-2014 02:59:45 America/Chicago] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home3/disposal/public_html/geetu/classes/mail.php on line 16
+[09-Oct-2014 04:20:31 America/Chicago] PHP Parse error:  syntax error, unexpected '"', expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home3/disposal/public_html/geetu/classes/mail.php on line 16
+[09-Oct-2014 04:23:26 America/Chicago] PHP Parse error:  syntax error, unexpected '"', expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home3/disposal/public_html/geetu/classes/mail.php on line 16
+[09-Oct-2014 04:23:29 America/Chicago] PHP Parse error:  syntax error, unexpected '"', expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home3/disposal/public_html/geetu/classes/mail.php on line 16
+[09-Oct-2014 04:23:32 America/Chicago] PHP Parse error:  syntax error, unexpected '"', expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home3/disposal/public_html/geetu/classes/mail.php on line 16
+[09-Oct-2014 04:29:06 America/Chicago] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home3/disposal/public_html/geetu/classes/mail.php on line 16
+[10-Oct-2014 07:45:48 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 32
+[10-Oct-2014 07:47:29 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 57
+[10-Oct-2014 07:47:42 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 57
+[13-Oct-2014 03:26:52 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[13-Oct-2014 03:27:07 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[13-Oct-2014 03:27:10 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/edit_user_information.php on line 59
+[13-Oct-2014 03:27:21 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/edit_user_information.php on line 59
+[13-Oct-2014 03:27:22 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[13-Oct-2014 03:27:39 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/change_password.php on line 81
+[13-Oct-2014 03:27:58 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/change_password.php on line 81
+[13-Oct-2014 03:27:58 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[13-Oct-2014 03:28:59 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[13-Oct-2014 03:31:37 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/update.php on line 108
+[13-Oct-2014 03:37:23 America/Chicago] PHP Warning:  chmod(): No such file or directory in /home3/disposal/public_html/geetu/admin/user_profile.php on line 27
+[13-Oct-2014 03:37:23 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/admin/user_profile.php:27) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[13-Oct-2014 03:39:49 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[13-Oct-2014 03:39:53 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[13-Oct-2014 03:39:56 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/edit_user_information.php on line 59
+[13-Oct-2014 03:40:01 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[13-Oct-2014 03:40:04 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/admin_list.php on line 45
+[13-Oct-2014 03:40:08 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[13-Oct-2014 03:40:10 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/admin_list.php on line 45
+[13-Oct-2014 03:40:13 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[13-Oct-2014 03:40:15 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/change_password.php on line 81
+[13-Oct-2014 03:42:07 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/change_password.php on line 81
+[13-Oct-2014 03:42:07 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[13-Oct-2014 03:42:23 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[13-Oct-2014 03:42:43 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[13-Oct-2014 03:42:55 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[13-Oct-2014 03:42:57 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/vendors.php on line 45
+[13-Oct-2014 03:43:00 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[13-Oct-2014 03:43:02 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/generators.php on line 47
+[13-Oct-2014 03:43:06 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[13-Oct-2014 03:43:08 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[13-Oct-2014 03:43:18 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[13-Oct-2014 03:43:38 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[13-Oct-2014 03:46:15 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/update.php on line 108
+[14-Oct-2014 10:39:37 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[14-Oct-2014 10:39:42 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[14-Oct-2014 10:39:53 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[16-Oct-2014 04:23:16 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[16-Oct-2014 04:23:23 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[16-Oct-2014 07:47:45 America/Chicago] PHP Parse error:  syntax error, unexpected ''last' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home3/disposal/public_html/geetu/classes/generator.php on line 215
+[16-Oct-2014 07:49:16 America/Chicago] PHP Parse error:  syntax error, unexpected 'o', expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home3/disposal/public_html/geetu/classes/generator.php on line 87
+[16-Oct-2014 22:59:25 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[16-Oct-2014 22:59:48 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/generators.php on line 44
+[16-Oct-2014 22:59:50 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/add_generators.php on line 47
+[16-Oct-2014 22:59:53 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/generators.php on line 44
+[16-Oct-2014 22:59:57 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[16-Oct-2014 22:59:59 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/vendors.php on line 44
+[16-Oct-2014 23:00:00 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/add_new_vendors.php on line 45
+[16-Oct-2014 23:00:02 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/vendors.php on line 44
+[16-Oct-2014 23:00:03 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[17-Oct-2014 08:17:10 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/user_profile.php on line 67
+[17-Oct-2014 13:09:06 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/info.php on line 55
+[17-Oct-2014 14:31:50 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[17-Oct-2014 15:13:47 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/generators.php on line 44
+[17-Oct-2014 15:14:15 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/admin_list.php on line 45
+[17-Oct-2014 18:16:46 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/vendors.php on line 44
+[17-Oct-2014 18:49:15 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/update.php on line 108
+[17-Oct-2014 19:24:45 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/index.php on line 43
+[17-Oct-2014 19:51:21 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/info.php on line 55
+[18-Oct-2014 02:56:15 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/info.php on line 55
+[20-Oct-2014 07:43:06 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/admin/add_generators.php on line 47
+[21-Oct-2014 12:13:43 America/Chicago] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR) in /home3/disposal/public_html/geetu/classes/mail.php on line 20
+[21-Oct-2014 12:13:57 America/Chicago] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR) in /home3/disposal/public_html/geetu/classes/mail.php on line 20
+[04-Nov-2014 03:04:28 America/Chicago] PHP Fatal error:  Call to undefined method Generators::show_global_setting_free_record() in /home3/disposal/public_html/geetu/admin/globle_setting_generator.php on line 30
+[04-Nov-2014 03:06:24 America/Chicago] PHP Fatal error:  Call to undefined method Admin::show_globle_setting_free_record() in /home3/disposal/public_html/geetu/admin/global_setting.php on line 30
+[04-Nov-2014 03:09:18 America/Chicago] PHP Warning:  Missing argument 1 for Generators::show_genrator(), called in /home3/disposal/public_html/geetu/admin/add_generators.php on line 10 and defined in /home3/disposal/public_html/geetu/classes/generator.php on line 24
+[04-Nov-2014 08:41:51 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/add_new_vendors.php on line 9 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[04-Nov-2014 08:41:51 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/add_new_vendors.php on line 28 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[04-Nov-2014 08:43:52 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home3/disposal/public_html/geetu/admin/add_new_vendors.php on line 73
+[06-Nov-2014 01:20:20 America/Chicago] PHP Parse error:  syntax error, unexpected '"' in /home3/disposal/public_html/geetu/classes/mail.php on line 152
+[06-Nov-2014 01:32:13 America/Chicago] PHP Fatal error:  Call to a member function redirect() on a non-object in /home3/disposal/public_html/geetu/admin/change_password.php on line 43
+[10-Nov-2014 09:03:23 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/suspendedAccount_vendors.php on line 9 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[10-Nov-2014 09:03:23 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/suspendedAccount_vendors.php on line 28 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[10-Nov-2014 09:05:03 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/suspendedAccount_vendors.php on line 9 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[10-Nov-2014 09:05:03 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/suspendedAccount_vendors.php on line 28 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[10-Nov-2014 09:07:53 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/suspendedAccount_vendors.php on line 9 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[10-Nov-2014 09:07:53 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/suspendedAccount_vendors.php on line 28 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[10-Nov-2014 09:20:39 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/suspendedAccount_vendors.php on line 9 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[10-Nov-2014 09:20:39 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/suspendedAccount_vendors.php on line 28 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[10-Nov-2014 09:20:53 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/suspendedAccount_vendors.php on line 9 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[10-Nov-2014 09:20:53 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/suspendedAccount_vendors.php on line 28 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[10-Nov-2014 09:21:54 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/suspendedAccount_vendors.php on line 9 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23
+[10-Nov-2014 09:21:54 America/Chicago] PHP Warning:  Missing argument 1 for Vendor::show_vendor(), called in /home3/disposal/public_html/geetu/admin/suspendedAccount_vendors.php on line 28 and defined in /home3/disposal/public_html/geetu/classes/vendor.php on line 23

@@ -1,0 +1,9 @@
+[28-Oct-2014 05:17:25 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/vendors/change_password.php on line 64
+[28-Oct-2014 05:18:43 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/vendors/change_password.php on line 64
+[06-Nov-2014 03:14:18 America/Chicago] PHP Fatal error:  Cannot redeclare Mail::reset_password_generator() in /home3/disposal/public_html/geetu/classes/mail.php on line 172
+[06-Nov-2014 03:14:21 America/Chicago] PHP Fatal error:  Cannot redeclare Mail::reset_password_generator() in /home3/disposal/public_html/geetu/classes/mail.php on line 172
+[06-Nov-2014 03:45:36 America/Chicago] PHP Catchable fatal error:  Object of class PDOStatement could not be converted to string in /home3/disposal/public_html/geetu/vendors/update.php on line 45
+[06-Nov-2014 03:46:27 America/Chicago] PHP Fatal error:  Class 'Vendor' not found in /home3/disposal/public_html/geetu/vendors/update.php on line 9
+[06-Nov-2014 03:52:38 America/Chicago] PHP Fatal error:  Call to undefined method Mail::update_notification_vender() in /home3/disposal/public_html/geetu/vendors/update.php on line 50
+[06-Nov-2014 03:54:41 America/Chicago] PHP Fatal error:  Call to undefined method Mail::update_notification_vender() in /home3/disposal/public_html/geetu/vendors/update.php on line 50
+[07-Nov-2014 01:03:21 America/Chicago] PHP Fatal error:  Call to a member function profile_pic() on a non-object in /home3/disposal/public_html/geetu/vendors/help.php on line 11

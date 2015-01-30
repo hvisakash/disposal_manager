@@ -1,0 +1,108 @@
+[14-Oct-2014 09:37:53 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/index.php on line 39
+[14-Oct-2014 09:37:57 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[14-Oct-2014 09:38:01 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/update.php on line 64
+[14-Oct-2014 09:38:37 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/update.php on line 64
+[14-Oct-2014 09:38:39 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[14-Oct-2014 09:38:54 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/update.php on line 64
+[14-Oct-2014 09:38:58 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/update.php on line 64
+[14-Oct-2014 09:38:59 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[14-Oct-2014 09:39:20 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[14-Oct-2014 09:39:31 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[14-Oct-2014 09:40:11 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[14-Oct-2014 09:40:43 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[14-Oct-2014 11:53:21 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/index.php on line 39
+[14-Oct-2014 11:53:29 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[14-Oct-2014 12:07:22 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/update.php on line 64
+[14-Oct-2014 12:08:15 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[14-Oct-2014 12:08:25 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[14-Oct-2014 12:09:01 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[15-Oct-2014 09:51:48 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/index.php on line 39
+[15-Oct-2014 09:51:51 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[15-Oct-2014 09:52:08 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[15-Oct-2014 09:52:12 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/update.php on line 64
+[15-Oct-2014 09:52:15 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/index.php on line 39
+[15-Oct-2014 09:52:45 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/index.php on line 39
+[16-Oct-2014 08:58:51 America/Chicago] PHP Warning:  move_uploaded_file(/home3/disposal/public_html/geetu/uploads/generators/30index.jpeg): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/generators/manifests_upload_page.php on line 32
+[16-Oct-2014 08:58:51 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpSqaalY' to '/home3/disposal/public_html/geetu/uploads/generators/30index.jpeg' in /home3/disposal/public_html/geetu/generators/manifests_upload_page.php on line 32
+[16-Oct-2014 08:58:51 America/Chicago] PHP Warning:  chmod(): No such file or directory in /home3/disposal/public_html/geetu/generators/manifests_upload_page.php on line 34
+[16-Oct-2014 08:58:51 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/generators/manifests_upload_page.php:32) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[16-Oct-2014 22:04:02 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/index.php on line 39
+[16-Oct-2014 22:04:17 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[16-Oct-2014 22:04:19 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/update.php on line 64
+[16-Oct-2014 22:05:31 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[16-Oct-2014 22:06:05 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/user_profile.php on line 64
+[17-Oct-2014 02:36:45 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/index.php on line 39
+[17-Oct-2014 07:49:25 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/index.php on line 39
+[17-Oct-2014 08:40:24 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/index.php on line 39
+[17-Oct-2014 11:25:19 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/index.php on line 39
+[17-Oct-2014 11:25:23 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/sites.php on line 48
+[17-Oct-2014 11:25:26 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/addNewsites.php on line 65
+[17-Oct-2014 11:26:05 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/addNewsites.php on line 65
+[17-Oct-2014 11:26:07 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/sites.php on line 48
+[17-Oct-2014 11:26:28 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/addNewsites.php on line 65
+[17-Oct-2014 11:31:18 America/Chicago] PHP Warning:  Illegal string offset 'image_src' in /home3/disposal/public_html/geetu/generators/sites.php on line 48
+[21-Oct-2014 11:55:28 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/generators/editExistingSites.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Oct-2014 11:56:03 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/generators/editExistingSites.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Oct-2014 11:56:52 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/generators/editExistingSites.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Oct-2014 11:57:02 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/generators/editExistingSites.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Oct-2014 12:25:42 America/Chicago] PHP Fatal error:  Call to a member function fetch() on a non-object in /home3/disposal/public_html/geetu/classes/user.php on line 158
+[21-Oct-2014 13:09:49 America/Chicago] PHP Fatal error:  Call to a member function profile_pic() on a non-object in /home3/disposal/public_html/geetu/generators/change_password.php on line 11
+[21-Oct-2014 13:11:50 America/Chicago] PHP Fatal error:  Call to a member function profile_pic() on a non-object in /home3/disposal/public_html/geetu/generators/change_password.php on line 11
+[31-Oct-2014 04:36:58 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/classes/generator.php:392) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[31-Oct-2014 04:37:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/classes/generator.php:392) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[31-Oct-2014 04:38:55 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/classes/generator.php:392) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[31-Oct-2014 04:41:03 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/classes/generator.php:392) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[31-Oct-2014 04:42:26 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/classes/generator.php:392) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[31-Oct-2014 04:45:20 America/Chicago] PHP Warning:  chmod(): No such file or directory in /home3/disposal/public_html/geetu/generators/manifests_upload_page.php on line 33
+[31-Oct-2014 04:45:20 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/generators/manifests_upload_page.php:33) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[31-Oct-2014 04:46:34 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/classes/generator.php:392) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[31-Oct-2014 04:47:35 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/classes/generator.php:392) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[31-Oct-2014 05:05:44 America/Chicago] PHP Parse error:  syntax error, unexpected '$array' (T_VARIABLE) in /home3/disposal/public_html/geetu/classes/generator.php on line 381
+[31-Oct-2014 05:05:46 America/Chicago] PHP Parse error:  syntax error, unexpected '$array' (T_VARIABLE) in /home3/disposal/public_html/geetu/classes/generator.php on line 381
+[05-Nov-2014 01:00:49 America/Chicago] PHP Warning:  chmod(): No such file or directory in /home3/disposal/public_html/geetu/generators/manifests_upload_page.php on line 33
+[05-Nov-2014 01:00:49 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/generators/manifests_upload_page.php:33) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[05-Nov-2014 01:01:06 America/Chicago] PHP Warning:  chmod(): No such file or directory in /home3/disposal/public_html/geetu/generators/manifests_upload_page.php on line 33
+[05-Nov-2014 01:01:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/generators/manifests_upload_page.php:33) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[07-Nov-2014 09:21:29 America/Chicago] PHP Fatal error:  Call to a member function fetch() on a non-object in /home3/disposal/public_html/geetu/classes/generator.php on line 657
+[07-Nov-2014 09:21:39 America/Chicago] PHP Fatal error:  Call to a member function fetchall() on a non-object in /home3/disposal/public_html/geetu/classes/generator.php on line 609
+[07-Nov-2014 09:22:05 America/Chicago] PHP Fatal error:  Call to a member function fetchall() on a non-object in /home3/disposal/public_html/geetu/classes/generator.php on line 609
+[07-Nov-2014 09:22:56 America/Chicago] PHP Fatal error:  Call to a member function fetchall() on a non-object in /home3/disposal/public_html/geetu/classes/generator.php on line 609
+[08-Nov-2014 09:29:33 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home3/disposal/public_html/geetu/classes/connection.php:13
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(13): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home3/disposal/public_html/geetu/init.php(42): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(51): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(66): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/generators/index.php(3): include('/home3/disposal...')
+#5 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 13
+[12-Nov-2014 05:52:55 America/Chicago] PHP Warning:  chmod(): No such file or directory in /home3/disposal/public_html/geetu/generators/manifests_upload_page.php on line 33
+[12-Nov-2014 05:52:55 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/generators/manifests_upload_page.php:33) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[12-Nov-2014 05:53:10 America/Chicago] PHP Warning:  chmod(): No such file or directory in /home3/disposal/public_html/geetu/generators/manifests_upload_page.php on line 33
+[12-Nov-2014 05:53:10 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/generators/manifests_upload_page.php:33) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[12-Nov-2014 07:12:08 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/generators/vendors-banned.php:30) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[12-Nov-2014 07:12:09 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/generators/vendors-banned.php:30) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 06:24:16 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 06:24:34 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 06:27:22 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 06:27:46 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 06:29:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 06:33:55 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:05:19 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:06:49 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:06:56 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:07:05 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:25:42 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:27:17 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:27:25 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:27:34 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:29:56 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:31:34 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:33:42 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:37:03 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:39:10 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:41:15 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:15) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:46:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:15) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:47:21 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:15) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:48:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:15) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[21-Nov-2014 07:49:55 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:15) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13

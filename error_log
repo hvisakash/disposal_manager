@@ -1,0 +1,218 @@
+[22-Sep-2014 10:36:02 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'disposal_paul'@'108.167.141.11' (using password: YES)' in /home3/disposal/public_html/geetu/classes/connection.php:14
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(14): PDO->__construct('mysql:host=disp...', 'disposal_paul', '5+_$rKRkkOb0')
+#1 /home3/disposal/public_html/geetu/init.php(19): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(28): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(43): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(2): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(14): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 14
+[22-Sep-2014 10:41:53 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'disposal_paul'@'108.167.141.11' (using password: YES)' in /home3/disposal/public_html/geetu/classes/connection.php:14
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(14): PDO->__construct('mysql:host=disp...', 'disposal_paul', '5+_$rKRkkOb0')
+#1 /home3/disposal/public_html/geetu/init.php(19): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(28): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(43): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(2): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(14): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 14
+[22-Sep-2014 10:44:43 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'disposal_paul'@'108.167.141.11' (using password: YES)' in /home3/disposal/public_html/geetu/classes/connection.php:13
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(13): PDO->__construct('mysql:host=disp...', 'disposal_paul', '5+_$rKRkkOb0')
+#1 /home3/disposal/public_html/geetu/init.php(19): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(28): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(43): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(2): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(14): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 13
+[22-Sep-2014 10:44:46 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'disposal_paul'@'108.167.141.11' (using password: YES)' in /home3/disposal/public_html/geetu/classes/connection.php:13
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(13): PDO->__construct('mysql:host=disp...', 'disposal_paul', '5+_$rKRkkOb0')
+#1 /home3/disposal/public_html/geetu/init.php(19): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(28): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(43): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(2): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(14): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 13
+[22-Sep-2014 10:46:01 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'disposal_paul'@'108.167.141.11' (using password: YES)' in /home3/disposal/public_html/geetu/classes/connection.php:13
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(13): PDO->__construct('mysql:host=disp...', 'disposal_paul', '5+_$rKRkkOb0')
+#1 /home3/disposal/public_html/geetu/init.php(19): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(28): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(43): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(2): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(14): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 13
+[22-Sep-2014 10:46:05 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'disposal_paul'@'108.167.141.11' (using password: YES)' in /home3/disposal/public_html/geetu/classes/connection.php:13
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(13): PDO->__construct('mysql:host=disp...', 'disposal_paul', '5+_$rKRkkOb0')
+#1 /home3/disposal/public_html/geetu/init.php(19): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(28): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(43): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(2): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(14): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 13
+[22-Sep-2014 10:46:08 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'disposal_paul'@'108.167.141.11' (using password: YES)' in /home3/disposal/public_html/geetu/classes/connection.php:13
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(13): PDO->__construct('mysql:host=disp...', 'disposal_paul', '5+_$rKRkkOb0')
+#1 /home3/disposal/public_html/geetu/init.php(19): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(28): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(43): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(2): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(14): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 13
+[22-Sep-2014 11:11:12 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'disposal_paul'@'108.167.141.11' (using password: YES)' in /home3/disposal/public_html/geetu/classes/connection.php:14
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(14): PDO->__construct('mysql:host=disp...', 'disposal_paul', '5+_')
+#1 /home3/disposal/public_html/geetu/init.php(19): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(28): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(43): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(2): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(14): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 14
+[22-Sep-2014 11:13:25 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'disposal_paul'@'108.167.141.11' (using password: YES)' in /home3/disposal/public_html/geetu/classes/connection.php:14
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(14): PDO->__construct('mysql:host=disp...', 'disposal_paul', '5+_$rKRkkOb0')
+#1 /home3/disposal/public_html/geetu/init.php(19): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(28): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(43): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(2): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(14): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 14
+[22-Sep-2014 11:20:14 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'disposal_paul'@'108.167.141.11' (using password: YES)' in /home3/disposal/public_html/geetu/classes/connection.php:14
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(14): PDO->__construct('mysql:host=disp...', 'disposal_paul', '5+_$rKRkkOb0')
+#1 /home3/disposal/public_html/geetu/init.php(19): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(28): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(43): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(2): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(14): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 14
+[22-Sep-2014 11:20:23 America/Chicago] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home3/disposal/public_html/geetu/index.php:13) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[22-Sep-2014 11:20:23 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home3/disposal/public_html/geetu/index.php:13) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[24-Sep-2014 08:24:41 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home3/disposal/public_html/geetu/classes/connection.php:13
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(13): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home3/disposal/public_html/geetu/init.php(33): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(42): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(57): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(2): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(2): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 13
+[24-Sep-2014 08:25:39 America/Chicago] PHP Warning:  include_once(/home3/disposal/public_html/Disposal_manager/include/header.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/admin_signin.php on line 38
+[24-Sep-2014 08:25:39 America/Chicago] PHP Warning:  include_once(): Failed opening '/home3/disposal/public_html/Disposal_manager/include/header.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/admin_signin.php on line 38
+[24-Sep-2014 08:25:39 America/Chicago] PHP Warning:  include_once(/home3/disposal/public_html/Disposal_manager/include/header_menu.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/admin_signin.php on line 38
+[24-Sep-2014 08:25:39 America/Chicago] PHP Warning:  include_once(): Failed opening '/home3/disposal/public_html/Disposal_manager/include/header_menu.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/admin_signin.php on line 38
+[25-Sep-2014 09:49:05 America/Chicago] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[25-Sep-2014 09:49:05 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[25-Sep-2014 10:15:52 America/Chicago] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[25-Sep-2014 10:15:52 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[25-Sep-2014 10:48:50 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[25-Sep-2014 10:49:11 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[25-Sep-2014 10:50:14 America/Chicago] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[25-Sep-2014 10:50:14 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[25-Sep-2014 10:50:26 America/Chicago] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[25-Sep-2014 10:50:26 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[01-Oct-2014 11:08:53 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:08:53 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:08:53 America/Chicago] PHP Warning:  include(): Failed opening '../init.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:08:53 America/Chicago] PHP Fatal error:  Class 'Admin' not found in /home3/disposal/public_html/geetu/provider.php on line 4
+[01-Oct-2014 11:09:02 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:09:02 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:09:02 America/Chicago] PHP Warning:  include(): Failed opening '../init.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:09:02 America/Chicago] PHP Fatal error:  Class 'Admin' not found in /home3/disposal/public_html/geetu/provider.php on line 4
+[01-Oct-2014 11:25:54 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:25:54 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:25:54 America/Chicago] PHP Warning:  include(): Failed opening '../init.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:25:54 America/Chicago] PHP Fatal error:  Class 'Admin' not found in /home3/disposal/public_html/geetu/provider.php on line 4
+[01-Oct-2014 11:27:04 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:27:04 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:27:04 America/Chicago] PHP Warning:  include(): Failed opening '../init.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:27:04 America/Chicago] PHP Fatal error:  Class 'Admin' not found in /home3/disposal/public_html/geetu/provider.php on line 4
+[01-Oct-2014 11:28:29 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:28:29 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:28:29 America/Chicago] PHP Warning:  include(): Failed opening '../init.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/provider.php on line 3
+[01-Oct-2014 11:28:29 America/Chicago] PHP Fatal error:  Class 'Admin' not found in /home3/disposal/public_html/geetu/provider.php on line 4
+[02-Oct-2014 09:22:40 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[02-Oct-2014 09:22:40 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[02-Oct-2014 09:22:40 America/Chicago] PHP Warning:  include(): Failed opening '../init.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/provider.php on line 3
+[02-Oct-2014 09:22:40 America/Chicago] PHP Fatal error:  Class 'Admin' not found in /home3/disposal/public_html/geetu/provider.php on line 4
+[02-Oct-2014 10:27:16 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[02-Oct-2014 10:27:16 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[02-Oct-2014 10:27:16 America/Chicago] PHP Warning:  include(): Failed opening '../init.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/provider.php on line 3
+[02-Oct-2014 10:27:16 America/Chicago] PHP Fatal error:  Class 'Admin' not found in /home3/disposal/public_html/geetu/provider.php on line 4
+[02-Oct-2014 22:44:01 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[02-Oct-2014 22:44:01 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[02-Oct-2014 22:44:01 America/Chicago] PHP Warning:  include(): Failed opening '../init.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/provider.php on line 3
+[02-Oct-2014 22:44:01 America/Chicago] PHP Fatal error:  Class 'Admin' not found in /home3/disposal/public_html/geetu/provider.php on line 4
+[02-Oct-2014 22:44:17 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[02-Oct-2014 22:44:17 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[02-Oct-2014 22:44:17 America/Chicago] PHP Warning:  include(): Failed opening '../init.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/provider.php on line 3
+[02-Oct-2014 22:44:17 America/Chicago] PHP Fatal error:  Class 'Admin' not found in /home3/disposal/public_html/geetu/provider.php on line 4
+[06-Oct-2014 03:19:29 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[06-Oct-2014 03:19:29 America/Chicago] PHP Warning:  include(../init.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/provider.php on line 3
+[06-Oct-2014 03:19:29 America/Chicago] PHP Warning:  include(): Failed opening '../init.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/provider.php on line 3
+[06-Oct-2014 03:19:29 America/Chicago] PHP Fatal error:  Class 'Admin' not found in /home3/disposal/public_html/geetu/provider.php on line 4
+[07-Oct-2014 08:14:01 America/Chicago] PHP Warning:  include_once(/home3/disposal/public_html/Disposal_manager/include/header.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/admin_signin.php on line 38
+[07-Oct-2014 08:14:01 America/Chicago] PHP Warning:  include_once(): Failed opening '/home3/disposal/public_html/Disposal_manager/include/header.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/admin_signin.php on line 38
+[07-Oct-2014 08:14:01 America/Chicago] PHP Warning:  include_once(/home3/disposal/public_html/Disposal_manager/include/header_menu.php): failed to open stream: No such file or directory in /home3/disposal/public_html/geetu/admin_signin.php on line 38
+[07-Oct-2014 08:14:01 America/Chicago] PHP Warning:  include_once(): Failed opening '/home3/disposal/public_html/Disposal_manager/include/header_menu.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home3/disposal/public_html/geetu/admin_signin.php on line 38
+[08-Oct-2014 08:24:40 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home3/disposal/public_html/geetu/classes/connection.php:13
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(13): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home3/disposal/public_html/geetu/init.php(38): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(47): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(62): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(3): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(2): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 13
+[08-Oct-2014 08:32:36 America/Chicago] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[08-Oct-2014 08:32:36 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[08-Oct-2014 08:33:50 America/Chicago] PHP Fatal error:  Function name must be a string in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[08-Oct-2014 08:34:21 America/Chicago] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[08-Oct-2014 08:34:21 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[08-Oct-2014 08:34:39 America/Chicago] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[08-Oct-2014 08:34:39 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[08-Oct-2014 08:34:41 America/Chicago] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[08-Oct-2014 08:34:41 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home3/disposal/public_html/geetu/include/header.php:2) in /home3/disposal/public_html/geetu/classes/session.php on line 27
+[14-Oct-2014 12:14:20 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/disposal/public_html/geetu/admin_signin.php:59) in /home3/disposal/public_html/geetu/classes/redirect.php on line 13
+[08-Nov-2014 09:29:21 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home3/disposal/public_html/geetu/classes/connection.php:13
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(13): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home3/disposal/public_html/geetu/init.php(42): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(51): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(66): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/logout.php(2): require_once('/home3/disposal...')
+#5 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 13
+[08-Nov-2014 09:29:31 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home3/disposal/public_html/geetu/classes/connection.php:13
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(13): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home3/disposal/public_html/geetu/init.php(42): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(51): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(66): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/logout.php(2): require_once('/home3/disposal...')
+#5 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 13
+[08-Nov-2014 09:29:39 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home3/disposal/public_html/geetu/classes/connection.php:13
+Stack trace:
+#0 /home3/disposal/public_html/geetu/classes/connection.php(13): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home3/disposal/public_html/geetu/init.php(42): DatabaseConnection->getConnection()
+#2 /home3/disposal/public_html/geetu/init.php(51): Init->__construct()
+#3 /home3/disposal/public_html/geetu/init.php(66): Init::getInstance()
+#4 /home3/disposal/public_html/geetu/include/header.php(3): include_once('/home3/disposal...')
+#5 /home3/disposal/public_html/geetu/index.php(2): include('/home3/disposal...')
+#6 {main}
+  thrown in /home3/disposal/public_html/geetu/classes/connection.php on line 13

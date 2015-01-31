@@ -69,26 +69,29 @@ class User
 			//echo date("M-d-Y");
 			//die("here");
 			//checking email in user table already exist or not
-			$sql = "select * from users where email = '$email' ";
-			$res=$this->_dbh->query($sql);
-			$value= $res->fetch();
-			if($value['email']==$array['email'])
-			{
-			      return "email";
-			}
+			//$sql = "select * from users where email = '$email' ";
+			//$res=$this->_dbh->query($sql);
+			//$value= $res->fetch();
+			//if($value['email']==$array['email'])
+			//{
+			//      return "email";
+			//}
+			//echo $array["roll"];die(' user');
 			if($array["roll"]==2)
 			{
 				$sql = "select * from users where roll='2'";
 				$res=$this->_dbh->query($sql);
 				$value= $res->fetchall();
+				//echo "pre";print_r($value);die;
 				if($value==Null)
 				{
 				$count = $this->_dbh->exec("INSERT INTO users(register_date,companyname,department,firstname,lastname,email,password,address1,address2,city,state,zipcode,epa_id,contact,fax,roll,date,account,account_no) VALUES ('".date('M-d-Y')."','".$array['companyname']."','".$array['department']."','".$array['firstname']."','".$array['lastname']."','".$array['email']."','".md5($array['password'])."','".$array['address1']."','".$array['address2']."','".$array['city']."','".$array['state']."','".$array['zipcode']."','".$array['epa_id']."','".$array['contact']."','".$array['fax']."','2','".$array['date']."','".'0'."','".'10000001'."')"); 
 				$id=$this->_dbh->lastInsertId();
 				$count1 = $this->_dbh->exec("INSERT INTO user_password(password,user_id) VALUES ('".md5($array['password'])."','".$id."')");
+				echo $id;die;
 				return $id;
 				}
-				else{
+				else{die(' elsee');
 					$sql="SELECT MAX(account_no) as account from users where roll='2'";
 					$res=$this->_dbh->query($sql);
 					$value= $res->fetch();

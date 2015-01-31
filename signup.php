@@ -106,13 +106,12 @@ jQuery(document).ready(function()
 	     dataType: 'json',
 	    success: function(data)
 	       {
-		   if (data.email=="false"){
-                              alert("The email address entered is already in use.  Please enter a different email.");
-                     }
-                     else if(data.email=='true'){
-			window.location = "signin";
-		     }
-		  
+			    if (data.email=="false"){
+	                alert("The email address entered is already in use.  Please enter a different email.");
+	            }
+	            else if(data.email=='true'){
+					window.location = "signin";
+			    }
 	       }
 	    });
 	});

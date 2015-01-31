@@ -62,9 +62,6 @@ include("../init.php");
 		<div class="col-lg-12">
 		    <div class="col-lg-12">
 			 <form name="frm" method='post'>
-			    <h2>What best describes what you are trying to dispose of ?</h2>
-			    <input name="waste" type="text" value="" required autofocus>
-			    <br><br>
 			    <h4>What is the material to be profiled ?</h4></br>
 		    </div>
 		    </br>

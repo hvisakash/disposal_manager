@@ -34,6 +34,9 @@ if(isset($_POST['companyname']))
     );
 
     $id =$user->register($array);
+   
+   // echo $id;die;
+    
     if($id=="email"){
         $array['email']="false";
     }

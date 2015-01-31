@@ -1,17 +1,17 @@
 <?php
 //Define base path of project
 //for local
-//define( "BASE_PATH", "".$_SERVER['DOCUMENT_ROOT']."/Disposal_manager/" );
+define( "BASE_PATH", "".$_SERVER['DOCUMENT_ROOT']."/disposal_manager/" );
 
 //for server
-define( "BASE_PATH", "".$_SERVER['DOCUMENT_ROOT']."/geetu/" );
+//define( "BASE_PATH", "".$_SERVER['DOCUMENT_ROOT']."/geetu/" );
 
 //Define base url of project
 //for local
-// define('BASE_URL', 'http://localhost/Disposal_manager');
+define('BASE_URL', 'http://localhost/disposal_manager/');
 
 //for server
-define('BASE_URL', 'http://www.disposalmanager.com/geetu/');
+//define('BASE_URL', 'http://www.disposalmanager.com/geetu/');
 
 //connection file
 include_once("classes/connection.php");

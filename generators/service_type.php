@@ -88,56 +88,35 @@ include("../init.php");
 				    <span class="last_login">Last login:</span><span class="date"><?php echo $result['date'];?></span>
 				</div>
 
-				</br>
-				</br>		
+				<br>
+				<br>		
 				<div class="col-lg-12">
 		    		<div class="col-lg-12">
-						<h2></h2></br>
+						<h2></h2><br>
 		    		</div>
 		    	</div>
 			    
-			    </br>
-			    </br>
-		    
-			<form name="frm" method='post'>
-				<div>
-					</br></br>
-				
-					<table>
-					<tr>
-					    <td>Name of Waste:</td>
-					    <td><input name="waste" type="" value="" required autofocus/></td>
-					</tr>
-					<tr>
-					    <td>Process Generating Waste: &nbsp;&nbsp;&nbsp;&nbsp;</td>
-					    <td><input name="process_generating" type="text" value="" required autofocus/></td>
-					</tr>
-					<tr>
-					    <td>Profile Number:</td>
-					    <td><input name="profile_no" type="text" value="" required autofocus/></td>
-					</tr>
-					<tr>
-					    <td>Source:</td>
-					    <td><input name="source" type="text" value="" required autofocus/></td>
-					</tr>
-					<tr>
-					    <td>Sample Available: </td>
-					    <td><input name="sample_available" type="text" value="" required autofocus/></td>
-					</tr>
-					</table>
-				
-					</br></br>
-				
-					<div>
-					     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					    <button class="btn btn-success pre" id="Previous">Previous</button>
-					    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					    <input name="Next" type="submit" value='Next' class="btn btn-success"/ >
-					     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					     <input name="save" type="submit" value='Save & Return' class="btn btn-success"/ > 
-					</div>
-		    	</div>
-			</form>
+			    <br>
+			    <br>
+		    <?php 
+		    	if((isset($_REQUEST['service'])) && ($_REQUEST['service']=='used_oil'))
+		    		include("questions/used_oil.php");
+		    	else if((isset($_REQUEST['service'])) && ($_REQUEST['service']=='paint_waste'))
+		    		include("questions/paint_waste.php");
+		    	else if((isset($_REQUEST['service'])) && ($_REQUEST['service']=='hazardous_waste'))
+		    		include("questions/hazardous_waste.php");
+		    	else if((isset($_REQUEST['service'])) && ($_REQUEST['service']=='non_hazardous_waste'))
+		    		include("questions/non_hazardous_waste.php");
+		    	else if((isset($_REQUEST['service'])) && ($_REQUEST['service']=='universal_waste'))
+		    		include("questions/universal_waste.php");
+		    	else if((isset($_REQUEST['service'])) && ($_REQUEST['service']=='cylinders'))
+		    		include("questions/cylinders.php");
+		    	else if((isset($_REQUEST['service'])) && ($_REQUEST['service']=='lab_pack'))
+		    		include("questions/lab_pack.php");
+		    	else if((isset($_REQUEST['service'])) && ($_REQUEST['service']=='not_sure'))
+		    		include("questions/not_sure.php");
+		    ?>
+			
 		</div>
 	</div>
 </div>

@@ -26,10 +26,10 @@ include("../init.php");
   //argument for profile pic class
     $profile_pic=$generators->profile_pic();
     //
-    if(isset($_POST["Next"]))
+    if(isset($_POST["next"]))
     {
-    $session->__set("waste",$_POST["waste"]);
-    $redirect->redirect("".BASE_URL."/generator/Services/".$_POST['radio']."");
+    	$session->__set("waste",$_POST["waste"]);
+    	$redirect->redirect("".BASE_URL."/generator/Services/".$_POST['radio']."");
     }
     
     // includding header portion
@@ -53,79 +53,85 @@ include("../init.php");
 		    <span class="name"><?php echo $result['firstname'];?></span><br/>
 		    <span class="last_login">Last login:</span><span class="date"><?php echo $result['date'];?></span>
 		</div>
-		<div class=" ">
-		    <div >
-		    </div>
-		</div>
-		</br>
-		</br>
+		
+		<br>
+		<br>
 		<div class="col-lg-12">
 		    <div class="col-lg-12">
-			 <form name="frm" method='post'>
-			    <h4>What is the material to be profiled ?</h4></br>
-		    </div>
-		    </br>
-		    </br>
-		    <div>
-			<input type="radio" name="radio" value="used_Oil" required autofocus>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			Used Oil   
-		    </div>
-		    </br>
-		    <div>
-			<input type="radio" name="radio" value="paint_wast" required autofocus>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			Paint Waste    
-		    </div>
-		    </br>
-		    <div>
-			<input type="radio" name="radio" value="hazardous_waste">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			Hazardous Waste
-		    </div>
-		    </br>
-		    <div>
-			<input type="radio" name="radio" value="non_hazardous_waste">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			Non-Hazardous Waste	    
-		    </div>
-		    </br>
-		    <div>
-			<input type="radio" name="radio" value="universal_waste">
-			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			Universal Waste   
-		    </div>
-		    </br>
-		    <div>
-			<input type="radio" name="radio" value="cylinders">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			Cylinders    
-		    </div>
-		    </br>
-		    <div>
-			<input type="radio" name="radio" value="lab_pack">
-		       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			Lab Pack    
-		    </div>
-		    </br>
-		    <div>
-			<input type="radio" name="radio" value="not_sure" class="btn btn-primary btn-lg">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			I'm Not Sure    
-		    </div>
-		    </br></br>
-		    <div>
-			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<button class="btn btn-success pre" id="Previous">Previous</button>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input name="Next" type="submit" value='Next' class="btn btn-success"/>
-		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		    </div>
-		</div>
-		    </form>
-	    </div> 
-	</div>
-    </div>
+			 	<form name="frm" method='post'>
+			    	<h4>What is the material to be profiled ?</h4><br>
+			    	
+			    <div>
+					<input type="radio" name="radio" value="used_oil" required autofocus>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Used Oil   
+			    </div>
+		    	
+		    	<br>
+			    
+			    <div>
+					<input type="radio" name="radio" value="paint_waste" required autofocus>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Paint Waste    
+			    </div>
+		    	
+		    	<br>
+			    
+			    <div>
+					<input type="radio" name="radio" value="hazardous_waste">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Hazardous Waste
+			    </div>
+		    	
+		    	<br>
+			    <div>
+					<input type="radio" name="radio" value="non_hazardous_waste">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Non-Hazardous Waste	    
+			    </div>
+		    	
+		    	<br>
+			    
+			    <div>
+					<input type="radio" name="radio" value="universal_waste">
+					    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Universal Waste   
+			    </div>
+		        
+		        <br>
+			    <div>
+					<input type="radio" name="radio" value="cylinders">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Cylinders    
+			    </div>
+
+		    	<br>
+			    <div>
+					<input type="radio" name="radio" value="lab_pack">
+				       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Lab Pack    
+			    </div>
+
+		    	<br>
+			    <div>
+					<input type="radio" name="radio" value="not_sure" class="btn btn-primary btn-lg">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					I'm Not Sure    
+			    </div>
+
+		    	<br><br>
+			    <div>
+					 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button class="btn btn-success pre" name="previous">Previous</button>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input name="next" type="submit" value='Next' class="btn btn-success"/>
+				    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    <input name="save" type="submit" value='Save & Return' class="btn btn-success"/>
+			    </div>
+			</form>
+		</div>	
+	</div> 
+</div>
     <?php include("../include/footer.php");?>
 </div>
 </body>

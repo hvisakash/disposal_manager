@@ -48,7 +48,29 @@ include_once(dirname(__DIR__)."/init.php");
 	  $(".table_global_free").hide();
 	});
    });
-    </script>    
+    </script>
+
+    <script>
+	$(document).ready(function(){
+	$("#yes").click(function(){
+	     $(".tab_show").show();
+	});
+	$("#no").click(function(){
+	     $(".tab_show").hide();
+	});
+
+   });
+    </script>
+
+<script>
+    //redirect start profile page
+    $(document).ready(function(){
+    $(".pre").click(function(){
+    window.location.replace("'.BASE_URL.'/generators/Services");
+    });
+});
+</script>
+
 </head>
 <body>
 <div class="header_top">

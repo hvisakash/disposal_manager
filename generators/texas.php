@@ -33,13 +33,16 @@ include("../init.php");
     //add waste in data base
     if(isset($_POST["Next"]))
     {
-      if($_POST['radio']=='yes')
-      {
-	$redirect->redirect("".BASE_URL."/generators/texas");
-	}else{
-	  $redirect->redirect("".BASE_URL."/generators/Services/regulr");
-	}
-      
+      $session->__set("state_of_texas",$_POST["radio"]);
+    // echo $session->__get("state_of_texas");die("");
+    /*if($_POST['radio']=='yes')
+    {
+      $redirect->redirect("".BASE_URL."/generators/texas");
+      }else{
+	$redirect->redirect("".BASE_URL."/generators/Services/regulr");
+      }
+    */
+    $redirect->redirect("".BASE_URL."/generators/waste_information");
     }
     // includding header portion
     include("../include/header.php");
@@ -47,10 +50,32 @@ include("../init.php");
 ?>
 <div class="banner bannerwithnoimg">
     <div class="container">
-	<div class="bannertxt col-lg-12">
-	    <span class="page_heading">Profiles Page</span>
-	    <span class="page_txt">Aliqat volutpasac tupis. Integer rutrum ante eu lacuestibulum libero nisl porta vel sceleris que eget</span>
-	</div>
+      <div class="bannertxt col-lg-12">
+	<span class="page_heading">
+	  <?php if($session->__get("service_id")==1)
+	    {
+		echo "Used Oil Page";
+	    }
+	    elseif($session->__get("service_id")==2)
+	    {
+		echo "Paint Waste State Page";
+	    }
+	    elseif($session->__get("service_id")==3 || $session->__get("service_id")==5 || $session->__get("service_id")==8|| $session->__get("service_id")==4)
+	    {
+		echo "Regular Waste Page";
+	    }
+	    elseif($session->__get("service_id")==6)
+	    {
+		echo "Cylinder Page";
+	    }
+	    elseif($session->__get("service_id")==7)
+	    {
+	       echo "Lab Pack Page";
+	    }
+	  ?>
+	</span>
+	<span class="page_txt">Aliqat volutpasac tupis. Integer rutrum ante eu lacuestibulum libero nisl porta vel sceleris que eget</span>
+      </div>
     </div>
 </div>
 <div class="main_div">

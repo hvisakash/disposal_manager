@@ -3,17 +3,95 @@ RewriteEngine On
 RewriteRule ^home$ index.php [L]
 
 <IfModule mod_rewrite.c>
-ErrorDocument 404 http://localhost/Disposal_manager/404.php
+ErrorDocument 404 http://poul.dev/404.php
+#ErrorDocument 404 http://www.disposalmanager.com/geetu/404.php
 </IfModule>
 
 #Rules for users
 
 RewriteRule ^aboutus$ aboutus.php [L]
+RewriteRule ^services$ services.php [L]
 RewriteRule ^signin$ admin_signin.php [L]
+RewriteRule ^signin/([0-9a-zA-Z_]+)$ admin_signin.php?paticular_role=$1 [L]
 RewriteRule ^contactus$ contactus.php [L]
+RewriteRule ^forgotPassword$ forgot_password.php [L]
+RewriteRule ^forgotLogin$ forgot_login.php [L]
+RewriteRule ^New_Users$ signup.php [L]
+RewriteRule ^resetPassword/([0-9]+)$ reset_password.php?rand_no=$1 [L]
 
 #Rules for admin section
+RewriteRule ^admin/userprofile$ admin/user_profile.php [L]
 RewriteRule ^admin/info/([0-9]+)/([0-9]+)$ admin/info.php?account_no=$1&roll=$2 [L]
 RewriteRule ^admin/update/([0-9]+)/([0-9]+)$ admin/update.php?id=$1&roll=$2 [L]
 RewriteRule ^admin/list$ admin/admin_list.php [L]
 RewriteRule ^admin/change_password$ admin/change_password.php [L]
+RewriteRule ^admin/help$ admin/help.php [L]
+RewriteRule ^admin/user_information$ admin/edit_user_information.php [L]
+RewriteRule ^admin/user_profile$ admin/user_profile.php [L]
+RewriteRule ^admin/vendors$ admin/vendors.php [L]
+RewriteRule ^admin/generators$ admin/generators.php [L]
+
+RewriteRule ^admin/add_generators$ admin/add_generators.php [L]
+RewriteRule ^admin/add_generators/([0-9a-zA-Z_]+)$ admin/add_generators.php?order=$1 [L]
+RewriteRule ^admin/editExsisting_generators$ admin/add_generators.php [L]
+RewriteRule ^admin/suspendedAccount$ admin/suspendedAccount.php [L]
+RewriteRule ^admin/add_new_vendors$ admin/add_new_vendors.php [L]
+RewriteRule ^admin/editExsisting_vendors$ admin/add_new_vendors.php [L]
+RewriteRule ^admin/suspendAccount$ admin/suspendedAccount_vendors.php [L]
+RewriteRule ^admin/Global_Settings$ admin/add_generators.php [L]
+RewriteRule ^admin/globle_setting_generator/([0-9]+)/([0-9]+)$ admin/globle_setting_generator.php?id=$1&roll=$2 [L]
+RewriteRule ^admin/globle_setting_vendors/([0-9]+)/([0-9]+)$ admin/globle_setting_vendor.php?id=$1&roll=$2 [L]
+RewriteRule ^admin/View_sites/([0-9]+)$ admin/view_sites.php?id=$1 [L]
+RewriteRule ^admin/Global_Setting$ admin/add_new_vendors.php [L]
+RewriteRule ^admin/Global_setting/([0-9]+)$ admin/global_setting.php?id=$1 [L]
+
+#Rules for generators section
+RewriteRule ^generators/userprofile$ generators/user_profile.php [L]
+RewriteRule ^generators/sites$ generators/sites.php [L]
+RewriteRule ^generators/manifests$ generators/manifests.php [L]
+RewriteRule ^generators/update$ generators/update.php [L]
+RewriteRule ^generators/change_password$ generators/change_password.php [L]
+RewriteRule ^generators/sites$ generators/sites.php [L]
+RewriteRule ^generators/addNewsites$ generators/addNewsites.php [L]
+RewriteRule ^generators/editExistingSites$ generators/editExistingSites.php [L]
+RewriteRule ^generators/manifests$ generators/manifests.php [L]
+RewriteRule ^generators/manifests_upload_page$ generators/manifests_upload_page.php [L]
+RewriteRule ^generators/manifests_search_page$ generators/manifests_search_page.php [L]
+RewriteRule ^generators/View_sites/([0-9]+)$ generators/view_sites.php?id=$1 [L]
+RewriteRule ^generators/ManifestSearch$ generators/jqueryCalender.php [L]
+RewriteRule ^generators/vendors$ generators/vendors.php [L]
+RewriteRule ^generators/vendors-history$ generators/vendors-history.php [L]
+RewriteRule ^generators/vendors-banned$ generators/vendors-banned.php [L]
+RewriteRule ^generators/profiles-page$ generators/profiles-page.php [L]
+RewriteRule ^generators/help$ generators/help.php [L]
+RewriteRule ^generators/billing-payment$ generators/billing-payment.php [L]
+RewriteRule ^generators/payment-history$ generators/payment-history.php [L]
+RewriteRule ^generators/current-payment-method$ generators/current-payment-method.php [L]
+RewriteRule ^generators/all_vendors$ generators/all_vendors.php [L]
+RewriteRule ^generators/New_Profile$ generators/new_Profile.php [L]
+RewriteRule ^generators/Addsite/([0-9a-z-\s-A-Z_]+)$ generators/addNewsites.php?sitename=$1 [L]
+RewriteRule ^generators/Services$ generators/services.php [L]
+RewriteRule ^generator/Services/([0-9a-zA-Z_]+)$ generators/service_type.php?service=$1 [L]
+RewriteRule ^generators/Texas$ generators/texas.php [L]
+RewriteRule ^generators/waste_information$ generators/questions/waste_information.php [L]
+RewriteRule ^generators/waste_composition$ generators/questions/waste_composition.php [L]
+RewriteRule ^generators/characteristics$ generators/questions/characteristics.php [L]
+RewriteRule ^generators/shipping_volume$ generators/questions/shipping_volume.php [L]
+RewriteRule ^generators/rcra_charaterization$ generators/questions/rcra_charaterization.php [L]
+RewriteRule ^generators/don_shipping_information$ generators/questions/don_shipping_information.php [L]
+RewriteRule ^generators/summry$ generators/questions/summry.php [L]
+
+
+#Rules for vendors section
+RewriteRule ^vendors$ vendors/index.php [L]
+RewriteRule ^vendors/userprofile$ vendors/user_profile.php [L]
+RewriteRule ^vendors/Sites$ vendors/sites.php [L]
+RewriteRule ^vendors/update$ vendors/update.php [L]
+RewriteRule ^vendors/change_password$ vendors/change_password.php [L]
+RewriteRule ^vendors/Billing_and_Payment$ vendors/Billing_and_Payment.php [L]
+RewriteRule ^vendors/addNewsites$ vendors/addNewsites.php [L]
+RewriteRule ^vendors/editExistingSites$ vendors/editExistingSites.php [L]
+RewriteRule ^vendors/help$ vendors/help.php [L]
+RewriteRule ^vendors/View_sites/([0-9]+)$ vendors/view_sites.php?id=$1 [L]
+
+

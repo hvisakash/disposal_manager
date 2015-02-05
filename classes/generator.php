@@ -710,12 +710,11 @@ class Generators
 				$e->getMessage();
 			}
 	}
-	
- 	//add wasts gnenerator functionality
-	public function wasts($user_id,$array){
+ 	//add wests gnenerator functionality
+	public function wests($user_id,$service_type,$dispose,$array){
 		
 		try{
-			$sql="insert into waste_tb (waste,process_generating,profile_no,source,sample_available,user_id) values('".$array['waste']."','".$array['process_generating']."','".$array['profile_no']."','".$array['source']."','".$array['sample_available']."','".$user_id."')";
+			$sql="insert into waste_tb (waste,process_generating,profile_no,source,sample_available,user_id,dispose,service_type) values('".$array['waste']."','".$array['process_generating']."','".$array['profile_no']."','".$array['source']."','".$array['sample_available']."','".$user_id."','".$dispose."','".$service_type."')";
 			$result=$this->_dbh->exec($sql);
 			return $result;		
 		}
@@ -785,4 +784,19 @@ class Generators
 	public function insert_rand_no($rand_no,$user_id){
 		$this->_dbh->exec("INSERT INTO password_reset set random_no='".$rand_no."',user_id='".$user_id."'");
 	}
+	
+	//check service type in generator
+	public function service_type($service){
+		try{
+			$sql = "select * from material_tb where  mat_id='$service'";
+			$res=$this->_dbh->query($sql);
+			$value= $res->fetch(PDO::FETCH_ASSOC);
+			return($value);
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+			}
+		
+	}
+	
 }	

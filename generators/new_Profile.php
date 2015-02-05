@@ -70,7 +70,8 @@ include("../init.php");
 			<input list="items" id="item"  type='text' required autofocus style="width: 500px; height: 35px; ">
 			<datalist id="items">
 			      <?php foreach($value as $row) { ?>
-			    <option value="<?php echo $row['sitename'];?>"  data-xyz = "<?php echo $row['id']?>" selected="true">
+			    <option value="<?php echo $row['sitename'];?>"
+						 data-xyz = "<?php echo $row['id']?>" selected="true">
 			   <?php } ?>	
 			</datalist>
 			</br></br>

@@ -15,14 +15,6 @@
 		    <td>Profile Number:</td>
 		    <td><input name="profile_no" type="text" value="" required autofocus/></td>
 		</tr>
-		<tr>
-		    <td>Source:</td>
-		    <td><input name="source" type="text" value="" required autofocus/></td>
-		</tr>
-		<tr>
-		    <td>Sample Available: </td>
-		    <td><input name="sample_available" type="text" value="" required autofocus/></td>
-		</tr>
 		</table>
 	
 		<br><br>

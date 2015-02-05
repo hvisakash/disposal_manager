@@ -16,20 +16,21 @@
 		    <td><input name="profile_no" type="text" value="" required autofocus/></td>
 		</tr>
 		<tr>
-		    <td>Source:</td>
-		    <td><input name="source" type="text" value="" required autofocus/></td>
+		    <td></td>
+		    <td><input name="source" type="hidden" value=""/></td>
 		</tr>
 		<tr>
-		    <td>Sample Available: </td>
-		    <td><input name="sample_available" type="text" value="" required autofocus/></td>
+		    <td></td>
+		    <td><input name="sample_available" type="hidden" value="" /></td>
 		</tr>
+		
 		</table>
 	
 		<br><br>
 	
 		<div>
 		     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		    <button class="btn btn-success pre" id="Previous">Previous</button>
+		    <button class="btn btn-success pre">Previous</button>
 		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		    <input name="Next" type="submit" value='Next' class="btn btn-success"/ >
 		     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

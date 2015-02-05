@@ -1,7 +1,6 @@
 <?php
 //including initial file
 include("../init.php");
-
     //creating object of session class  
     $session = $init->getSession();
     //creating object of redirect class
@@ -28,8 +27,12 @@ include("../init.php");
     //
     if(isset($_POST["next"]))
     {
-    	$session->__set("waste",$_POST["waste"]);
-    	$redirect->redirect("".BASE_URL."/generator/Services/".$_POST['radio']."");
+	  //$session->__set("firstname",$result['firstname']);
+    	$session->__set("dispose",$_POST["dispose"]);
+	$service=$generators->service_type($_POST['radio']);
+	$session->__set("service_id",$service['mat_id']);
+	$session->__set("service_material",$service['material']);
+	$redirect->redirect("".BASE_URL."/generator/Services/".$_POST['radio']."");
     }
     
     // includding header portion
@@ -53,94 +56,76 @@ include("../init.php");
 		    <span class="name"><?php echo $result['firstname'];?></span><br/>
 		    <span class="last_login">Last login:</span><span class="date"><?php echo $result['date'];?></span>
 		</div>
-		
 		<br>
 		<br>
 		<div class="col-lg-12">
 		    <div class="col-lg-12">
-			 	<form name="frm" method='post'>
-			    	<h4>What is the material to be profiled ?</h4><br>
-			    	
+			<form name="frm" method='post'>
+			<h3>What best describes what you are trying to dispose of?</h3><br>
+			<div>
+			    <input type="text" name="dispose"  required autofocus>
+			</div>
+			<br>
+			
+			<h4>What is the material to be profiled ?</h4><br>
 			    <div>
-					<input type="radio" name="radio" value="used_oil" required autofocus>
+					<input type="radio" name="radio" value="1" required autofocus>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Used Oil   
 			    </div>
-		    	
-		    	<br>
-			    
+			    <br>
 			    <div>
-					<input type="radio" name="radio" value="paint_waste" required autofocus>
+					<input type="radio" name="radio" value="2">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Paint Waste    
 			    </div>
-		    	
-		    	<br>
-			    
+			    <br>
 			    <div>
-					<input type="radio" name="radio" value="hazardous_waste">
+					<input type="radio" name="radio" value="3">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Hazardous Waste
 			    </div>
-		    	
-		    	<br>
+			    <br>
 			    <div>
-					<input type="radio" name="radio" value="non_hazardous_waste">
+					<input type="radio" name="radio" value="4">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Non-Hazardous Waste	    
 			    </div>
-		    	
-		    	<br>
-			    
+			    <br>
 			    <div>
-					<input type="radio" name="radio" value="universal_waste">
+					<input type="radio" name="radio" value="5">
 					    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Universal Waste   
 			    </div>
-		        
-		        <br>
+			    <br>
 			    <div>
-					<input type="radio" name="radio" value="cylinders">
+					<input type="radio" name="radio" value="6">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Cylinders    
 			    </div>
-
-		    	<br>
+			    <br>
 			    <div>
-					<input type="radio" name="radio" value="lab_pack">
+					<input type="radio" name="radio" value="7">
 				       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Lab Pack    
 			    </div>
-
-		    	<br>
+			    <br>
 			    <div>
-					<input type="radio" name="radio" value="not_sure" class="btn btn-primary btn-lg">
+					<input type="radio" name="radio" value="8" class="btn btn-primary btn-lg">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					I'm Not Sure    
 			    </div>
-
-		    	<br><br>
+			    <br><br>
 			    <div>
 					 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<button class="btn btn-success pre" name="previous">Previous</button>
+					<button class="btn btn-success pre" >Previous</button>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input name="next" type="submit" value='Next' class="btn btn-success"/>
-				    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				    <input name="save" type="submit" value='Save & Return' class="btn btn-success"/>
 			    </div>
 			</form>
-		</div>	
-	</div> 
+		    </div>	
+		</div> 
+	    </div>
+	<?php include("../include/footer.php");?>
+    </div>
 </div>
-    <?php include("../include/footer.php");?>
-</div>
-</body>
-</html>
-<script>
-//redirect start profile page
-$(document).ready(function(){
-  $("#Previous").click(function(){
- window.location.replace("'.BASE_URL.'/generators/profiles-page");
-  });
-});
-</script>

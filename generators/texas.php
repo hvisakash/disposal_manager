@@ -33,15 +33,9 @@ include("../init.php");
     //add waste in data base
     if(isset($_POST["Next"]))
     {
-      $session->__set("state_of_texas",$_POST["radio"]);
-    // echo $session->__get("state_of_texas");die("");
-    /*if($_POST['radio']=='yes')
-    {
-      $redirect->redirect("".BASE_URL."/generators/texas");
-      }else{
-	$redirect->redirect("".BASE_URL."/generators/Services/regulr");
-      }
-    */
+    $session->__set("state_of_texas",$_POST["state_of_texas"]);
+    $session->__set("label_state_of_texas","State of Texas");
+
     $redirect->redirect("".BASE_URL."/generators/waste_information");
     }
     // includding header portion
@@ -97,15 +91,15 @@ include("../init.php");
 		      </br>
 		      </br>
 		      <div>
-			<input name="radio" type="radio" value="yes" required autofocus>&nbsp; &nbsp;Yes
+			<input name="state_of_texas" type="radio" value="yes" required autofocus>&nbsp; &nbsp;Yes
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input name="radio" type="radio" value="no"> &nbsp; &nbsp; No    
+			<input name="state_of_texas" type="radio" value="no"> &nbsp; &nbsp; No    
 		      </div>
 		      </br>
 		      </br>
 		      <div>
 			&nbsp;&nbsp;
-			 <button class="btn btn-success pre" id="Previous">Previous</button>
+			 <button class="btn btn-success previous">Previous</button>
 			&nbsp;&nbsp;
 			<input name="Next" type="submit" value='Next' class="btn btn-success" />
 			&nbsp;&nbsp;
@@ -121,11 +115,3 @@ include("../init.php");
 </div>
 </body>
 </html>
-<script>
-//redirect start profile page
-$(document).ready(function(){
-  $("#Previous").click(function(){
- window.location.replace("'.BASE_URL.'/generators/Services");
-  });
-});
-</script>

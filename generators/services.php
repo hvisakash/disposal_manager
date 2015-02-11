@@ -27,8 +27,6 @@ include("../init.php");
     //
     if(isset($_POST["next"]))
     {
-	  //$session->__set("firstname",$result['firstname']);
-    	$session->__set("dispose",$_POST["dispose"]);
 	$service=$generators->service_type($_POST['radio']);
 	$session->__set("service_id",$service['mat_id']);
 	$session->__set("service_material",$service['material']);
@@ -61,13 +59,8 @@ include("../init.php");
 		<div class="col-lg-12">
 		    <div class="col-lg-12">
 			<form name="frm" method='post'>
-			<h3>What best describes what you are trying to dispose of?</h3><br>
-			<div>
-			    <input type="text" name="dispose"  required autofocus>
-			</div>
+			<h4>What is the material to be profiled ?</h4>
 			<br>
-			
-			<h4>What is the material to be profiled ?</h4><br>
 			    <div>
 					<input type="radio" name="radio" value="1" required autofocus>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -94,7 +87,7 @@ include("../init.php");
 			    <br>
 			    <div>
 					<input type="radio" name="radio" value="5">
-					    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Universal Waste   
 			    </div>
 			    <br>
@@ -118,7 +111,7 @@ include("../init.php");
 			    <br><br>
 			    <div>
 					 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<button class="btn btn-success pre" >Previous</button>
+					<button class="btn btn-success previous">Previous</button>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input name="next" type="submit" value='Next' class="btn btn-success"/>
 			    </div>
@@ -129,3 +122,6 @@ include("../init.php");
 	<?php include("../include/footer.php");?>
     </div>
 </div>
+
+
+

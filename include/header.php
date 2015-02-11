@@ -4,7 +4,6 @@ include_once(dirname(__DIR__)."/init.php");
     $session = $init->getSession();
     $redirect = $init->getRedirect();
 ?>
-<!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
     <meta charset="utf-8">
@@ -13,25 +12,26 @@ include_once(dirname(__DIR__)."/init.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Disposal Manager</title>
     <!-- css for bootstrap-->
-    <link href="<?php echo BASE_URL;?>/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL;?>/css/bootstrap.min.css" rel="stylesheet"/>
     <!--custom css-->
-    <link href="<?php echo BASE_URL;?>/css/custom.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL;?>/css/custom.css" rel="stylesheet" />
     <!-- Style for validation error -->
-    <style>
-    label.error
-    {
-	color:#900;	
-    }
-    </style>
+   
     <script>
 	var generators_url="<?php echo BASE_URL;?>/admin/ajaxcalling.php";
     </script>
     <script src="<?php echo BASE_URL;?>/js/jquery-1.10.2.js"></script>
     <script src="<?php echo BASE_URL;?>/js/jquery.validate.js"></script>
     <script src="<?php echo BASE_URL;?>/js/MyVal.js"></script>
-    <script src="<?php echo BASE_URL;?>/js/MyVal1.js"></script>
     <script>
+	//redirect start profile page if user click a button in generator section
 	$(document).ready(function(){
+	$(".previous").click(function(){
+	    var url = "<?php echo BASE_URL;?>/generators/profiles-page";
+	    $(location).attr("href", url);
+	    alert(" ");
+	});
+	//show table for elite or free in admin section
 	$("#elite").click(function(){
 	  $("#price").show();
 	});
@@ -47,7 +47,7 @@ include_once(dirname(__DIR__)."/init.php");
 	  $(".table_global_elite").show();
 	  $(".table_global_free").hide();
 	});
-   });
+    });
     </script>
 
     <script>
@@ -61,16 +61,12 @@ include_once(dirname(__DIR__)."/init.php");
 
    });
     </script>
-
-<script>
-    //redirect start profile page
-    $(document).ready(function(){
-    $(".pre").click(function(){
-    window.location.replace("'.BASE_URL.'/generators/Services");
-    });
-});
-</script>
-
+    <style>
+    label.error
+    {
+	color:#900;	
+    }
+    </style>
 </head>
 <body>
 <div class="header_top">
@@ -92,3 +88,5 @@ include_once(dirname(__DIR__)."/init.php");
          </ul>
     </div>
 </div>
+</body>
+</html>

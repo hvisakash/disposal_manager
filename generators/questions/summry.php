@@ -107,38 +107,34 @@ include("../../init.php");
 				    <td><input name="" type="text"></td>
 				</tr>
 				<tr>
-				    <td>Process Generating the Waste:</td>
-				    <td><input name="" type="text"></td>
-				</tr>
-				<tr>
-				    <td>User must Enter Name </td>
+				    <td>Full Name </td>
 				    <td>
-					<input name="" type="">
+					<input name="" type="text">
 				    </td>
 				</tr>
 				<tr>
-				    <td>User must Enter Title </td>
+				    <td>Title </td>
 				    <td>
-					<input name="" type="">
+					<input name="" type="text">
 				    </td>
 				</tr>
 				<tr>
-				    <td>User must Electronically Sign </td>
+				    <td>Electronic Signature</td>
 				    <td>
-					<input name="" type="">
+					<input name="" type="text">
 				    </td>
 				</tr>
 				<tr>
-				    <td>User must Date</td>
+				    <td>Date</td>
 				    <td>
-					<input name="" type="">
+					<input name="" type="text" class="date_pic">
 				    </td>
 				</tr>
 				</table>
 			    </br>
 			    </br>
 			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success pre">Previous</button>
+				&nbsp;&nbsp;<button class="btn btn-success previous">Previous</button>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
 				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
 			    </div>
@@ -150,11 +146,15 @@ include("../../init.php");
     </div>
 </div>
   <?php include("../../include/footer.php");?>
-  <script>
-    //redirect start profile page
-    $(document).ready(function(){
-    $(".pre").click(function(){
-    window.location.replace("'.BASE_URL.'/generators/Services");
-    });
-});
+<link href="<?php echo BASE_URL;?>/css/datepicker.css" rel="stylesheet" type="text/css">
+<!-- Load jQuery and bootstrap datepicker scripts -->
+ <script src="<?php echo BASE_URL;?>/js/bootstrap-datepicker.js"></script>
+ <script type="text/javascript">
+            // When the document is ready
+            $(document).ready(function () {
+                $('.date_pic').datepicker({
+                format: "dd/mm/yyyy"
+             });
+	});  	
 </script>
+

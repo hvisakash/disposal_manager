@@ -56,11 +56,6 @@ include("../init.php");
 		    <span class="name"><?php echo $result['firstname'];?></span><br/>
 		    <span class="last_login">Last login:</span><span class="date"><?php echo $result['date'];?></span>
 		</div>
-		<div class=" ">
-		    <div >
-			
-		    </div>
-		</div>
 		</br>
 		</br>
 		<div class="col-lg-12">
@@ -79,27 +74,27 @@ include("../init.php");
 			
 			</form>
 		    </div>
-		     </br>
 		    </br>
-		    <div class="options">
-			<form name="frm" method="POST">
-			<table  align='center' class="table table-bordered review">
-			    <tr class="last_login">
-			    </tr>
-			    
-			</table>
-			</form>
+		    </br>
+		    <form name="frm" method="POST">
+		    <table  align='center' class="table table-bordered review">
+			<tr class="last_login">
+			</tr>
+			
+		    </table>
+		    <br>
+		    <div class="showbutton" style='display: none;'><center>
+			<input type="submit" value="Next" name="next" class= "btn btn-success"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="submit" value="Cancel" name="cancel" class= "btn btn-success "/>
+			</center>
 		    </div>
-		</div>
-		<div id="result">
+		    </form>
 		</div>
 	    </div>
 	</div>
     </div>
-    <?php include("../include/footer.php");?>
 </div>
-</body>
-</html>
+    <?php include("../include/footer.php");?>
 <script>
     
     //$('#browsers option').each(function(index) {
@@ -126,7 +121,9 @@ include("../init.php");
 	    success: function(data)
 		{
 //		$('#rejoin').html('<tr><td>Suspend By</td><td>'+data.suspend_by+'</td></tr><tr><td>First Name</td><td>'+data.firstname+'</td></tr><tr><td>Last Name</td><td>'+data.lastname+'</td></tr><tr><td>Email Id</td><td>'+data.email+'</td></tr><tr><td>Suspend Date</td><td>'+data.suspend_date+'</td></tr>');
-$('.review').html('<tr><td>Site Name </td><td>'+data.sitename+'</td><tr><td>Company Name</td><td>'+data.companyname+'</td></tr><tr><td>Department Name</td><td>'+data.companyname+'</td></tr><tr><td>First Name</td><td>'+data.firstname+'</td></tr><tr><td>Last Name</td><td>'+data.lastname+'</td></tr><tr><td>Email Id</td><td>'+data.email+'</td></tr><tr><td>Address 1</td><td>'+data.address1+'</td></tr><tr><td>Address 2</td><td>'+data.address2+'</td></tr><tr><td>City</td><td>'+data.city+'</td></tr><tr><td>State</td><td>'+data.state+'</td></tr><tr><td>Zip Code</td><td>'+data.zipcode+'</td></tr><tr><td>EPA ID</td><td>'+data.epa_id+'</td></tr><tr><td>Contact Number</td><td>'+data.contactnumber+'</td></tr><tr><td>Fax</td><td>'+data.fax+'</td></tr><tr><td><input type="submit" value="Next" name="next" class= "btn btn-success"/></td><td><input type="submit" value="Cancel" name="cancel" class= "btn btn-success"/></td></tr>');		
+$('.review').html('<tr><td>Site Name </td><td>'+data.sitename+'</td><tr><td>Company Name</td><td>'+data.companyname+'</td></tr><tr><td>Department Name</td><td>'+data.companyname+'</td></tr><tr><td>First Name</td><td>'+data.firstname+'</td></tr><tr><td>Last Name</td><td>'+data.lastname+'</td></tr><tr><td>Email Id</td><td>'+data.email+'</td></tr><tr><td>Address 1</td><td>'+data.address1+'</td></tr><tr><td>Address 2</td><td>'+data.address2+'</td></tr><tr><td>City</td><td>'+data.city+'</td></tr><tr><td>State</td><td>'+data.state+'</td></tr><tr><td>Zip Code</td><td>'+data.zipcode+'</td></tr><tr><td>EPA ID</td><td>'+data.epa_id+'</td></tr><tr><td>Contact Number</td><td>'+data.contactnumber+'</td></tr><tr><td>Fax</td><td>'+data.fax+'</td></tr><tr>');		
+	    $(".showbutton").show();
+
 		}
 	    });
 	

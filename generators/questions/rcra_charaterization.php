@@ -29,6 +29,11 @@ include("../../init.php");
     //add waste in data base
     if(isset($_POST["Next"]))
     {
+	foreach($_POST as $key => $value){
+	$session->__set($key,$value);
+	}
+ //   echo "<pre>";print_r($_POST);die;
+
       $redirect->redirect("".BASE_URL."/generators/don_shipping_information");
 /*	$array = array(
         "waste" => $_POST['waste'],
@@ -105,40 +110,65 @@ include("../../init.php");
 				<tr>
 					<td>Is stream a USEPA Hazardous Waste (40 CFR 261.3)</td>
 					<td>
-					    <input name="radio1" type="radio"> Yes &nbsp;
-					    <input name="radio1" type="radio"> No
+					    <input name="USEPA_hazardous" type="radio" value="yes"> Yes &nbsp;
+					    <input name="USEPA_hazardous" type="radio" value="no"> No
 					</td>
 				</tr>
 				<tr>
 					<td>Is stream a Universal Waste (40 CFR 273)</td>
 					<td>
-					    <input name="radio2" type="radio"> Yes &nbsp;
-					    <input name="radio2" type="radio"> No
+					    <input name="universal" type="radio" value="yes"> Yes &nbsp;
+					    <input name="universal" type="radio" value="no"> No
 					</td>
 				</tr>
 				<tr>
 				    <td>EPA Waste Codes</td>
-				    <td></td>
+				    <td><input name="EPA_waste_codes" type="text"> </td>
 				</tr>
 				<tr>
-				    <td>Source Code :</td>
+				    <td>Source Code </td>
 				    <td>
-					<select style="width:175px;">
+					<select style="width:175px;" name="sorce_code">
 					    <option>Select</option>
-					    <option>Form Code</option>
-					    <option>Management Method</option>
+					</select>
+				    </td>
+				</tr>
+				<tr>
+				    <td>Form Code </td>
+				    <td>
+					<select style="width:175px;" name="form_code">
+					    <option>Select</option>
+					</select>
+				    </td>
+				</tr>
+				<tr>
+				    <td>Management Method </td>
+				    <td>
+					<select style="width:175px;" name="management_method">
+					    <option>Select</option>
 					</select>
 				    </td>
 				</tr>
 				<tr>
 				    <td>Texas State Waste Codes (if Generator is in Texas)</td>
-				    <td></td>
+				    <td>
+					    <input name="texas_state_waste_code" type="radio" value="yes" class="texas_code_yes" value="yes"> Yes &nbsp;
+					    <input name="texas_state_waste_code" type="radio" value="no" class="texas_code_no" value="no"> No
+				    </td>
+				</tr>
+			    </table>
+			    <table class="table table-bordered texas_code" vspace="50" hspace="50" style="display: none;">
+				<tr>
+				    <td>Texas State Waste Code</td>
+				    <td>
+					    <input name="texas_state_waste_code_text" type="text"> 
+				    </td>
 				</tr>
 			    </table>
 			    </br>
 			    </br>
 			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success pre">Previous</button>
+				&nbsp;&nbsp;<button class="btn btn-success previous">Previous</button>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
 				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
 			    </div>
@@ -150,3 +180,17 @@ include("../../init.php");
     </div>
 </div>
   <?php include("../../include/footer.php");?>
+
+
+<!-- RCRA CHARACTERIZATION Texas State Waste Codes (if Generator is in Texas)-->
+    <script>
+	$(".texas_code_yes").click(function(){
+	    $(".texas_code").show();
+	    });
+	$(".texas_code_no").click(function(){
+	    $(".texas_code").hide();
+	    });
+
+    </script> 
+  
+  

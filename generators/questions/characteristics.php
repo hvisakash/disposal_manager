@@ -29,25 +29,12 @@ include("../../init.php");
     //add waste in data base
     if(isset($_POST["Next"]))
     {
-      $redirect->redirect("".BASE_URL."/generators/shipping_volume");
-/*	$array = array(
-        "waste" => $_POST['waste'],
-        "process_generating" => $_POST['process_generating'],
-	"profile_no" => $_POST['profile_no'],
-        "source" => $_POST['source'],
-	"sample_available" => $_POST['sample_available']
-	);
-	//echo$session->__get('dispose');
-	//echo "<pre>"; print_r($array); die("here");
-	//echo $service_type;
-	//die("h");
-	$value=$generators->wests($session->__get('user_id'),$session->__get('dispose'),$service_type,$array);
-	if($value==1)
-	{
-	  die("here");
-	    $redirect->redirect("".BASE_URL."/generators/Texas");
+	foreach($_POST as $key => $value){
+	$session->__set($key,$value);
 	}
-  */
+//    echo "<pre>";print_r($_POST);die;
+
+      $redirect->redirect("".BASE_URL."/generators/shipping_volume");
    }
 // includding header portion
     include("../../include/header.php");
@@ -104,30 +91,30 @@ include("../../init.php");
 			    <table class="table table-bordered" vspace="50" hspace="50">
 				<tr>
 				    <td>Color:</td>
-				    <td><input name="" type="text"></td>
+				    <td><input name="color" type="text"></td>
 				</tr>
 				<tr>
 				    <td>Odor:</td>
 				    <td>
-					<select style="width:175px;">
+					<select style="width:175px;" name="odor">
 					    <option>Select</option>
-					    <option>None</option>
-					    <option>Mild</option>
-					    <option>Strong</option>
+					    <option value="none">None</option>
+					    <option value="mild">Mild</option>
+					    <option value="strong">Strong</option>
 					</select>
 				    </td>
 				</tr>
 				<tr>
 				    <td>Viscosity with Examples:</td>
 				    <td>
-					<select style="width:175px;">
+					<select style="width:175px;" name="viscosity">
 					    <option>Select</option>
-					    <option>Like Water</option>
-					    <option>Like Oil</option>
-					    <option>Like Honey</option>
-					    <option>Like Grease</option>
-					    <option> Like Peanut Butter</option>
-					    <option>Like Concrete</option>
+					    <option value="Like Water">Like Water</option>
+					    <option value="Like Oil">Like Oil</option>
+					    <option value="Like Honey">Like Honey</option>
+					    <option value="Like Grease">Like Grease</option>
+					    <option value="Like Peanut Butter"> Like Peanut Butter</option>
+					    <option value="Like Concrete">Like Concrete</option>
 					    
 					</select>
 				    </td>
@@ -135,38 +122,39 @@ include("../../init.php");
 				<tr>
 				    <td>Layers</td>
 				    <td>
-					&nbsp;&nbsp;<input name="" type="checkbox"> &nbsp;&nbsp; 
-					&nbsp;&nbsp;<input name="" type="checkbox">&nbsp;&nbsp;
-					&nbsp;&nbsp;<input name="" type="checkbox">&nbsp;&nbsp;
-					&nbsp;&nbsp;<input name="" type="checkbox">&nbsp;&nbsp;
+					 &nbsp;&nbsp;<input name="layers1" type="checkbox" value="layers1"> 
+					1 &nbsp;&nbsp;<input name="layers2" type="checkbox" value="layers2"> 
+					2 &nbsp;&nbsp;<input name="layers3" type="checkbox" value="layers3">
+					3 &nbsp;&nbsp;<input name="layers4" type="checkbox" value="layers4">
+					4
 				    </td>
 				</tr>
 				<tr>
-				    <td>Specific Gravity:</td>
+				    <td>Specific Gravity</td>
 				    <td>
-					<select style="width:175px;">
+					<select style="width:175px;" name="specific_gravity">
 					    <option>Select</option>
-					    <option> <1 (Floats on Water)</option>
-					    <option>1 (Water)</option>
-					    <option> >1 Heavier than Water</option>
+					    <option value="<1 (Floats on Water)"> <1 (Floats on Water)</option>
+					    <option value="1 (Water)">1 (Water)</option>
+					    <option value="1 Heavier than Water"> >1 Heavier than Water</option>
 					</select>
 				    </td>
 				</tr>
 				<tr>
-				    <td>Halogens:</td>
+				    <td>Halogens</td>
 				    <td>
-					<input type="text" name="">
+					<input type="text" name="halogens">
 				    </td>
 				</tr>
 				<tr>
 				    <td>BTUs:</td>
 				    <td>
-					<select style="width:175px;">
+					<select style="width:175px;" name="btus">
 					    <option>Select</option>
-					    <option> <=3,000</option>
-					    <option>>=3,000 - <5,000 </option>
-					    <option>>=5,000 - <10,000</option>
-					    <option>>=10,000</option>
+					    <option value="<=3,000"> <=3,000</option>
+					    <option value=">=3,000 - <5,000">>=3,000 - <5,000 </option>
+					    <option value=">=5,000 - <10,000">>=5,000 - <10,000</option>
+					    <option value=">=10,000">>=10,000</option>
 					    
 					</select>
 				    </td>
@@ -174,14 +162,14 @@ include("../../init.php");
 				<tr>
 				    <td>Flashpoint with Ranges or Exact Figure</td>
 				    <td>
-					<select style="width:175px;">
+					<select style="width:175px;" name="flashpoint_with_ranges">
 					    <option>Select</option>
-					    <option> <73*F </option>
-					    <option> >=73*F - <=99*F </option>
-					    <option> >=100*F-<=139*F </option>
-					    <option>  >=140*F - <=200*F </option>
-					    <option> >200*F </option>
-					    <option> None </option>
+					    <option value="<73*F"> <73*F </option>
+					    <option value=">=73*F - <=99*F"> >=73*F - <=99*F </option>
+					    <option value=" >=100*F-<=139*F "> >=100*F-<=139*F </option>
+					    <option value=" >=140*F - <=200*F">  >=140*F - <=200*F </option>
+					    <option value=">200*F"> >200*F </option>
+					    <option value="None"> None </option>
 					    
 					</select>
 				    </td>
@@ -189,13 +177,13 @@ include("../../init.php");
 				<tr>
 				    <td>pH Value with Ranges or Exact Figure</td>
 				    <td>
-					<select style="width:175px;">
-					    <option>Select</option>
-					    <option><=2</option>
-					    <option>>2 - <4</option>
-					    <option>>=4 - <=10</option>
-					    <option>>10 - <12.5</option>
-					    <option>>=12.5</option>
+					<select style="width:175px;" name="pH_value_with_ranges">
+					    <option >Select</option>
+					    <option value="<=2"><=2</option>
+					    <option value=">2 - <4">>2 - <4</option>
+					    <option value=">=4 - <=10">>=4 - <=10</option>
+					    <option value=">10 - <12.5">>10 - <12.5</option>
+					    <option value=">=12.5">>=12.5</option>
 					    
 					</select>
 				    </td>
@@ -204,7 +192,7 @@ include("../../init.php");
 			    </br>
 			    </br>
 			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success pre" id="Previous">Previous</button>
+				&nbsp;&nbsp;<button class="btn btn-success previous" >Previous</button>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
 				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
 			    </div>

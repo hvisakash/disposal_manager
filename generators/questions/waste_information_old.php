@@ -30,9 +30,81 @@ include("../../init.php");
     if(isset($_POST["Next"]))
     {
     foreach($_POST as $key => $value){
+    echo $key."\t";
+    echo $value."\t";
 	$session->__set($key,$value);
+//    $session->__set("label_","Sample Available");
     }
+    echo "<pre>";print_r($_POST);die;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	    
+	
+	
+/*	$session->__set("stream_name",$_POST["stream_name"]);
+	$session->__set("process_generating",$_POST["process_generating"]);
+	$session->__set("determination_testing",$_POST["determination_testing"]);
+	$session->__set("determination_generator",$_POST["determination_generator"]);
+	$session->__set("determination_knowledge",$_POST["determination_knowledge"]);
+	$session->__set("determination_msds",$_POST["determination_msds"]);
+	$session->__set("determination_sample",$_POST["determination_sample"]);
+	$session->__set("unused",$_POST["unused"]);
+	$session->__set("restrictions_no_landfill",$_POST["restrictions_no_landfill"]);
+	$session->__set("restrictions_no_canada",$_POST["restrictions_no_canada"]);
+	$session->__set("restrictions_destruction_required",$_POST["restrictions_destruction_required"]);
+	$session->__set("restrictions_must_be_rendered_unusable",$_POST["restrictions_must_be_rendered_unusable"]);
+	$session->__set("restrictions_waste_to_energy_required",$_POST["restrictions_waste_to_energy_required"]);
+	$session->__set("restrictions_recycling_preferred",$_POST["restrictions_recycling_preferred"]);
+	$session->__set("rcra",$_POST["rcra"]);
+	
+	$session->__set("specific_hazards_flammable",$_POST["specific_hazards_flammable"]);
+	$session->__set("specific_hazards_explosive",$_POST["specific_hazards_explosive"]);
+	$session->__set("specific_hazards_air_reactive",$_POST["specific_hazards_air_reactive"]);
+	$session->__set("specific_hazards_infectious",$_POST["specific_hazards_infectious"]);
+	
+	$session->__set("specific_hazards_corrosive",$_POST["specific_hazards_corrosive"]);
+	$session->__set("specific_hazards_explosive",$_POST["specific_hazards_explosive"]);
+	$session->__set("specific_hazards_air_reactive",$_POST["specific_hazards_air_reactive"]);
+	$session->__set("specific_hazards_infectious",$_POST["specific_hazards_infectious"]);
+	
+	$session->__set("specific_hazards_poison",$_POST["specific_hazards_poison"]);
+	$session->__set("specific_hazards_organic_peroxide",$_POST["specific_hazards_organic_peroxide"]);
+	$session->__set("specific_hazards_reactive_cyanides",$_POST["specific_hazards_reactive_cyanides"]);
+	$session->__set("specific_hazards_radioactive",$_POST["specific_hazards_radioactive"]);
+	
+	$session->__set("specific_hazards_oxidizer",$_POST["specific_hazards_oxidizer"]);
+	$session->__set("specific_hazards_polymerizer",$_POST["specific_hazards_polymerizer"]);
+	$session->__set("specific_hazards_reactive_sulfides",$_POST["specific_hazards_reactive_sulfides"]);
+	$session->__set("specific_hazards_lachrymator",$_POST["specific_hazards_lachrymator"]);
+	
+	$session->__set("specific_hazards_aerosol",$_POST["specific_hazards_aerosol"]);
+	$session->__set("specific_hazards_pcbs",$_POST["specific_hazards_pcbs"]);
+	$session->__set("specific_hazards_shock_sensitive",$_POST["specific_hazards_shock_sensitive"]);
+	$session->__set("specific_hazards_inhakation_hazard",$_POST["specific_hazards_inhakation_hazard"]);
+
+	$session->__set("specific_hazards_compressed_gas",$_POST["specific_hazards_compressed_gas"]);
+	$session->__set("specific_hazards_benzene",$_POST["specific_hazards_benzene"]);
+	$session->__set("specific_hazards_temperature_sensitive",$_POST["specific_hazards_temperature_sensitive"]);
+
+/*/	
 	$redirect->redirect("".BASE_URL."/generators/waste_composition");
+
    }
 // includding header portion
     include("../../include/header.php");

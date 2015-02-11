@@ -29,6 +29,11 @@ include("../../init.php");
     //add waste in data base
     if(isset($_POST["Next"]))
     {
+		foreach($_POST as $key => $value){
+	$session->__set($key,$value);
+	}
+//    echo "<pre>";print_r($_POST);die;
+
       $redirect->redirect("".BASE_URL."/generators/rcra_charaterization");
 /*	$array = array(
         "waste" => $_POST['waste'],
@@ -103,85 +108,95 @@ include("../../init.php");
 			    <br>
 			    <table class="table table-bordered" vspace="50" hspace="50">
 				<tr>
-				    <td>Bulk Liquid :</td>
+				    <td>Bulk Liquid </td>
 				    <td>
-					    <input name="radio1" type="radio"> Yes &nbsp;
-					    <input name="radio1" type="radio"> No
+					    <input name="bulk_liquid" type="radio" value="yes"> Yes &nbsp;
+					    <input name="bulk_liquid" type="radio" value="no"> No
 				    </td>
 				</tr>
 				<tr>
-				    <td>Bulk Solids :</td>
+				    <td>Bulk Solids </td>
 				    <td>
-					    <input name="radio2" type="radio"> Yes &nbsp;
-					    <input name="radio2" type="radio"> No
+					    <input name="bulk_solids" type="radio" value="yes"> Yes &nbsp;
+					    <input name="bulk_solids" type="radio" value="no"> No
 				    </td>
 				</tr>
 				<tr>
-				    <td>Drum Size :</td>
+				    <td>Drum Size </td>
 				    <td>
-					<select style="width:175px;">
+					<select style="width:175px;" name="drum_size">
 					    <option>Select</option>
-					    <option>5</option>
-					    <option>15</option>
-					    <option>30</option>
-					    <option>55</option>
-					    <option>85</option>
+					    <option value="5">5</option>
+					    <option value="15">15</option>
+					    <option value="30">30</option>
+					    <option value="55">55</option>
+					    <option value="85">85</option>
 					</select>
 				    </td>
 				</tr>
 				<tr>
 				    <td>Drum Type</td>
 				    <td>
-					<select style="width:175px;">
+					<select style="width:175px;" name="drum_type">
 					    <option>Select</option>
-					    <option> DM - metal </option>
-					    <option>DF - fiber</option>
+					    <option value="DM - metal"> DM - metal </option>
+					    <option value="DF - fiber">DF - fiber</option>
 					</select>
 				    </td>
 				</tr>
 				<tr>
-				    <td>Totes :</td>
+				    <td>Totes (Size In Gallons)</td>
 				    <td>
-					<select style="width:175px;">
-					    <option>Select</option>
-					    <option>Size in Gallons</option>
-					    <option>Metal or Plastic</option>
+					    <input name="totes" type="text" > 
+				    </td>
+				</tr>
+				<tr>
+				    <td>Totes types</td>
+				    <td>
+					<select style="width:175px;" name="totes_types">
+					    <option >Select</option>
+					    <option value="metal">Metal</option>
+					    <option value="plastic">Plastic</option>
 					</select>
 				    </td>
 				</tr>
 				<tr>
-				    <td>Require Return of Tote? :</td>
+				    <td>Require Return of Tote? </td>
 				    <td>
-					    <input name="radio3" type="radio"> Yes &nbsp;
-					    <input name="radio3" type="radio"> No
+					    <input name="return_of_tote" type="radio" value="yes"> Yes &nbsp;
+					    <input name="return_of_tote" type="radio" value="no"> No
 				    </td>
 				</tr>
 				<tr>
-				    <td>Skids or CYB :</td>
+				    <td>Skids or CYB </td>
 				    <td>
-					    <input name="radio4" type="radio"> Yes &nbsp;
-					    <input name="radio4" type="radio"> No
+					    <input name="skids" type="radio" value="yes"> Yes &nbsp;
+					    <input name="skids" type="radio" value="no"> No
 				    </td>
 				</tr>
 				<tr>
-				    <td>Frequency  :</td>
+				    <td>Frequency  </td>
 				    <td>
-					<select style="width:175px;">
+					<select style="width:175px;" name="frequency">
 					    <option>Select</option>
-					    <option>One-Time</option>
-					    <option>Weekly</option>
-					    <option>Monthly</option>
-					    <option>Quarterly</option>
-					    <option>Annually</option>
-					    <option>Other</option>
+					    <option  value="One Time">One-Time</option>
+					    <option value="Weekly">Weekly</option>
+					    <option value="Monthly">Monthly</option>
+					    <option  value="Quarterly">Quarterly</option>
+					    <option  value="Annually">Annually</option>
+					    <option  value="Other">Other</option>
 					</select>
 				    </td>
+				</tr>
+				<tr>
+				    <td>Quantity to ship </td>
+				    <td><input name="quantity_to_ship" type="text"></td>
 				</tr>
 			    </table>
 			    </br>
 			    </br>
 			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success pre" id="Previous">Previous</button>
+				&nbsp;&nbsp;<button class="btn btn-success previous">Previous</button>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
 				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
 			    </div>

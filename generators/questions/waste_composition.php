@@ -29,25 +29,10 @@ include("../../init.php");
     //add waste in data base
     if(isset($_POST["Next"]))
     {
+    foreach($_POST as $key => $value){
+	$session->__set($key,$value);
+    }
       $redirect->redirect("".BASE_URL."/generators/characteristics");
-/*	$array = array(
-        "waste" => $_POST['waste'],
-        "process_generating" => $_POST['process_generating'],
-	"profile_no" => $_POST['profile_no'],
-        "source" => $_POST['source'],
-	"sample_available" => $_POST['sample_available']
-	);
-	//echo$session->__get('dispose');
-	//echo "<pre>"; print_r($array); die("here");
-	//echo $service_type;
-	//die("h");
-	$value=$generators->wests($session->__get('user_id'),$session->__get('dispose'),$service_type,$array);
-	if($value==1)
-	{
-	  die("here");
-	    $redirect->redirect("".BASE_URL."/generators/Texas");
-	}
-  */
    }
 // includding header portion
     include("../../include/header.php");
@@ -101,7 +86,7 @@ include("../../init.php");
 			<form name="frm" method='post'>
 			    <h4><b>GENERAL WASTE INFORMATION</b></h4>
 			    <br>
-			    <table class="table table-striped">
+			    <table class="table table-striped" >
 				<thead>
 				    <tr>
 					<th>Component</th>
@@ -113,113 +98,120 @@ include("../../init.php");
 				    </tr>
 				</thead>
 				<tbody>
-				    <td></td>
-				    <td></td>
-				    <td></td>
-				    <td></td>
-				    <td></td>
+				    <td><input name="component" type="text"></td>
+				    <td><input name="cas" type="text"></td>
+				    <td><input name="minimum" type="text"></td>
+				    <td><input name="min_unit" type="text"></td>
+				    <td><input name="maximum" type="text"></td>
+				    <td><input name="max_unit" type="text"></td>
 				</tbody>
 			    </table>
-			    <br><br>
 			    <h4><b>DOCUMENTATION (MSDS, Analysis, Etc.)</b></h4>
-			    <div>
-				Type of document
-			    </div>
-			    <br><br>
-			    <br><br>
-			    <h4><b>METALS PRESENT (Check Boxes: Yes or No)</b></h4>
-				<table width="100%" class="table table-striped">
+			    <table width="100%" class="table table-striped">
+				    <tr>
+					<td>Type of document</td>
+					<td><input type="file" name="documentation" value=""></td>
+				    </tr>
+			    <tr>
+				<td>METALS PRESENT (Check Boxes: Yes or No)</td>
+				<td>
+				    <input name="metals" type="checkbox" class="check1">
+				</td>
+			    </table>
+			    
+			    
+				<table width="100%" class="table table-striped matals_show" style="display:none">
 				    <tr>
 					<td>Aluminium</td>
 					<td>
-					    <input name="radio1" type="radio"> Yes &nbsp;
-					    <input name="radio1" type="radio"> No
+					    <input name="metals_aluminium" type="radio" value="yes"> Yes &nbsp;
+					    <input name="metals_aluminium" type="radio" value="no"> No
 					</td>
 					<td>Cadmium</td>
-					<td><input name="radio2" type="radio"> Yes &nbsp;
-					    <input name="radio2" type="radio">No
+					<td><input name="metals_cadmium" type="radio" value="yes"> Yes &nbsp;
+					    <input name="metals_cadmium" type="radio" value="no"> No
 					</td>
 					<td>Lead</td>
 					<td>
-					     	<input name="radio3" type="radio">Yes &nbsp;
-						<input name="radio3" type="radio"> No
+					     	<input name="metals_lead" type="radio" value="yes">Yes &nbsp;
+						<input name="metals_lead" type="radio" value="no"> No
 					</td>
 					<td>Selenium</td>
 					<td>
-					    <input name="radio4" type="radio">Yes &nbsp;
-					    <input name="radio4" type="radio"> No
+					    <input name="metals_" type="radio" value="yes">Yes &nbsp;
+					    <input name="metals_" type="radio" value="no"> No
 					</td>
 				    </tr>
 				    <tr>
 					<td>Antimony</td>
 					<td>
-					    <input name="radio5" type="radio"> Yes &nbsp;
-					    <input name="radio5" type="radio"> No
+					    <input name="metals_antimony" type="radio" value="yes"> Yes &nbsp;
+					    <input name="metals_antimony" type="radio" value="no"> No
 					</td>
 					<td>Chromium</td>
-					<td><input name="radio6" type="radio"> Yes &nbsp;
-					    <input name="radio6" type="radio">No
+					<td><input name="metals_chromium" type="radio" value="yes"> Yes &nbsp;
+					    <input name="metals_chromium" type="radio" value="no">No
 					</td>
 					<td>Manganese</td>
 					<td>
-					     	<input name="radio7" type="radio">Yes &nbsp;
-						<input name="radio7" type="radio"> No
+					     	<input name="metals_manganese" type="radio" value="yes">Yes &nbsp;
+						<input name="metals_manganese" type="radio" value="no"> No
 					</td>
 					<td>Silver</td>
 					<td>
-					    <input name="radio8" type="radio">Yes &nbsp;
-					    <input name="radio8" type="radio"> No
+					    <input name="metals_silver" type="radio" value="yes">Yes &nbsp;
+					    <input name="metals_silver" type="radio" value="no"> No
 					</td>
 				    </tr>
 				    
 				    <tr>
 					<td>Arsenic</td>
 					<td>
-					    <input name="radio9" type="radio"> Yes &nbsp;
-					    <input name="radio9" type="radio"> No
+					    <input name="metals_arsenic" type="radio" value="yes"> Yes &nbsp;
+					    <input name="metals_arsenic" type="radio" value="no"> No
 					</td>
 					<td>Cobalt</td>
-					<td><input name="radio10" type="radio"> Yes &nbsp;
-					    <input name="radio10" type="radio">No
+					<td><input name="metals_cobalt" type="radio" value="yes"> Yes &nbsp;
+					    <input name="metals_cobalt" type="radio" value="no">No
 					</td>
 					<td>Mercury</td>
 					<td>
-					    <input name="radio11" type="radio">Yes &nbsp;
-					    <input name="radio11" type="radio"> No
+					    <input name="metals_mercury" type="radio" value="yes">Yes &nbsp;
+					    <input name="metals_mercury" type="radio" value="no"> No
 					</td>
 					<td>Thallium</td>
 					<td>
-					    <input name="radio12" type="radio">Yes &nbsp;
-					    <input name="radio12" type="radio"> No
+					    <input name="metals_thallium" type="radio" value="yes">Yes &nbsp;
+					    <input name="metals_thallium" type="radio" value="no"> No
 					</td>
 				    </tr>
 				     <tr>
 					<td>Barium</td>
 					<td>
-					    <input name="radio13" type="radio"> Yes &nbsp;
-					    <input name="radio13" type="radio"> No
+					    <input name="metals_barium" type="radio" value="yes"> Yes &nbsp;
+					    <input name="metals_barium" type="radio" value="no"> No
 					</td>
 					<td>Copper</td>
-					<td><input name="radio14" type="radio"> Yes &nbsp;
-					    <input name="radio14" type="radio">No
+					<td><input name="metals_copper" type="radio" value="yes"> Yes &nbsp;
+					    <input name="metals_copper" type="radio" value="no">No
 					</td>
 					<td>Nickel</td>
 					<td>
-					     	<input name="radio15" type="radio">Yes &nbsp;
-						<input name="radio15" type="radio"> No
+					     	<input name="metals_nickel" type="radio" value="yes">Yes &nbsp;
+						<input name="metals_nickel" type="radio" value="no"> No
 					</td>
 					<td>Zinc</td>
 					<td>
-					    <input name="radio16" type="radio">Yes &nbsp;
-					    <input name="radio16" type="radio"> No
+					    <input name="metals_zinc" type="radio" value="yes">Yes &nbsp;
+					    <input name="metals_zinc" type="radio" value="no"> No
 					</td>
 				    </tr>
 				    <tr>
 					<td>
 					    Beryllium
 					</td>
-					<td><input name="radio17" type="radio"> Yes &nbsp;
-					    <input name="radio17" type="radio"> No
+					<td><input name="metals_beryllium" type="radio" value="yes"> Yes &nbsp;
+					    <input name="metals_beryllium" type="radio" value="no"> No
 					</td>
 				    </tr> 
 				</table>
@@ -227,7 +219,7 @@ include("../../init.php");
 			    </br>
 			    
 			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success pre" id="Previous">Previous</button>
+				&nbsp;&nbsp;<button class="btn btn-success previous" id="">Previous</button>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
 				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
 			    </div>
@@ -239,3 +231,15 @@ include("../../init.php");
     </div>
 </div>
   <?php include("../../include/footer.php");?>
+<script>
+$( ".check1,.check2" ).change(function() {
+    var $input = $( this );
+    if(($input.is( ":checked" ))==true){
+//alert("if");
+    $(".matals_show").show();
+    }else{
+//alert("else");
+	 $(".matals_show").hide();
+    }
+}).change();
+</script>

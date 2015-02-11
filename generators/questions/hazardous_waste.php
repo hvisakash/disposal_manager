@@ -20,7 +20,7 @@
 		<br><br>
 		<div>
 		     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		    <button class="btn btn-success pre" id="Previous">Previous</button>
+		    <button class="btn btn-success previous">Previous</button>
 		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		    <input name="Next" type="submit" value='Next' class="btn btn-success"/ >
 		     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

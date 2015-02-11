@@ -29,6 +29,16 @@ include("../../init.php");
     //add waste in data base
     if(isset($_POST["Next"]))
     {
+	if(isset($_POST['USDOT_hazardous_material'])=='yes')
+	   {
+	foreach($_POST as $key => $value){
+	$session->__set($key,$value);
+	}
+//    echo "<pre>";print_r($_POST);die;
+	   }else{
+	    $session->__set("USDOT_hazardous_material",$_POST['USDOT_hazardous_material']);
+	   }
+	
       $redirect->redirect("".BASE_URL."/generators/summry");
 /*	$array = array(
         "waste" => $_POST['waste'],
@@ -105,34 +115,38 @@ include("../../init.php");
 				<tr>
 					<td>Is this a USDOT Hazardous Material?</td>
 					<td>
-					    <input name="radio1" type="radio" id="yes"> Yes &nbsp;
-					    <input name="radio1" type="radio" id="no"> No
+					    <input name="USDOT_hazardous_material" type="radio" value="yes" id="yes"> Yes &nbsp;
+					    <input name="USDOT_hazardous_material" type="radio" value="no" id="no"> No
 					</td>
 				</tr>
 			    </table>
 
 			    <table class="table table-bordered tab_show"  vspace="50" hspace="50" style="display: none;">
 				<tr>
+				    <td>Shipping Name (49 CFR 172.101)</td>
+				    <td><input name="shipping_name" type="text"></td>
+				</tr>
+				<tr>
 				    <td>Technical Descriptors</td>
-				    <td><input name="" type="text"></td>
+				    <td><input name="technical_descriptors" type="text"></td>
 				</tr>
 				<tr>
 				    <td>Hazard Class</td>
-				    <td><input name="" type="text"></td>
+				    <td><input name="hazard_class" type="text"></td>
 				</tr>
 				<tr>
 				    <td>UN/NA Number</td>
-				    <td><input name="" type="text"></td>
+				    <td><input name="un/na_number" type="text"></td>
 				</tr>
 				<tr>
 				    <td>Packing Group</td>
 				    <td>
 					<select style="width:175px;">
 					    <option>Select</option>
-					    <option>I</option>
-					    <option>II</option>
-					    <option>III</option>
-					    <option>n/a</option>
+					    <option value="I">I</option>
+					    <option value="II">II</option>
+					    <option value="III">III</option>
+					    <option value="n/a">n/a</option>
 					</select>
 				    </td>
 				</tr>
@@ -152,7 +166,7 @@ include("../../init.php");
 			    </br>
 			    </br>
 			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success pre">Previous</button>
+				&nbsp;&nbsp;<button class="btn btn-success previous">Previous</button>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
 				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
 			    </div>

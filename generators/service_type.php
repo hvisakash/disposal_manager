@@ -29,8 +29,25 @@ include("../init.php");
     //add waste in data base
     if(isset($_POST["Next"]))
     {
-   
+      $session->__set("waste_name",$_POST["waste_name"]);
+      $session->__set("label_waste_name",'Waste Name');
+      $session->__set("process_generating",$_POST["process_generating"]);
+      $session->__set("label_process_generating","Process Generating Waste");
+      $session->__set("profile_no",$_POST["profile_no"]);
+      $session->__set("label_profile_no","Profile Number");
+      if($session->__get("service_id")==1){
+      $session->__set("source",$_POST["source"]);
+      $session->__set("label_source","Source");
+      $session->__set("sample_available",$_POST["sample_available"]);
+      $session->__set("label_sample_available","Sample Available");
+
+      }
       $redirect->redirect("".BASE_URL."/generators/Texas");
+    }
+    if(isset($_POST['save']))
+    {
+      
+    }
 /*	$array = array(
         "waste" => $_POST['waste'],
         "process_generating" => $_POST['process_generating'],
@@ -49,7 +66,8 @@ include("../init.php");
 	    $redirect->redirect("".BASE_URL."/generators/Texas");
 	}
   */
-   }
+
+$profile_no = substr(number_format(time() * rand(),0,'',''),0,16);
 // includding header portion
     include("../include/header.php");
     include("../include/header_menu.php");

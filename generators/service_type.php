@@ -1,9 +1,9 @@
 <?php
-
 //including initial file
 include("../init.php");
     //creating object of session class  
     $session = $init->getSession();
+
     //creating object of redirect class
     $redirect = $init->getRedirect();
     //creating object of vender class

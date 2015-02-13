@@ -4,7 +4,6 @@
  * Manage all session operations.....
  *
  **/
-
 class Session {
     const SESSION_STARTED = TRUE;
     const SESSION_NOT_STARTED = FALSE;
@@ -49,6 +48,11 @@ class Session {
     //getter method.......
     public function __unset( $name ) {
         unset( $_SESSION[$name] );
+    }
+
+    //
+    public function getAllSession(){
+        return $_SESSION;
     }
     
     // Destroy session.....

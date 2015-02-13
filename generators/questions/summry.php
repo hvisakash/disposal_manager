@@ -1,9 +1,9 @@
 <?php
-
 //including initial file
 include("../../init.php");
     //creating object of session class  
     $session = $init->getSession();
+    //echo "<pre>";print_r($session->__get('disposal_restriction'));
     //creating object of redirect class
     $redirect = $init->getRedirect();
     //creating object of vender class
@@ -11,6 +11,9 @@ include("../../init.php");
     //object for last login date
     $result=$generators->lastdate();
     //check session functionality
+    $sessions=$session->getAllSession();
+    //echo "<pre>";print_r($sessions);die;
+
     if(!$session->__get("roll")==2)
     {
 	$redirect->redirect("../signin");
@@ -97,48 +100,107 @@ include("../../init.php");
 	    </br>
 		<div class="col-lg-12">
 		    </br>
-		    <div>
-			<form name="frm" method='post'>
-			    <h4><b>GENERATOR'S CERTIFICATION</b></h4>
-			    <br>
-			    <table class="table table-bordered" vspace="50" hspace="50">
-				<tr>
-				    <td>Legal Statement (specify the certification might be required again)</td>
-				    <td><input name="" type="text"></td>
-				</tr>
-				<tr>
-				    <td>Full Name </td>
-				    <td>
-					<input name="" type="text">
-				    </td>
-				</tr>
-				<tr>
-				    <td>Title </td>
-				    <td>
-					<input name="" type="text">
-				    </td>
-				</tr>
-				<tr>
-				    <td>Electronic Signature</td>
-				    <td>
-					<input name="" type="text">
-				    </td>
-				</tr>
-				<tr>
-				    <td>Date</td>
-				    <td>
-					<input name="" type="text" class="date_pic">
-				    </td>
-				</tr>
+		    <div style="float:left;width:48%;">
+				<table class="table table-bordered">
+					<tr>
+						<td>Material to be profiled : </td>
+						<td><?php echo $session->__get("service_material");?></td>
+					</tr>
+						
+				<?php if($session->__get("service_id")==1){?>
+					<tr>
+						<td>Name of Waste: </td>
+						<td><?php echo $session->__get("waste_name");?></td>
+					</tr>
+
+					<tr>
+						<td>Process Generating Waste : </td>
+						<td><?php echo $session->__get("process_generating");?></td>
+					</tr>
+
+					<tr>
+						<td>Profile Number : </td>
+						<td><?php echo $session->__get("profile_no");?></td>
+					</tr>
+
+					<tr>
+						<td>Source: </td>
+						<td><?php echo $session->__get("source");?></td>
+					</tr>
+
+					<tr>
+						<td>Sample Available : </td>
+						<td><?php echo $session->__get("sample_available");?></td>
+					</tr>
+				<?php }?>
+
+					<tr>
+						<td>Is the site located within the state of Texas ?</td>
+						<td><?php echo $session->__get("state_of_texas");?></td>
+					</tr>
 				</table>
-			    </br>
-			    </br>
-			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success previous">Previous</button>
-				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
-				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
-			    </div>
-			</form>
+		    </div>
+		    <div style="width:48%;float:left; margin-left:10px;">
+				<table class="table table-bordered">
+					<tr>
+						<td>Waste Stream Name:</td>
+						<td><?php echo $session->__get("state_of_texas");?></td>
+					</tr>
+
+					<tr>
+						<td>Process Generating the Waste:</td>
+						<td><?php echo $session->__get("process_generating_waste");?></td>
+					</tr>
+
+					<tr>
+						<td>Waste Determination : </td>
+						<td>
+							<?php
+								$str="";
+								$i=0;
+								foreach ($session->__get("waste_determination") as $key => $value) {
+									if($i==(sizeof($session->__get("waste_determination"))-1))
+										$str .=$value;
+									else
+										$str .= $value. ",";
+								$i++;
+								}
+								echo $str;
+							?>
+							<?php echo $session->__get("determination_testing");?>
+						</td>
+					</tr>
+
+					<tr>
+						<td>Unused or Virgin Material? : </td>
+						<td><?php echo $session->__get("unused");?></td>
+					</tr>
+
+					<tr>
+						<td>Disposal Restrictions? : </td>
+						<td>
+							<?php
+								$str="";
+								$i=0;
+								foreach ($session->__get("disposal_restriction") as $key => $value) {
+									if($i==(sizeof($session->__get("disposal_restriction"))-1))
+										$str .=$value;
+									else
+										$str .= $value. ",";
+								$i++;
+								}
+								echo $str;
+							?>
+							<?php echo $session->__get("determination_testing");?>
+						</td>
+					</tr>
+
+					<tr>
+						<td>Is the Waste Exempt from RCRA Regulations: </td>
+						<td><?php echo $session->__get("rcra_regulations");?></td>
+					</tr>
+
+				</table>
 		    </div>
 		</div>
 	    </div>

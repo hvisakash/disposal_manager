@@ -29,11 +29,11 @@ include("../../init.php");
     //add waste in data base
     if(isset($_POST["Next"]))
     {
-    foreach($_POST as $key => $value){
-	$session->__set($key,$value);
-    }
-	$redirect->redirect("".BASE_URL."/generators/waste_composition");
-   }
+	    foreach($_POST as $key => $value){
+			$session->__set($key,$value);
+    	}
+		$redirect->redirect("".BASE_URL."/generators/waste_composition");
+   	}
 // includding header portion
     include("../../include/header.php");
     include("../../include/header_menu.php");
@@ -98,10 +98,10 @@ include("../../init.php");
 				<tr>
 				    <td>Waste Determination (check all that apply):</td>
 				    <td>
-					&nbsp;&nbsp;<input name="determination_testing" type="checkbox" class="check1"> &nbsp;&nbsp; Testing
-					&nbsp;&nbsp;<input name="determination_generator" type="checkbox">&nbsp;&nbsp;Generator Knowledge
-					&nbsp;&nbsp;<input name="determination_msds" type="checkbox" class="check2" value="">&nbsp;&nbsp;MSDS
-					&nbsp;&nbsp;<input name="determination_sample" type="checkbox">&nbsp;&nbsp;Sample
+					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Testing" class="check1" > &nbsp;&nbsp; Testing
+					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Generator Knowledge">&nbsp;&nbsp;Generator Knowledge
+					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="MSDS" class="check2">&nbsp;&nbsp;MSDS
+					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Sample">&nbsp;&nbsp;Sample
 				    </td>
 				</tr>
 				<tr style="display: none;" class="click">
@@ -116,13 +116,13 @@ include("../../init.php");
 				<tr>
 				    <td>Disposal Restrictions?  (Check all that apply)</td>
 				    <td>
-					&nbsp;&nbsp;<input name="restrictions_no_landfill" type="checkbox"> &nbsp;&nbsp; No Landfill
-					&nbsp;&nbsp;<input name="restrictions_no_canada" type="checkbox">&nbsp;&nbsp;No Canada Disposal
-					&nbsp;&nbsp;<input name="restrictions_destruction_required" type="checkbox">&nbsp;&nbsp;Destruction Required
+					&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="No Landfill"> &nbsp;&nbsp;No Landfill
+					&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="No Canada Disposal">&nbsp;&nbsp;No Canada Disposal
+					&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Destruction Required">&nbsp;&nbsp;Destruction Required
 					<br>
-					&nbsp;&nbsp;<input name="restrictions_must_be_rendered_unusable" type="checkbox">&nbsp;&nbsp;Must Be Rendered Unusable
-					&nbsp;&nbsp;<input name="restrictions_waste_to_energy_required" type="checkbox">&nbsp;&nbsp;Waste to Energy Required
-					&nbsp;&nbsp;<input name="restrictions_recycling_preferred" type="checkbox">&nbsp;&nbsp;Recycling Preferred
+					&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Must Be Rendered Unusable">&nbsp;&nbsp;Must Be Rendered Unusable
+					&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Waste to Energy Required">&nbsp;&nbsp;Waste to Energy Required
+					&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Recycling Preferred">&nbsp;&nbsp;Recycling Preferred
 				    </td>
 				</tr>
 				<tr>
@@ -137,66 +137,66 @@ include("../../init.php");
 				<table width="100%" class="table">
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards_flammable" type="checkbox"> &nbsp;&nbsp;	Flammable
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Flammable"> &nbsp;&nbsp;Flammable
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_explosive" type="checkbox">&nbsp;&nbsp;		Explosive
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Explosive">&nbsp;&nbsp;Explosive
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_air_reactive" type="checkbox">&nbsp;&nbsp;		Air Reactive
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Air Reactive">&nbsp;&nbsp;Air Reactive
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_infectious" type="checkbox">&nbsp;&nbsp;		Infectious
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Infectious">&nbsp;&nbsp;Infectious
 					</td>
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards_corrosive" type="checkbox"> &nbsp;&nbsp;	Corrosive
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Corrosive"> &nbsp;&nbsp;Corrosive
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_pyrophoric" type="checkbox">&nbsp;&nbsp;		Pyrophoric
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Pyrophoric">&nbsp;&nbsp;Pyrophoric
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_water_reactive" type="checkbox">&nbsp;&nbsp;		Water Reactive
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Water Reactive">&nbsp;&nbsp;Water Reactive
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_carcinogen" type="checkbox">&nbsp;&nbsp;		Carcinogen
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Carcinogen">&nbsp;&nbsp;Carcinogen
 					</td>
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards_poison" type="checkbox"> &nbsp;&nbsp; Poison
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Poison"> &nbsp;&nbsp;Poison
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_organic_peroxide" type="checkbox">&nbsp;&nbsp; Organic Peroxide
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Organic Peroxide">&nbsp;&nbsp;Organic Peroxide
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_reactive_cyanides" type="checkbox">&nbsp;&nbsp; Reactive Cyanides (if yes, list PPM)
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Reactive Cyanides">&nbsp;&nbsp;Reactive Cyanides (if yes, list PPM)
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_radioactive" type="checkbox">&nbsp;&nbsp; Radioactive
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Radioactive">&nbsp;&nbsp;Radioactive
 					</td>
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards_oxidizer" type="checkbox"> &nbsp;&nbsp;	Oxidizer
+					    &nbsp;&nbsp;<input name="specific_hazards_oxidizer" type="checkbox" value="Oxidizer"> &nbsp;&nbsp;	Oxidizer
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_polymerizer" type="checkbox">&nbsp;&nbsp;		Polymerizer
+					    &nbsp;&nbsp;<input name="specific_hazards_polymerizer" type="checkbox" value="Polymerizer">&nbsp;&nbsp;Polymerizer
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_reactive_sulfides" type="checkbox">&nbsp;&nbsp;		Reactive Sulfides (if yes, list PPM)
+					    &nbsp;&nbsp;<input name="specific_hazards_reactive_sulfides" type="checkbox" value="Reactive Sulfides">&nbsp;&nbsp;Reactive Sulfides (if yes, list PPM)
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_lachrymator" type="checkbox">&nbsp;&nbsp;		Lachrymator
+					    &nbsp;&nbsp;<input name="specific_hazards_lachrymator" type="checkbox" value="Lachrymator">&nbsp;&nbsp;Lachrymator
 					</td>
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards_aerosol" type="checkbox"> &nbsp;&nbsp; Aerosol
+					    &nbsp;&nbsp;<input name="specific_hazards_aerosol" type="checkbox" value="Aerosol"> &nbsp;&nbsp; Aerosol
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_pcbs" type="checkbox">&nbsp;&nbsp; PCBs
+					    &nbsp;&nbsp;<input name="specific_hazards_pcbs" type="checkbox" value="PCBs">&nbsp;&nbsp; PCBs
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_shock_sensitive" type="checkbox">&nbsp;&nbsp; Shock Sensitive
+					    &nbsp;&nbsp;<input name="specific_hazards_shock_sensitive" type="checkbox" value="Shock Sensitive">&nbsp;&nbsp; Shock Sensitive
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_inhakation_hazard" type="checkbox">&nbsp;&nbsp; Inhalation Hazard
+					    &nbsp;&nbsp;<input name="specific_hazards_inhakation_hazard" type="checkbox" value="Inhalation Hazard">&nbsp;&nbsp; Inhalation Hazard
 					</td>
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards_compressed_gas" type="checkbox"> &nbsp;&nbsp; Compressed Gas
+					    &nbsp;&nbsp;<input name="specific_hazards_compressed_gas" type="checkbox" value="Compressed Gas"> &nbsp;&nbsp; Compressed Gas
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_benzene" type="checkbox">&nbsp;&nbsp; Benzene
+					    &nbsp;&nbsp;<input name="specific_hazards_benzene" type="checkbox" value="Benzene">&nbsp;&nbsp; Benzene
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_temperature_sensitive" type="checkbox">&nbsp;&nbsp; Temperature Sensitive
+					    &nbsp;&nbsp;<input name="specific_hazards_temperature_sensitive" type="checkbox" value="Temperature Sensitive">&nbsp;&nbsp; Temperature Sensitive
 					</td>
 				    </tr>
 				</table>

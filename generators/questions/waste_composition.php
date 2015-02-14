@@ -34,10 +34,17 @@ include("../../init.php");
     }
       $redirect->redirect("".BASE_URL."/generators/characteristics");
    }
+   
+   
 // includding header portion
     include("../../include/header.php");
     include("../../include/header_menu.php");
 ?>
+<!DOCTYPE html>
+<html>				
+<link href="<?php echo BASE_URL;?>/css/bootstrap.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
+<script src="<?php echo BASE_URL;?>/js/bootstrap.min.js"></script>
 <div class="banner bannerwithnoimg">
     <div class="container">
       <div class="bannertxt col-lg-12">
@@ -85,8 +92,13 @@ include("../../init.php");
 		    <div>
 			<form name="frm" method='post'>
 			    <h4><b>GENERAL WASTE INFORMATION</b></h4>
+			    <br><br>
+			    
+<!--			    <b><!--popup link-->
+<!--			    <a href="#link1" title="title1" class="link" data-toggle="modal">Add WASTE INFORMATION</b></a>
 			    <br>
-			    <table class="table table-striped" >
+-->
+			    <table class="table table-striped add_new" >
 				<thead>
 				    <tr>
 					<th>Component</th>
@@ -96,9 +108,12 @@ include("../../init.php");
 					<th>Maximum</th>
 					<th>Unit (%, ppm)</th>
 				    </tr>
+				    <tr>
+					<td><a href="javascript:void(0);" class='anc_add'><font size="+1"><b>+</b></font></a></td>
+				    </tr>
 				</thead>
 				<tbody>
-				    <td><input name="component" type="text"></td>
+				    <td><input name="component" type="text" class="component"></td>
 				    <td><input name="cas" type="text"></td>
 				    <td><input name="minimum" type="text"></td>
 				    <td><input name="min_unit" type="text"></td>
@@ -219,7 +234,7 @@ include("../../init.php");
 			    </br>
 			    
 			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success previous" id="">Previous</button>
+				<a href="<?php echo BASE_URL;?>/generators/waste_information" class="btn btn-success">Previous</a>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
 				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
 			    </div>
@@ -242,4 +257,57 @@ $( ".check1,.check2" ).change(function() {
 	 $(".matals_show").hide();
     }
 }).change();
+</script>
+<!--start popup-->
+<div id="link1" class="modal fade">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header headerBG">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title text-left">
+    <table class="table table-striped" >
+	<tr>
+	    <td>Component</td>
+	    <td><input name="component[]" type="text" class='t1'></td>
+	</tr>
+	<tr>
+	    <td>CAS#</td>
+	    <td><input name="cas[]" type="text"></td>
+	</tr>
+	<tr>
+	    <td>Minimum</td>
+	    <td><input name="minimum[]" type="text"></td>
+	</tr>
+	<tr>
+	    <td>Unit (%, ppm)</td>
+	    <td><input name="min_unit[]" type="text"></td>
+	</tr>
+	<tr>
+	    <td>Maximum</td>
+	    <td><input name="maximum" type="text"></td>
+	</tr>
+	<tr>
+	    <td>Unit (%, ppm)</td>
+	    <td><input name="max_unit" type="text"></td>
+	</tr>
+    </table>
+    
+
+	<button style="margin-left: 50px; margin-top: 10px;">Add</button >
+   </div>
+  </div>
+ </div>
+</div>
+  <!--start table add new row with input textfield-->
+<script>
+$(document).ready(function(){
+var cnt = 2;
+$(".anc_add").click(function(){
+$('.add_new tr').last().after('<tr><td><input name="component[]" type="text"></td><td><input name="cas[]" type="text"></td><td><input type="text" name="minimum[]"></td><td><input type="text" name="min_unit[]"></td><td><input type="text" name="maxmum[]"></td><td><input type="text" name="max_unit[]"></td></tr>');
+//$('.tab1').last().after('.t1');
+cnt++;
+});
+ 
+ 
+});
 </script>

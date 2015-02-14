@@ -5,7 +5,7 @@
 	<br><br>
 	<div>
 	     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    <button class="btn btn-success previous">Previous</button>
+	<a href="<?php echo BASE_URL;?>/generators/Services" class="btn btn-success">Previous</a>
 	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	    <input name="Next" type="submit" value='Next' class="btn btn-success"/ >
 	     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

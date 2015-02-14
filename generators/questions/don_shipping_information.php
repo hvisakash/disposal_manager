@@ -108,14 +108,14 @@ include("../../init.php");
 		<div class="col-lg-12">
 		    </br>
 		    <div>
-			<form name="frm" method='post'>
+			<form name="frm" method='post' class="don_shipping">
 			    <h4><b>DOT SHIPPING INFORMATION</b></h4>
 			    <br>
 			    <table class="table table-bordered" vspace="50" hspace="50">
 				<tr>
 					<td>Is this a USDOT Hazardous Material?</td>
 					<td>
-					    <input name="USDOT_hazardous_material" type="radio" value="yes" id="yes"> Yes &nbsp;
+					    <input name="USDOT_hazardous_material" type="radio" value="yes" id="yes" required autofocus> Yes &nbsp;
 					    <input name="USDOT_hazardous_material" type="radio" value="no" id="no"> No
 					</td>
 				</tr>
@@ -124,25 +124,29 @@ include("../../init.php");
 			    <table class="table table-bordered tab_show"  vspace="50" hspace="50" style="display: none;">
 				<tr>
 				    <td>Shipping Name (49 CFR 172.101)</td>
-				    <td><input name="shipping_name" type="text"></td>
+				    <td><input name="shipping_name" type="text" value="<?php echo $session->__get('shipping_name')?>"></td>
 				</tr>
 				<tr>
 				    <td>Technical Descriptors</td>
-				    <td><input name="technical_descriptors" type="text"></td>
+				    <td><input name="technical_descriptors" type="text" value="<?php echo $session->__get('technical_descriptors')?>"></td>
 				</tr>
 				<tr>
 				    <td>Hazard Class</td>
-				    <td><input name="hazard_class" type="text"></td>
+				    <td><input name="hazard_class" type="text" value="<?php echo $session->__get('hazard_class')?>"></td>
 				</tr>
 				<tr>
 				    <td>UN/NA Number</td>
-				    <td><input name="un/na_number" type="text"></td>
+				    <td><input name="un/na_number" type="text" value="<?php echo $session->__get('un/na_number')?>"></td>
 				</tr>
 				<tr>
 				    <td>Packing Group</td>
 				    <td>
-					<select style="width:175px;">
-					    <option>Select</option>
+					<select style="width:175px;" name="parking_grup">
+					    <?php if($session->__get("parking_grup")){?>
+        					<option value="<?php echo $session->__get("parking_grup");?>"><?php echo $session->__get("parking_grup");?></option>
+					    <?php }else{ ?>
+						<option value="">Select</option>
+					    <?php } ?>
 					    <option value="I">I</option>
 					    <option value="II">II</option>
 					    <option value="III">III</option>
@@ -152,21 +156,21 @@ include("../../init.php");
 				</tr>
 				<tr>
 				    <td>ERG</td>
-				    <td><input name="" type="text"></td>
+				    <td><input name="erg" type="text" value="<?php echo $session->__get('erg')?>"></td>
 				</tr>
 				<tr>
 				    <td>RQ</td>
-				    <td><input name="" type="text"></td>
+				    <td><input name="rq" type="text" value="<?php echo $session->__get('rq')?>"></td>
 				</tr>
 				<tr>
 				    <td>Inhalation Hazard: Zone</td>
-				    <td><input name="" type="text"></td>
+				    <td><input name="inhalation_hazard" type="text" value="<?php echo $session->__get('inhalation_hazard')?>"></td>
 				</tr>				
 			    </table>
 			    </br>
 			    </br>
 			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success previous">Previous</button>
+				<a href="<?php echo BASE_URL;?>/generators/rcra_charaterization" class="btn btn-success">Previous</a>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
 				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
 			    </div>

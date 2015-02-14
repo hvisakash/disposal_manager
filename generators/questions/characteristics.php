@@ -85,19 +85,23 @@ include("../../init.php");
 		<div class="col-lg-12">
 		    </br>
 		    <div>
-			<form name="frm" method='post'>
+			<form name="frm" method='post' class="characterstics">
 			    <h4><b>CHARACTERISTICS</b></h4>
 			    <br>
 			    <table class="table table-bordered" vspace="50" hspace="50">
 				<tr>
-				    <td>Color:</td>
-				    <td><input name="color" type="text"></td>
+				    <td>Color</td>
+				    <td><input name="color" type="text" value="<?php echo $session->__get("color");?>"></td>
 				</tr>
 				<tr>
-				    <td>Odor:</td>
+				    <td>Odor</td>
 				    <td>
 					<select style="width:175px;" name="odor">
-					    <option>Select</option>
+					    <?php if($session->__get("odor")){?>
+        					<option value="<?php echo $session->__get("odor");?>"><?php echo $session->__get("odor");?></option>
+					    <?php }else{ ?>
+						<option value="">Select</option>
+					    <?php } ?>
 					    <option value="none">None</option>
 					    <option value="mild">Mild</option>
 					    <option value="strong">Strong</option>
@@ -105,10 +109,14 @@ include("../../init.php");
 				    </td>
 				</tr>
 				<tr>
-				    <td>Viscosity with Examples:</td>
+				    <td>Viscosity with Examples</td>
 				    <td>
 					<select style="width:175px;" name="viscosity">
-					    <option>Select</option>
+					    <?php if($session->__get("viscosity")){?>
+        					<option value="<?php echo $session->__get("viscosity");?>"><?php echo $session->__get("viscosity");?></option>
+					    <?php }else{ ?>
+						<option value="">Select</option>
+					    <?php } ?>
 					    <option value="Like Water">Like Water</option>
 					    <option value="Like Oil">Like Oil</option>
 					    <option value="Like Honey">Like Honey</option>
@@ -133,7 +141,11 @@ include("../../init.php");
 				    <td>Specific Gravity</td>
 				    <td>
 					<select style="width:175px;" name="specific_gravity">
-					    <option>Select</option>
+					    <?php if($session->__get("specific_gravity")){?>
+        					<option value="<?php echo $session->__get("specific_gravity");?>"><?php echo $session->__get("specific_gravity");?></option>
+					    <?php }else{ ?>
+						<option value="">Select</option>
+					    <?php } ?>
 					    <option value="<1 (Floats on Water)"> <1 (Floats on Water)</option>
 					    <option value="1 (Water)">1 (Water)</option>
 					    <option value="1 Heavier than Water"> >1 Heavier than Water</option>
@@ -143,14 +155,18 @@ include("../../init.php");
 				<tr>
 				    <td>Halogens</td>
 				    <td>
-					<input type="text" name="halogens">
+					<input type="text" name="halogens" value="<?php echo $session->__get("halogens")?>">
 				    </td>
 				</tr>
 				<tr>
-				    <td>BTUs:</td>
+				    <td>BTUs</td>
 				    <td>
 					<select style="width:175px;" name="btus">
-					    <option>Select</option>
+					    <?php if($session->__get("btus")){?>
+        					<option value="<?php echo $session->__get("btus");?>"><?php echo $session->__get("btus");?></option>
+					    <?php }else{ ?>
+						<option value="">Select</option>
+					    <?php } ?>
 					    <option value="<=3,000"> <=3,000</option>
 					    <option value=">=3,000 - <5,000">>=3,000 - <5,000 </option>
 					    <option value=">=5,000 - <10,000">>=5,000 - <10,000</option>
@@ -163,7 +179,11 @@ include("../../init.php");
 				    <td>Flashpoint with Ranges or Exact Figure</td>
 				    <td>
 					<select style="width:175px;" name="flashpoint_with_ranges">
-					    <option>Select</option>
+					    <?php if($session->__get("flashpoint_with_ranges")){?>
+        					<option value="<?php echo $session->__get("flashpoint_with_ranges");?>"><?php echo $session->__get("flashpoint_with_ranges");?></option>
+					    <?php }else{ ?>
+						<option value="">Select</option>
+					    <?php } ?>
 					    <option value="<73*F"> <73*F </option>
 					    <option value=">=73*F - <=99*F"> >=73*F - <=99*F </option>
 					    <option value=" >=100*F-<=139*F "> >=100*F-<=139*F </option>
@@ -178,7 +198,11 @@ include("../../init.php");
 				    <td>pH Value with Ranges or Exact Figure</td>
 				    <td>
 					<select style="width:175px;" name="pH_value_with_ranges">
-					    <option >Select</option>
+					    <?php if($session->__get("pH_value_with_ranges")){?>
+        					<option value="<?php echo $session->__get("pH_value_with_ranges");?>"><?php echo $session->__get("pH_value_with_ranges");?></option>
+					    <?php }else{ ?>
+						<option value="">Select</option>
+					    <?php } ?>
 					    <option value="<=2"><=2</option>
 					    <option value=">2 - <4">>2 - <4</option>
 					    <option value=">=4 - <=10">>=4 - <=10</option>
@@ -192,7 +216,7 @@ include("../../init.php");
 			    </br>
 			    </br>
 			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success previous" >Previous</button>
+				<a href="<?php echo BASE_URL;?>/generators/waste_composition" class="btn btn-success">Previous</a>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
 				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
 			    </div>

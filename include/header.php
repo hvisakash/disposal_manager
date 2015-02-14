@@ -26,11 +26,17 @@ include_once(dirname(__DIR__)."/init.php");
     <script>
 	//redirect start profile page if user click a button in generator section
 	$(document).ready(function(){
-	$(".previous").click(function(){
+/*	$(".previous").click(function(){
 	    var url = "<?php echo BASE_URL;?>/generators/profiles-page";
 	    $(location).attr("href", url);
-	    alert(" ");
+	    //alert(" ");
 	});
+	
+	//back to privious page
+	$(".back").click(function(){
+	    history.back();
+	});
+*/	
 	//show table for elite or free in admin section
 	$("#elite").click(function(){
 	  $("#price").show();

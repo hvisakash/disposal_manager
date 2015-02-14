@@ -30,6 +30,8 @@ include("../init.php");
 	$service=$generators->service_type($_POST['radio']);
 	$session->__set("service_id",$service['mat_id']);
 	$session->__set("service_material",$service['material']);
+	//echo $session->__get("service_material");
+	//die("a");
 	$redirect->redirect("".BASE_URL."/generator/Services/".$_POST['radio']."");
     }
     

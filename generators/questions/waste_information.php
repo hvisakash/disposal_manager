@@ -32,6 +32,8 @@ include("../../init.php");
 	    foreach($_POST as $key => $value){
 			$session->__set($key,$value);
     	}
+//	echo $session->__get("waste_stream_name");
+//	die;
 		$redirect->redirect("".BASE_URL."/generators/waste_composition");
    	}
 // includding header portion
@@ -83,22 +85,22 @@ include("../../init.php");
 		<div class="col-lg-12">
 		    </br>
 		    <div>
-			<form name="frm" method='post'>
+			<form name="frm" method='post' class="general_waste_information">
 			    <h4><b>GENERAL WASTE INFORMATION</b></h4>
 			    <br>
-			    <table class="table table-bordered" vspace="50" hspace="50">
+			    <table class="table table-bordered general_waste_information_table" vspace="50" hspace="50">
 				<tr>
 				    <td>Waste Stream Name:</td>
-				    <td><input name="waste_stream_name" type="text" required autofocus></td>
+				    <td><input name="waste_stream_name" type="text" required autofocus value="<?php echo $session->__get('waste_stream_name'); ?>"></td>
 				</tr>
 				<tr>
 				    <td>Process Generating the Waste:</td>
-				    <td><input name="process_generating_waste" type="text" required autofocus></td>
+				    <td><input name="process_generating_waste" type="text" required autofocus value="<?php echo $session->__get('process_generating_waste'); ?>"></td>
 				</tr>
 				<tr>
 				    <td>Waste Determination (check all that apply):</td>
 				    <td>
-					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Testing" class="check1" > &nbsp;&nbsp; Testing
+					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Testing" class="check1" value=""> &nbsp;&nbsp; Testing
 					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Generator Knowledge">&nbsp;&nbsp;Generator Knowledge
 					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="MSDS" class="check2">&nbsp;&nbsp;MSDS
 					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Sample">&nbsp;&nbsp;Sample
@@ -106,12 +108,28 @@ include("../../init.php");
 				</tr>
 				<tr style="display: none;" class="click">
 				    <td ></td>
-				    <td><input type="file" name=""></td>
+				    <td><input type="file" name="file_name" required autofocus></td>
 				</tr>
 				<tr>
 				    <td>Unused or Virgin Material?</td>
+				    <?php if(($session->__get("unused"))=='yes') { ?>
+				    
+				    <td><input name="unused" type="radio" value="yes" checked="checked">&nbsp;&nbsp; Yes &nbsp;&nbsp;&nbsp;&nbsp;
+				    <input name="unused" type="radio" value="no">&nbsp;&nbsp; No</td>
+				    
+				    <?php }else if(($session->__get("unused"))=='no') {?>
+				    <td><input name="unused" type="radio" value="yes">&nbsp;&nbsp; Yes &nbsp;&nbsp;&nbsp;&nbsp;
+				    <input name="unused" type="radio" value="no" checked="checked">&nbsp;&nbsp; No</td>
+				    
+				    <?}else{?>
+				    
 				    <td><input name="unused" type="radio" value="yes">&nbsp;&nbsp; Yes &nbsp;&nbsp;&nbsp;&nbsp;
 				    <input name="unused" type="radio" value="no">&nbsp;&nbsp; No</td>
+				    
+				    <?php }?>
+				    
+				    
+				    
 				</tr>
 				<tr>
 				    <td>Disposal Restrictions?  (Check all that apply)</td>
@@ -127,17 +145,27 @@ include("../../init.php");
 				</tr>
 				<tr>
 				    <td>Is the Waste Exempt from RCRA Regulations:</td>
-				    <td><input name="rcra_regulations" type="radio" value="yes">&nbsp;&nbsp; Yes &nbsp;&nbsp;&nbsp;&nbsp;
+				    <?php if(($session->__get("unused"))=='yes') { ?>
+				    <td><input name="rcra_regulations" type="radio" value="yes" required autofocus checked="checked">&nbsp;&nbsp; Yes &nbsp;&nbsp;&nbsp;&nbsp;
 				    <input name="rcra_regulations" type="radio" value="no">&nbsp;&nbsp; No</td>
+				    <?php }else if(($session->__get("unused"))=='no') {?>
+				    <td><input name="rcra_regulations" type="radio" value="yes" required autofocus >&nbsp;&nbsp; Yes &nbsp;&nbsp;&nbsp;&nbsp;
+				    <input name="rcra_regulations" type="radio" value="no" checked="checked">&nbsp;&nbsp; No</td>
+				    <?}else{?>
+				    <td><input name="rcra_regulations" type="radio" value="yes" required autofocus>&nbsp;&nbsp; Yes &nbsp;&nbsp;&nbsp;&nbsp;
+				    <input name="rcra_regulations" type="radio" value="no">&nbsp;&nbsp; No</td>
+
+				    <?php }?>
+				    
 				</tr>
 			    </table>
 			   
 			    <h4><b>SPECIFIC HAZARDS (check boxes: allow user to select all that apply)</b></h4>
 			    
-				<table width="100%" class="table">
+				<table width="100%" class="table specific_hazards" >
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Flammable"> &nbsp;&nbsp;Flammable
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Flammable" class=""> &nbsp;&nbsp;Flammable
 					</td><td>
 					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Explosive">&nbsp;&nbsp;Explosive
 					</td><td>
@@ -160,7 +188,8 @@ include("../../init.php");
 				    <tr>
 					<td>
 					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Poison"> &nbsp;&nbsp;Poison
-					</td><td>
+					</td>
+					<td>
 					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Organic Peroxide">&nbsp;&nbsp;Organic Peroxide
 					</td><td>
 					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Reactive Cyanides">&nbsp;&nbsp;Reactive Cyanides (if yes, list PPM)
@@ -170,41 +199,41 @@ include("../../init.php");
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards_oxidizer" type="checkbox" value="Oxidizer"> &nbsp;&nbsp;	Oxidizer
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Oxidizer"> &nbsp;&nbsp;	Oxidizer
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_polymerizer" type="checkbox" value="Polymerizer">&nbsp;&nbsp;Polymerizer
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Polymerizer">&nbsp;&nbsp;Polymerizer
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_reactive_sulfides" type="checkbox" value="Reactive Sulfides">&nbsp;&nbsp;Reactive Sulfides (if yes, list PPM)
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Reactive Sulfides">&nbsp;&nbsp;Reactive Sulfides (if yes, list PPM)
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_lachrymator" type="checkbox" value="Lachrymator">&nbsp;&nbsp;Lachrymator
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Lachrymator">&nbsp;&nbsp;Lachrymator
 					</td>
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards_aerosol" type="checkbox" value="Aerosol"> &nbsp;&nbsp; Aerosol
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Aerosol"> &nbsp;&nbsp; Aerosol
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_pcbs" type="checkbox" value="PCBs">&nbsp;&nbsp; PCBs
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="PCBs">&nbsp;&nbsp; PCBs
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_shock_sensitive" type="checkbox" value="Shock Sensitive">&nbsp;&nbsp; Shock Sensitive
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Shock Sensitive">&nbsp;&nbsp; Shock Sensitive
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_inhakation_hazard" type="checkbox" value="Inhalation Hazard">&nbsp;&nbsp; Inhalation Hazard
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Inhalation Hazard">&nbsp;&nbsp; Inhalation Hazard
 					</td>
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards_compressed_gas" type="checkbox" value="Compressed Gas"> &nbsp;&nbsp; Compressed Gas
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Compressed Gas"> &nbsp;&nbsp; Compressed Gas
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_benzene" type="checkbox" value="Benzene">&nbsp;&nbsp; Benzene
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Benzene">&nbsp;&nbsp; Benzene
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards_temperature_sensitive" type="checkbox" value="Temperature Sensitive">&nbsp;&nbsp; Temperature Sensitive
+					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Temperature Sensitive">&nbsp;&nbsp; Temperature Sensitive
 					</td>
 				    </tr>
 				</table>
 			    </br>
 			    </br>
 			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success previous">Previous</button>
-				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
+				<a href="<?php echo BASE_URL;?>/generators/Texas" class="btn btn-success">Previous</a>
+				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success next" />
 				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
 			    </div>
 			</form>
@@ -217,7 +246,8 @@ include("../../init.php");
   <?php include("../../include/footer.php");?>
 <script>
 $( ".check1,.check2" ).change(function() {
-    var $input = $( this );
+    
+    var $input = $(this);
     if(($input.is( ":checked" ))==true){
      $(".click").show();
     }else{

@@ -90,16 +90,32 @@ include("../init.php");
 		      <h3>Is the site located within the state of Texas ?</h3>
 		      </br>
 		      </br>
+		      <?php if(($session->__get("state_of_texas"))=='yes')
+		      { ?>
 		      <div>
-			<input name="state_of_texas" type="radio" value="yes" required autofocus>&nbsp; &nbsp;Yes
+			<input name="state_of_texas" type="radio" value="yes" checked="checked" required autofocus>&nbsp; &nbsp;Yes
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input name="state_of_texas" type="radio" value="no"> &nbsp; &nbsp; No    
 		      </div>
+		      <?php }else if(($session->__get("state_of_texas"))=='no'){  ?>
+		      <div>
+			<input name="state_of_texas" type="radio" value="yes"  required autofocus>&nbsp; &nbsp;Yes
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input name="state_of_texas" type="radio" value="no" checked="checked"> &nbsp; &nbsp; No    
+		      </div>
+
+		      <?php }else{ ?>
+		      <div>
+			<input name="state_of_texas" type="radio" value="yes" required autofocus>&nbsp; &nbsp;Yes
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input name="state_of_texas" type="radio"  value="no"> &nbsp; &nbsp; No    
+		      </div>
+		      <?php }?>
 		      </br>
 		      </br>
 		      <div>
 			&nbsp;&nbsp;
-			 <button class="btn btn-success previous">Previous</button>
+			<a href="<?php echo BASE_URL;?>/generator/Services/<?php echo $session->__get('service_id');?>" class="btn btn-success">Previous</a>
 			&nbsp;&nbsp;
 			<input name="Next" type="submit" value='Next' class="btn btn-success" />
 			&nbsp;&nbsp;

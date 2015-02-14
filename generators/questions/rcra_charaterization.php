@@ -110,25 +110,44 @@ include("../../init.php");
 				<tr>
 					<td>Is stream a USEPA Hazardous Waste (40 CFR 261.3)</td>
 					<td>
-					    <input name="USEPA_hazardous" type="radio" value="yes"> Yes &nbsp;
+					<?php if(($session->__get("USEPA_hazardous"))=='yes') { ?>
+					    <input name="USEPA_hazardous" type="radio" value="yes" checked="checked" required autofocus> Yes &nbsp;
 					    <input name="USEPA_hazardous" type="radio" value="no"> No
+					<?php }else if(($session->__get("USEPA_hazardous"))=='no'){  ?>
+					    <input name="USEPA_hazardous" type="radio" value="yes" required autofocus> Yes &nbsp;
+					    <input name="USEPA_hazardous" type="radio" value="no" checked="checked"> No
+					<?php }else{?>
+					    <input name="USEPA_hazardous" type="radio" value="yes" required autofocus> Yes &nbsp;
+					    <input name="USEPA_hazardous" type="radio" value="no"> No
+
+					<?php }?>
+					    
 					</td>
 				</tr>
 				<tr>
 					<td>Is stream a Universal Waste (40 CFR 273)</td>
 					<td>
+					<?php if(($session->__get("universal"))=='yes') { ?>
+					    <input name="universal" type="radio" value="yes" checked="checked"> Yes &nbsp;
+					    <input name="universal" type="radio" value="no"> No
+					<?php }else if(($session->__get("universal"))=='no'){  ?>
+					    <input name="universal" type="radio" value="yes"> Yes &nbsp;
+					    <input name="universal" type="radio" value="no" checked="checked"> No
+					<?php }else{?>
 					    <input name="universal" type="radio" value="yes"> Yes &nbsp;
 					    <input name="universal" type="radio" value="no"> No
+					<?php }?>
+    
 					</td>
 				</tr>
 				<tr>
 				    <td>EPA Waste Codes</td>
-				    <td><input name="EPA_waste_codes" type="text"> </td>
+				    <td><input name="EPA_waste_codes"  required autofocus type="text" value="<?php echo $session->__get('EPA_waste_codes');?>" </td>
 				</tr>
 				<tr>
 				    <td>Source Code </td>
 				    <td>
-					<select style="width:175px;" name="sorce_code">
+					<select style="width:175px;" name="sorce_code" >
 					    <option>Select</option>
 					</select>
 				    </td>
@@ -152,8 +171,19 @@ include("../../init.php");
 				<tr>
 				    <td>Texas State Waste Codes (if Generator is in Texas)</td>
 				    <td>
-					    <input name="texas_state_waste_code" type="radio" value="yes" class="texas_code_yes" value="yes"> Yes &nbsp;
+					    <?php if(($session->__get("texas_state_waste_code"))=='yes') { ?>
+					    <input name="texas_state_waste_code" type="radio" value="yes" class="texas_code_yes" value="yes" checked="checked"> Yes &nbsp;
 					    <input name="texas_state_waste_code" type="radio" value="no" class="texas_code_no" value="no"> No
+					    <?php }else if(($session->__get("texas_state_waste_code"))=='no'){  ?>
+					    <input name="texas_state_waste_code" type="radio" value="yes" class="texas_code_yes" value="yes" > Yes &nbsp;
+					    <input name="texas_state_waste_code" type="radio" value="no" class="texas_code_no" value="no" checked="checked"> No
+
+					<?php }else{?>
+					    <input name="texas_state_waste_code" type="radio" value="yes" class="texas_code_yes" value="yes" > Yes &nbsp;
+					    <input name="texas_state_waste_code" type="radio" value="no" class="texas_code_no" value="no"> No
+
+					<?php }?>
+
 				    </td>
 				</tr>
 			    </table>
@@ -161,14 +191,14 @@ include("../../init.php");
 				<tr>
 				    <td>Texas State Waste Code</td>
 				    <td>
-					    <input name="texas_state_waste_code_text" type="text"> 
+					    <input name="texas_state_waste_code_text" type="text" value="<?php echo $session->__get('texas_state_waste_code_text')?>" > 
 				    </td>
 				</tr>
 			    </table>
 			    </br>
 			    </br>
 			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success previous">Previous</button>
+				<a href="<?php echo BASE_URL;?>/generators/shipping_volume" class="btn btn-success">Previous</a>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
 				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
 			    </div>
@@ -192,5 +222,3 @@ include("../../init.php");
 	    });
 
     </script> 
-  
-  

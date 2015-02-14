@@ -103,29 +103,50 @@ include("../../init.php");
 		<div class="col-lg-12">
 		    </br>
 		    <div>
-			<form name="frm" method='post'>
+			<form name="frm" method='post' class="shipping_volume">
 			    <h4><b>SHIPPING VOLUME & FREQUENCY</b></h4>
 			    <br>
 			    <table class="table table-bordered" vspace="50" hspace="50">
 				<tr>
 				    <td>Bulk Liquid </td>
 				    <td>
+					<?php if(($session->__get("bulk_liquid"))=='yes') { ?>
+					    <input name="bulk_liquid" type="radio" value="yes" checked="checked"> Yes &nbsp;
+					    <input name="bulk_liquid" type="radio" value="no"> No
+					<?php }else if(($session->__get("bulk_liquid"))=='no' ){?>    
+					    <input name="bulk_liquid" type="radio" value="yes"> Yes &nbsp;
+					    <input name="bulk_liquid" type="radio" value="no" checked="checked"> No
+					<?php }else{?>
 					    <input name="bulk_liquid" type="radio" value="yes"> Yes &nbsp;
 					    <input name="bulk_liquid" type="radio" value="no"> No
+
+					<?php }?>					    	
 				    </td>
 				</tr>
 				<tr>
 				    <td>Bulk Solids </td>
 				    <td>
+					<?php if(($session->__get("bulk_solids"))=='yes') { ?>
+					    <input name="bulk_solids" type="radio" value="yes" checked="checked"> Yes &nbsp;
+					    <input name="bulk_solids" type="radio" value="no"> No
+					<?php }else if(($session->__get("bulk_solids"))=='no'){?>    
+					    <input name="bulk_solids" type="radio" value="yes"> Yes &nbsp;
+					    <input name="bulk_solids" type="radio" value="no" checked="checked"> No
+					<?php }else{?>
 					    <input name="bulk_solids" type="radio" value="yes"> Yes &nbsp;
 					    <input name="bulk_solids" type="radio" value="no"> No
+					<?php }?>					    	
 				    </td>
 				</tr>
 				<tr>
 				    <td>Drum Size </td>
 				    <td>
 					<select style="width:175px;" name="drum_size">
-					    <option>Select</option>
+					    <?php if($session->__get("drum_size")){?>
+        					<option value="<?php echo $session->__get("drum_size");?>"><?php echo $session->__get("drum_size");?></option>
+					    <?php }else{ ?>
+						<option value="">Select</option>
+					    <?php } ?>
 					    <option value="5">5</option>
 					    <option value="15">15</option>
 					    <option value="30">30</option>
@@ -138,7 +159,11 @@ include("../../init.php");
 				    <td>Drum Type</td>
 				    <td>
 					<select style="width:175px;" name="drum_type">
-					    <option>Select</option>
+					    <?php if($session->__get("drum_type")){?>
+        					<option value="<?php echo $session->__get("drum_type");?>"><?php echo $session->__get("drum_type");?></option>
+					    <?php }else{ ?>
+						<option value="">Select</option>
+					    <?php } ?>
 					    <option value="DM - metal"> DM - metal </option>
 					    <option value="DF - fiber">DF - fiber</option>
 					</select>
@@ -147,14 +172,18 @@ include("../../init.php");
 				<tr>
 				    <td>Totes (Size In Gallons)</td>
 				    <td>
-					    <input name="totes" type="text" > 
+					    <input name="totes" type="text" value="<?php echo $session->__get("totes");?>"> 
 				    </td>
 				</tr>
 				<tr>
 				    <td>Totes types</td>
 				    <td>
 					<select style="width:175px;" name="totes_types">
-					    <option >Select</option>
+					    <?php if($session->__get("frequency")){?>
+        					<option value="<?php echo $session->__get("frequency");?>"><?php echo $session->__get("frequency");?></option>
+					    <?php }else{ ?>
+						<option value="">Select</option>
+					    <?php } ?>
 					    <option value="metal">Metal</option>
 					    <option value="plastic">Plastic</option>
 					</select>
@@ -163,22 +192,43 @@ include("../../init.php");
 				<tr>
 				    <td>Require Return of Tote? </td>
 				    <td>
+					    <?php if(($session->__get("return_of_tote"))=='yes') { ?>
+					    <input name="return_of_tote" type="radio" value="yes" checked="checked"> Yes &nbsp;
+					    <input name="return_of_tote" type="radio" value="no"> No
+					    <?php }else if(($session->__get("return_of_tote"))=='no'){?>
+					    <input name="return_of_tote" type="radio" value="yes"> Yes &nbsp;
+					    <input name="return_of_tote" type="radio" value="no" checked="checked"> No
+					    <?php }else{?>
 					    <input name="return_of_tote" type="radio" value="yes"> Yes &nbsp;
 					    <input name="return_of_tote" type="radio" value="no"> No
+					    <?php } ?>   
+					    
 				    </td>
 				</tr>
 				<tr>
 				    <td>Skids or CYB </td>
 				    <td>
+					    <?php if(($session->__get("skids"))=='yes') { ?>
+					    <input name="skids" type="radio" value="yes" checked="checked"> Yes &nbsp;
+					    <input name="skids" type="radio" value="no"> No
+					    <?php }else if(($session->__get("skids"))=='no'){?>
+					    <input name="skids" type="radio" value="yes"> Yes &nbsp;
+					    <input name="skids" type="radio" value="no" checked="checked"> No
+					    <?php }else{?>
 					    <input name="skids" type="radio" value="yes"> Yes &nbsp;
 					    <input name="skids" type="radio" value="no"> No
+					    <?php } ?>   
 				    </td>
 				</tr>
 				<tr>
 				    <td>Frequency  </td>
 				    <td>
 					<select style="width:175px;" name="frequency">
-					    <option>Select</option>
+					    <?php if($session->__get("frequency")){?>
+        					<option value="<?php echo $session->__get("frequency");?>"><?php echo $session->__get("frequency");?></option>
+					    <?php }else{ ?>
+						<option value="">Select</option>
+					    <?php } ?>
 					    <option  value="One Time">One-Time</option>
 					    <option value="Weekly">Weekly</option>
 					    <option value="Monthly">Monthly</option>
@@ -190,13 +240,13 @@ include("../../init.php");
 				</tr>
 				<tr>
 				    <td>Quantity to ship </td>
-				    <td><input name="quantity_to_ship" type="text"></td>
+				    <td><input name="quantity_to_ship" type="text" value="<?php echo $session->__get("quantity_to_ship"); ?>"></td>
 				</tr>
 			    </table>
 			    </br>
 			    </br>
 			    <div>
-				&nbsp;&nbsp;<button class="btn btn-success previous">Previous</button>
+				<a href="<?php echo BASE_URL;?>/generators/characteristics" class="btn btn-success">Previous</a>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
 				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
 			    </div>

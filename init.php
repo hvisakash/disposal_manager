@@ -1,13 +1,17 @@
 <?php
 //Define base path of project
 //for local
-define( "BASE_PATH", "".$_SERVER['DOCUMENT_ROOT']."/disposal_manager/" );
+//define( "BASE_PATH", "".$_SERVER['DOCUMENT_ROOT']."/disposal_manager/" );
+
+//for poul.dev
+define( "BASE_PATH", "".$_SERVER['DOCUMENT_ROOT']."/" );
+
 //for server
 //define( "BASE_PATH", "".$_SERVER['DOCUMENT_ROOT']."/geetu/" );
 
 //Define base url of project
 //for local
-define('BASE_URL', 'http://localhost/disposal_manager');
+define('BASE_URL', 'http://poul.dev');
 
 //for server
 //define('BASE_URL', 'http://www.disposalmanager.com/geetu/');

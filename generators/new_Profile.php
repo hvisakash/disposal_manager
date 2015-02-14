@@ -84,8 +84,9 @@ include("../init.php");
 		    </table>
 		    <br>
 		    <div class="showbutton" style='display: none;'><center>
-			<input type="submit" value="Next" name="next" class= "btn btn-success"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="submit" value="Cancel" name="cancel" class= "btn btn-success "/>
+			
+			<input type="submit" value="Cancel" name="cancel" class= "btn btn-success "/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="submit" value="Next" name="next" class= "btn btn-success"/>
 			</center>
 		    </div>
 		    </form>

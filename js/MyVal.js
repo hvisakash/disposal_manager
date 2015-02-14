@@ -699,4 +699,237 @@ $(document).ready(function()
                   confirm_password :" Enter Confirm Password Same as Password"
             }
       });
+ 
 });
+
+// west information page document validation      
+
+$(document).ready(function() 
+{
+      $(".general_waste_information").validate({
+            rules:
+            {
+                   "waste_stream_name":{
+                  required: true,     
+                  minlength:2,
+                  },
+                   "process_generating_waste":{
+                  required: true,     
+                  minlength:2,
+                  },
+                  "file_name":{
+                  required: true     
+                  },
+                  'disposal_restriction[]':{
+                        required:true
+                  },
+                  'specific_hazards[]':{
+                        required:true
+                  }
+                  
+		  
+           },
+            messages:
+            {
+                  waste_stream_name:{
+                        required: "Please provide a Waste Stream Name",
+                        minlength: "Your Waste Stream Name must be at least 2 characters long",
+                  },
+                  process_generating_waste:{
+                        required: "Please provide a Process Generating the Waste",
+                        minlength: "Your Process Generating the Waste must be at least 2 characters long",
+                  },
+                   file_name:{
+                        required: "Please Upload the Document."
+                  },
+                  'specific_hazards[]':{
+                        required: "Please provide a Specific Hazards",
+                  }
+            },
+            
+      });
+      $.validator.addMethod("waste_determination", function(value, elem, param) {
+            if($(".roles:checkbox:checked").length > 0){
+            return true;
+            }else {
+            return false;
+            }
+            },"You must select at least one!");
+
+      // characterstics page validation
+      
+      $(".characterstics").validate({
+            rules:
+            {
+                   "color":{
+                  required: true,     
+                  },
+                   "halogens":{
+                  required: true,     
+                  minlength:2,
+                  },
+                  "odor":{
+                  required: true
+                  },
+                  "viscosity":{
+                  required: true
+                  },
+                  "specific_gravity":{
+                  required: true
+                  },
+                  "btus":{
+                  required: true
+                  },
+                  "flashpoint_with_ranges":{
+                  required: true
+                  },
+                  "pH_value_with_ranges":{
+                  required: true
+                  }
+           },
+            messages:
+            {
+                  color:{
+                        required: "Please Provide a Color Name"
+                  },
+                  halogens:{
+                        required: "Please provide a Halogens",
+                        minlength: "Halogens must be at least 2 characters long",
+                  },
+                  odor:{
+                        required: "Please Provide a Odor"
+                  },
+                  viscosity:{
+                        required: "Please Provide a Viscosity with Examples"
+                  },
+                  specific_gravity:{
+                        required: "Please Provide a Specific Gravity"
+                  },
+                  btus:{
+                        required: "Please Provide a BTUs"
+                  },
+                  flashpoint_with_ranges:{
+                        required: "Please Provide z Flashpoint with Ranges or Exact Figure"
+                  },
+                  pH_value_with_ranges:{
+                        required: "Please Provide a pH Value with Ranges or Exact Figure"
+                  }
+
+            },
+            
+      });
+
+      // SHIPPING VOLUME & FREQUENCY page validation
+      
+      $(".shipping_volume").validate({
+            rules:
+            {
+                   "drum_size":{
+                  required: true,     
+                  },
+                  "drum_type":{
+                  required: true
+                  },
+                  "totes":{
+                  required: true
+                  },
+                  "totes_types":{
+                  required: true
+                  },
+                  "frequency":{
+                  required: true
+                  },
+                  "quantity_to_ship":{
+                  required: true
+                  }
+           },
+            messages:
+            {
+                  drum_size:{
+                        required: "Please Provide a Drum Size"
+                  },
+                  drum_type:{
+                        required: "Please Provide a Drum Type"
+                  },
+                  totes:{
+                        required: "Please Provide a Totes (Size In Gallons)"
+                  },
+                  totes_types:{
+                        required: "Please Provide a Totes types"
+                  },
+                  frequency:{
+                        required: "Please Provide Frequency"
+                  },
+                  quantity_to_ship:{
+                        required: "Please Provide a Quantity to ship "
+                  }
+
+            },
+            
+      });
+      // DOT SHIPPING INFORMATION page validation
+      
+      $(".don_shipping").validate({
+            rules:
+            {
+                   "shipping_name":{
+                  required: true,     
+                  },
+                  "technical_descriptors":{
+                  required: true
+                  },
+                  "hazard_class":{
+                  required: true
+                  },
+                  "un/na_number":{
+                  required: true
+                  },
+                  "parking_grup":{
+                  required: true
+                  },
+                  "erg":{
+                  required: true
+                  },
+                  "rq":{
+                  required: true
+                  },
+                  "inhalation_hazard":{
+                  required: true
+                  }
+           },
+            messages:
+            {
+                  shipping_name:{
+                        required: "Please Provide a Shipping Name"
+                  },
+                  technical_descriptors:{
+                        required: "Please Provide a Technical Descriptors"
+                  },
+                  hazard_class:{
+                        required: "Please Provide a Hazard Class"
+                  },
+                  "un/na_number":{
+                        required: "Please Provide a UN/NA Number"
+                  },
+                  parking_grup:{
+                        required: "Please Provide Packing Group"
+                  },
+                  erg:{
+                        required: "Please Provide a ERG "
+                  },
+
+                  rq:{
+                        required: "Please Provide RQ"
+                  },
+                  inhalation_hazard:{
+                        required: "Please Inhalation Hazard: Zone "
+                  }
+
+            },
+            
+      });
+
+
+});
+
+ 

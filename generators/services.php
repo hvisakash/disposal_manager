@@ -29,7 +29,7 @@ include("../init.php");
     {
 	$service=$generators->service_type($_POST['radio']);
 	$session->__set("service_id",$service['mat_id']);
-	$session->__set("service_material",$service['material']);
+	 $session->__set("service_material",$service['material']);
 	//echo $session->__get("service_material");
 	//die("a");
 	$redirect->redirect("".BASE_URL."/generator/Services/".$_POST['radio']."");
@@ -64,56 +64,108 @@ include("../init.php");
 			<h4>What is the material to be profiled ?</h4>
 			<br>
 			    <div>
-					<input type="radio" name="radio" value="1" required autofocus>
+				<?php if(($session->__get("service_id"))=='1') { ?>
+					<input type="radio" name="radio" value="1" required autofocus checked="checked">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Used Oil   
+				<?php }else{?>
+				    <input type="radio" name="radio" value="1" required autofocus>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Used Oil   
+				<?php }?>
+
 			    </div>
 			    <br>
 			    <div>
+				<?php if(($session->__get("service_id"))=='2') { ?>
+					<input type="radio" name="radio" value="2" checked="checked">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Paint Waste    
+				<?php }else{?>
 					<input type="radio" name="radio" value="2">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Paint Waste    
+				<?php }?>
+
 			    </div>
 			    <br>
 			    <div>
+				<?php if(($session->__get("service_id"))=='3') { ?>
+					<input type="radio" name="radio" value="3" checked="checked">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Hazardous Waste
+				<?php }else{?>
 					<input type="radio" name="radio" value="3">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Hazardous Waste
+
+				<?php }?>
 			    </div>
 			    <br>
 			    <div>
+				<?php if(($session->__get("service_id"))=='4') { ?>
+					<input type="radio" name="radio" value="4" checked="checked">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Non-Hazardous Waste	    
+				<?php }else{?>
 					<input type="radio" name="radio" value="4">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Non-Hazardous Waste	    
+
+				<?php }?>
 			    </div>
 			    <br>
 			    <div>
+				<?php if(($session->__get("service_id"))=='5') { ?>
+					<input type="radio" name="radio" value="5" checked="checked">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Universal Waste   
+				<?php }else{?>
 					<input type="radio" name="radio" value="5">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Universal Waste   
+				<?php }?>
 			    </div>
 			    <br>
 			    <div>
+				<?php if(($session->__get("service_id"))=='6') { ?>
+					<input type="radio" name="radio" value="6" checked="checked">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Cylinders    
+				<?php }else{?>
 					<input type="radio" name="radio" value="6">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Cylinders    
+				<?php }?>
 			    </div>
 			    <br>
 			    <div>
+				<?php if(($session->__get("service_id"))=='7') { ?>
+					<input type="radio" name="radio" value="7" checked="checked">
+				       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Lab Pack    
+				<?php }else{?>
 					<input type="radio" name="radio" value="7">
 				       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Lab Pack    
+				<?php }?>
 			    </div>
 			    <br>
 			    <div>
+				<?php if(($session->__get("service_id"))=='8') { ?>
+					<input type="radio" name="radio" value="8" class="btn btn-primary btn-lg" checked="checked">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					I'm Not Sure    
+				<?php }else{?>
 					<input type="radio" name="radio" value="8" class="btn btn-primary btn-lg">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					I'm Not Sure    
+
+				<?php }?>
 			    </div>
 			    <br><br>
 			    <div>
-					 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<button class="btn btn-success previous">Previous</button>
+				<a href="<?php echo BASE_URL;?>/generators/New_Profile" class="btn btn-success">Previous</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input name="next" type="submit" value='Next' class="btn btn-success"/>
 			    </div>

@@ -36,6 +36,9 @@ include("../../init.php");
 
       $redirect->redirect("".BASE_URL."/generators/shipping_volume");
    }
+//get a value in array session
+$layers=$session->__get("layers");
+   
 // includding header portion
     include("../../include/header.php");
     include("../../include/header_menu.php");
@@ -130,11 +133,34 @@ include("../../init.php");
 				<tr>
 				    <td>Layers</td>
 				    <td>
-					 &nbsp;&nbsp;<input name="layers1" type="checkbox" value="layers1"> 
-					1 &nbsp;&nbsp;<input name="layers2" type="checkbox" value="layers2"> 
-					2 &nbsp;&nbsp;<input name="layers3" type="checkbox" value="layers3">
-					3 &nbsp;&nbsp;<input name="layers4" type="checkbox" value="layers4">
-					4
+					<?php
+					
+					
+					    if (is_array($layers) && in_array("layers1", $layers))
+					    {
+						echo '&nbsp;&nbsp;<input name="layers[]" type="checkbox" value="layers1" checked="checked"> &nbsp;&nbsp; 1';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="layers[]" type="checkbox" value="layers1" class=""> &nbsp;&nbsp; 1';						
+					    }
+					    if (is_array($layers) && in_array("layers2", $layers))
+					    {
+						echo '&nbsp;&nbsp;<input name="layers[]" type="checkbox" value="layers2" checked="checked"> &nbsp;&nbsp; 2';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="layers[]" type="checkbox" value="layers2" class=""> &nbsp;&nbsp; 2';						
+					    }
+					    if (is_array($layers) && in_array("layers3", $layers))
+					    {
+						echo '&nbsp;&nbsp;<input name="layers[]" type="checkbox" value="layers3" checked="checked"> &nbsp;&nbsp; 3';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="layers[]" type="checkbox" value="layers3" class=""> &nbsp;&nbsp; 3';						
+					    }
+					    if (is_array($layers) && in_array("layers4", $layers))
+					    {
+						echo '&nbsp;&nbsp;<input name="layers[]" type="checkbox" value="layers4" checked="checked"> &nbsp;&nbsp; 4';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="layers[]" type="checkbox" value="layers4" class=""> &nbsp;&nbsp; 4';						
+					    }
+					?>
 				    </td>
 				</tr>
 				<tr>

@@ -25,17 +25,21 @@ include("../../init.php");
     }
     //argument for profile pic class
     $profile_pic=$generators->profile_pic();
-    
     //add waste in data base
     if(isset($_POST["Next"]))
     {
-	    foreach($_POST as $key => $value){
-			$session->__set($key,$value);
+	foreach($_POST as $key => $value){
+	$session->__set($key,$value);
     	}
-//	echo $session->__get("waste_stream_name");
+//	print_r($session->__get("specific_hazards"));
 //	die;
 		$redirect->redirect("".BASE_URL."/generators/waste_composition");
    	}
+//get a array value in session
+$specific_hazards=$session->__get("specific_hazards");
+$disposal_restriction=$session->__get("disposal_restriction");
+$waste_determination=$session->__get("waste_determination");
+
 // includding header portion
     include("../../include/header.php");
     include("../../include/header_menu.php");
@@ -100,10 +104,36 @@ include("../../init.php");
 				<tr>
 				    <td>Waste Determination (check all that apply):</td>
 				    <td>
-					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Testing" class="check1" value=""> &nbsp;&nbsp; Testing
-					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Generator Knowledge">&nbsp;&nbsp;Generator Knowledge
-					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="MSDS" class="check2">&nbsp;&nbsp;MSDS
-					&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Sample">&nbsp;&nbsp;Sample
+					<?php
+					    if (is_array($waste_determination) && in_array("Testing", $waste_determination))
+					    {
+						echo '&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Testing" checked="checked" class="check1"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Testing" class="check1"> &nbsp;&nbsp;';						
+						}    
+					echo "Testing";
+					    if (is_array($waste_determination) && in_array("Generator Knowledge", $waste_determination))
+					    {
+						echo '&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Generator Knowledge" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Generator Knowledge" class=""> &nbsp;&nbsp;';						
+						}    
+					echo "Generator Knowledge";
+					    if (is_array($waste_determination) && in_array("MSDS", $waste_determination))
+					    {
+						echo '&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="MSDS" checked="checked" class="check2"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="MSDS" class="check2"> &nbsp;&nbsp;';						
+						}    
+					echo "MSDS";
+					    if (is_array($waste_determination) && in_array("Sample", $waste_determination))
+					    {
+						echo '&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Sample" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="waste_determination[]" type="checkbox" value="Sample" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Sample
 				    </td>
 				</tr>
 				<tr style="display: none;" class="click">
@@ -134,13 +164,48 @@ include("../../init.php");
 				<tr>
 				    <td>Disposal Restrictions?  (Check all that apply)</td>
 				    <td>
-					&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="No Landfill"> &nbsp;&nbsp;No Landfill
-					&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="No Canada Disposal">&nbsp;&nbsp;No Canada Disposal
-					&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Destruction Required">&nbsp;&nbsp;Destruction Required
+					    <?php
+					    if (is_array($disposal_restriction) && in_array("No Landfill", $disposal_restriction))
+					    {
+						echo '&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="No Landfill" checked="checked"> &nbsp;&nbsp;No Landfill';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="No Landfill"> &nbsp;&nbsp;No Landfill';						
+					    }    
+
+					    if (is_array($disposal_restriction) && in_array("No Canada Disposal", $disposal_restriction))
+					    {
+						echo '&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="No Canada Disposal" checked="checked"> &nbsp;&nbsp;No Canada Disposal';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="No Canada Disposal"> &nbsp;&nbsp;No Canada Disposal';						
+					    }    
+					    if (is_array($disposal_restriction) && in_array("Destruction Required", $disposal_restriction))
+					    {
+						echo '&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Destruction Required" checked="checked"> &nbsp;&nbsp;Destruction Required';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Destruction Required"> &nbsp;&nbsp;Destruction Required';						
+					    }
+					    echo "<br>";					    
+					    if (is_array($disposal_restriction) && in_array("Must Be Rendered Unusable", $disposal_restriction))
+					    {
+						echo '&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Must Be Rendered Unusable" checked="checked"> &nbsp;&nbsp;Must Be Rendered Unusable';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Must Be Rendered Unusable"> &nbsp;&nbsp;Must Be Rendered Unusable';						
+						}    
+					    if (is_array($disposal_restriction) && in_array("Waste to Energy Required", $disposal_restriction))
+					    {
+						echo '&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Waste to Energy Required" checked="checked"> &nbsp;&nbsp;Waste to Energy Required';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Waste to Energy Required"> &nbsp;&nbsp;Waste to Energy Required';						
+						}    
+					    if (is_array($disposal_restriction) && in_array("Recycling Preferred", $disposal_restriction))
+					    {
+						echo '&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Recycling Preferred" checked="checked"> &nbsp;&nbsp;Recycling Preferred';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Recycling Preferred"> &nbsp;&nbsp;Recycling Preferred';						
+						}    
+
+					    ?>
 					<br>
-					&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Must Be Rendered Unusable">&nbsp;&nbsp;Must Be Rendered Unusable
-					&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Waste to Energy Required">&nbsp;&nbsp;Waste to Energy Required
-					&nbsp;&nbsp;<input name="disposal_restriction[]" type="checkbox" value="Recycling Preferred">&nbsp;&nbsp;Recycling Preferred
 				    </td>
 				</tr>
 				<tr>
@@ -161,71 +226,260 @@ include("../../init.php");
 			    </table>
 			   
 			    <h4><b>SPECIFIC HAZARDS (check boxes: allow user to select all that apply)</b></h4>
-			    
 				<table width="100%" class="table specific_hazards" >
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Flammable" class=""> &nbsp;&nbsp;Flammable
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Flammable", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Flammable" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Flammable" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Flammable
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Explosive">&nbsp;&nbsp;Explosive
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Explosive", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Explosive" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Explosive" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Explosive
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Air Reactive">&nbsp;&nbsp;Air Reactive
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Air Reactive", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Air Reactive" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Air Reactive" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+
+					Air Reactive
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Infectious">&nbsp;&nbsp;Infectious
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Infectious", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Infectious" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Infectious" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Infectious
 					</td>
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Corrosive"> &nbsp;&nbsp;Corrosive
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Corrosive", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Corrosive" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Corrosive" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Corrosive
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Pyrophoric">&nbsp;&nbsp;Pyrophoric
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Pyrophoric", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Pyrophoric" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Pyrophoric" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Pyrophoric
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Water Reactive">&nbsp;&nbsp;Water Reactive
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Water Reactive", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Water Reactive" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Water Reactive" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Water Reactive
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Carcinogen">&nbsp;&nbsp;Carcinogen
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Carcinogen", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Carcinogen" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Carcinogen" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Carcinogen
 					</td>
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Poison"> &nbsp;&nbsp;Poison
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Poison", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Poison" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Poison" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Poison
 					</td>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Organic Peroxide">&nbsp;&nbsp;Organic Peroxide
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Organic Peroxide", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Organic Peroxide" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Organic Peroxide" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+
+					    Organic Peroxide
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Reactive Cyanides">&nbsp;&nbsp;Reactive Cyanides (if yes, list PPM)
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Reactive Cyanides", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Reactive Cyanides" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Reactive Cyanides" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Reactive Cyanides (if yes, list PPM)
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Radioactive">&nbsp;&nbsp;Radioactive
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Radioactive", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Radioactive" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Radioactive" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+
+					    Radioactive
 					</td>
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Oxidizer"> &nbsp;&nbsp;	Oxidizer
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Oxidizer", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Oxidizer" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Oxidizer" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+
+					    Oxidizer
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Polymerizer">&nbsp;&nbsp;Polymerizer
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Polymerizer", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Polymerizer" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Polymerizer" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+
+					   Polymerizer
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Reactive Sulfides">&nbsp;&nbsp;Reactive Sulfides (if yes, list PPM)
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Reactive Sulfides", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Reactive Sulfides" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Reactive Sulfides" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+
+					    Reactive Sulfides (if yes, list PPM)
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Lachrymator">&nbsp;&nbsp;Lachrymator
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Lachrymator", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Lachrymator" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Lachrymator" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Lachrymator
 					</td>
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Aerosol"> &nbsp;&nbsp; Aerosol
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Aerosol", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Aerosol" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Aerosol" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Aerosol
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="PCBs">&nbsp;&nbsp; PCBs
+					    <?php
+					    if (is_array($specific_hazards) && in_array("PCBs", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="PCBs" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="PCBs" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    PCBs
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Shock Sensitive">&nbsp;&nbsp; Shock Sensitive
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Shock Sensitive", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Shock Sensitive" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Shock Sensitive" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Shock Sensitive
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Inhalation Hazard">&nbsp;&nbsp; Inhalation Hazard
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Inhalation Hazard", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Inhalation Hazard" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Inhalation Hazard" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Inhalation Hazard
 					</td>
 				    </tr>
 				    <tr>
 					<td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Compressed Gas"> &nbsp;&nbsp; Compressed Gas
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Compressed Gas", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Compressed Gas" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Compressed Gas" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Compressed Gas
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Benzene">&nbsp;&nbsp; Benzene
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Benzene", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Benzene" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Benzene" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Benzene
 					</td><td>
-					    &nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Temperature Sensitive">&nbsp;&nbsp; Temperature Sensitive
+					    <?php
+					    if (is_array($specific_hazards) && in_array("Temperature Sensitive", $specific_hazards))
+					    {
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Temperature Sensitive" checked="checked"> &nbsp;&nbsp;';						
+					    }else{
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Temperature Sensitive" class=""> &nbsp;&nbsp;';						
+						}    
+					    ?>
+					    Temperature Sensitive
 					</td>
 				    </tr>
 				</table>

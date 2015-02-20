@@ -179,8 +179,8 @@ include("../../init.php");
 				    <td>Totes types</td>
 				    <td>
 					<select style="width:175px;" name="totes_types">
-					    <?php if($session->__get("frequency")){?>
-        					<option value="<?php echo $session->__get("frequency");?>"><?php echo $session->__get("frequency");?></option>
+					    <?php if($session->__get("totes_types")){?>
+        					<option value="<?php echo $session->__get("totes_types");?>"><?php echo $session->__get("totes_types");?></option>
 					    <?php }else{ ?>
 						<option value="">Select</option>
 					    <?php } ?>

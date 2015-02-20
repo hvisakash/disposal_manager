@@ -114,10 +114,25 @@ include("../../init.php");
 			    <table class="table table-bordered" vspace="50" hspace="50">
 				<tr>
 					<td>Is this a USDOT Hazardous Material?</td>
+					<?php
+					
+					if($session->__get('USDOT_hazardous_material')=="yes" ){?>
+					<td>
+					    <input name="USDOT_hazardous_material" type="radio" value="yes" id="yes" required autofocus checked="checked"> Yes &nbsp;
+					    <input name="USDOT_hazardous_material" type="radio" value="no" id="no"> No
+					</td>
+					<?php }else if($session->__get('USDOT_hazardous_material')=="no" ){?>
+					<td>
+					    <input name="USDOT_hazardous_material" type="radio" value="yes" id="yes" required autofocus> Yes &nbsp;
+					    <input name="USDOT_hazardous_material" type="radio" value="no" id="no" checked="checked"> No
+					</td>
+					<?php }else{?>
 					<td>
 					    <input name="USDOT_hazardous_material" type="radio" value="yes" id="yes" required autofocus> Yes &nbsp;
 					    <input name="USDOT_hazardous_material" type="radio" value="no" id="no"> No
 					</td>
+					<?php }?>
+
 				</tr>
 			    </table>
 

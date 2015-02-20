@@ -27,16 +27,95 @@ include("../../init.php");
     $profile_pic=$generators->profile_pic();
     
     //add waste in data base
-    if(isset($_POST["Next"]))
-    {
-    foreach($_POST as $key => $value){
+        if((isset($_POST["Next"])) OR isset($_POST['save']))
+	{
+	$userinfo=$session->__get("save_return");
+	$session->__set("save_return1",$_POST);
+	$userinfo1=$session->__get("save_return1");
+	array_push($userinfo,$userinfo1);
+	$session->__set("save_return",$userinfo);
+	//echo "<pre>";
+	//print_r($userinfo);
+	//die;
+	foreach($_POST as $key => $value){
 	$session->__set($key,$value);
-    }
-      $redirect->redirect("".BASE_URL."/generators/characteristics");
-   }
+	}
+	    if(isset($_POST['save']))
+	    {
+		//$generators->save_return($session_save_return);
+	    }
+	    if(isset($_POST['Next']))
+	    {
+		$redirect->redirect("".BASE_URL."/generators/characteristics");
+	    }
+   	}
 //get a array value in session
-$metals=$session->__get("metals");   
-   
+$metals=$session->__get("metals");
+if($session->__get("component"))
+{
+    
+    $component_key=array();
+    $cas_key=array();
+    $minimum_key=array();
+    $min_unit_key=array();
+    $maximum_key=array();
+    $max_unit_key=array();
+    for($row=0; $row < sizeof($session->__get("component")); $row++)
+	{
+	    $component_key[$row]="component";
+	    
+	}
+    $component_value=$session->__get("component");
+    $component[] = array_combine($component_value,$component_key);
+
+    for($row=0; $row < sizeof($session->__get("cas")); $row++)
+	{
+	    $cas_key[$row]="cas";
+	    
+	}    
+    
+    $cas_value=$session->__get("cas");
+    $cas = array_combine($cas_value,$cas_key);
+
+    for($row=0; $row < sizeof($session->__get("minimum")); $row++)
+	{
+	    $minimum_key[$row]="minimum";
+	    
+	}    
+    
+    $minimum_value=$session->__get("minimum");
+    $minimum = array_combine($minimum_value,$minimum_key);
+
+    for($row=0; $row < sizeof($session->__get("min_unit")); $row++)
+    {
+	$min_unit_key[$row]="min_unit";
+	
+    }    
+
+    $min_unit_value=$session->__get("min_unit");
+    $min_unit = array_combine($min_unit_value,$min_unit_key);
+    
+    for($row=0; $row < sizeof($session->__get("maximum")); $row++)
+	{
+	    $maximum_key[$row]="maximum";
+	    
+	}    
+    
+    $maximum_value=$session->__get("maximum");
+    $maximum = array_combine($maximum_value,$maximum_key);
+
+    for($row=0; $row < sizeof($session->__get("max_unit")); $row++)
+    {
+	$max_unit_key[$row]="max_unit";
+	
+    }    
+
+    $max_unit_value=$session->__get("max_unit");
+    $max_unit = array_combine($max_unit_value,$max_unit_key);
+    array_push($component,$cas,$minimum,$min_unit,$maximum,$max_unit);
+
+}
+
 // includding header portion
     include("../../include/header.php");
     include("../../include/header_menu.php");
@@ -92,13 +171,8 @@ $metals=$session->__get("metals");
 		    </br>
 		    <div>
 			<form name="frm" method='post'>
-			    <h4><b>GENERAL WASTE INFORMATION</b></h4>
+			    <h4><b>GENERAL WASTE COMPONENT</b></h4>
 			    <br><br>
-			    
-<!--			    <b><!--popup link-->
-<!--			    <a href="#link1" title="title1" class="link" data-toggle="modal">Add WASTE INFORMATION</b></a>
-			    <br>
--->
 			    <table class="table table-striped add_new" >
 				<thead>
 				    <tr>
@@ -114,19 +188,78 @@ $metals=$session->__get("metals");
 				    </tr>
 				</thead>
 				<tbody>
-				    <td><input name="component" type="text" class="component"></td>
-				    <td><input name="cas" type="text"></td>
-				    <td><input name="minimum" type="text"></td>
-				    <td><input name="min_unit" type="text"></td>
-				    <td><input name="maximum" type="text"></td>
-				    <td><input name="max_unit" type="text"></td>
+				    <?php
+				    if($session->__get("component"))
+				    {
+$i=0;
+					foreach($component as $key=>$value)
+					{
+				    echo "<tr>";
+					    foreach($value as $keys=>$val )
+					    {
+					     echo "<td>";
+					     echo $keys;
+					     echo "</td>";
+					    }
+				   echo "</tr>";
+					}
+
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+					foreach($component as $key=>$value)
+					{
+					    echo "<tr>";
+					    foreach($value as $keys=>$val )
+					    {
+	
+						echo "<td><input name='".$val."[]' type='' value=".$keys."></td>";
+	
+					    }
+					    echo "</tr>";
+					}
+				    }else{?>
+				<tr>
+				    <td><input name="component[]" type="text"></td>
+				    <td><input name="cas[]" type="text"></td>
+				    <td><input type="text" name="minimum[]"></td>
+				    <td><input type="text" name="min_unit[]"></td>
+				    <td><input type="text" name="maximum[]"></td>
+				    <td><input type="text" name="max_unit[]"></td>
+				</tr>
+					
+					
+				    <?php }
+				?>
 				</tbody>
-			    </table>
+				</table>
 			    <h4><b>DOCUMENTATION (MSDS, Analysis, Etc.)</b></h4>
 			    <table width="100%" class="table table-striped">
 				    <tr>
 					<td>Type of document</td>
-					<td><input type="file" name="documentation" value=""></td>
+					<td><input type="file" name="documentation" value="<?php echo $session->__get("documentation");?>"></td>
 				    </tr>
 			    <tr>
 				<td>METALS PRESENT (Check Boxes: Yes or No)</td>
@@ -374,57 +507,14 @@ $( ".check1,.check2" ).change(function() {
 	 $(".matals_show").hide();
     }
 }).change();
-</script>
-<!--start popup-->
-<div id="link1" class="modal fade">
- <div class="modal-dialog">
-  <div class="modal-content">
-   <div class="modal-header headerBG">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title text-left">
-    <table class="table table-striped" >
-	<tr>
-	    <td>Component</td>
-	    <td><input name="component[]" type="text" class='t1'></td>
-	</tr>
-	<tr>
-	    <td>CAS#</td>
-	    <td><input name="cas[]" type="text"></td>
-	</tr>
-	<tr>
-	    <td>Minimum</td>
-	    <td><input name="minimum[]" type="text"></td>
-	</tr>
-	<tr>
-	    <td>Unit (%, ppm)</td>
-	    <td><input name="min_unit[]" type="text"></td>
-	</tr>
-	<tr>
-	    <td>Maximum</td>
-	    <td><input name="maximum[]" type="text"></td>
-	</tr>
-	<tr>
-	    <td>Unit (%, ppm)</td>
-	    <td><input name="max_unit[]" type="text"></td>
-	</tr>
-    </table>
-    
 
-	<button style="margin-left: 50px; margin-top: 10px;">Add</button >
-   </div>
-  </div>
- </div>
-</div>
-  <!--start table add new row with input textfield-->
-<script>
 $(document).ready(function(){
 var cnt = 2;
 $(".anc_add").click(function(){
-$('.add_new tr').last().after('<tr><td><input name="component[]" type="text"></td><td><input name="cas[]" type="text"></td><td><input type="text" name="minimum[]"></td><td><input type="text" name="min_unit[]"></td><td><input type="text" name="maxmum[]"></td><td><input type="text" name="max_unit[]"></td></tr>');
+$('.add_new tr').last().after('<tr><td><input name="component[]" type="text"></td><td><input name="cas[]" type="text"></td><td><input type="text" name="minimum[]"></td><td><input type="text" name="min_unit[]"></td><td><input type="text" name="maximum[]"></td><td><input type="text" name="max_unit[]"></td></tr>');
 //$('.tab1').last().after('.t1');
 cnt++;
+//alert(cnt);
 });
- 
- 
 });
 </script>

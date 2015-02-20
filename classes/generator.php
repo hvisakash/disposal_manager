@@ -798,5 +798,48 @@ class Generators
 			}
 		
 	}
+	public function save_return()
+	{
+		try{
+			$session= Session::getInstance();
+			$userinfo=$session->__get("save_return");
+			echo sizeof($userinfo);
+echo "<pre>";
+print_r($userinfo);
+die("aa");
+	if(sizeof($userinfo)==4)
+	{
+		foreach($userinfo as $key => $value)
+		{
+			if($value == "Save & Return"){
+				continue;
+			}else{
+			$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."'");
+			}
+		}
+    	}
+	else if(sizeof($userinfo)==2)
+	{
+		foreach($userinfo as $keys => $val)
+		{
+			foreach($val as $key => $value)
+			{
+				if($value == "Save & Return"){
+				continue;
+				}else if ($value == "Next"){
+				continue;
+				}else{
+				$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."'");
+				}
+			}
+		}
+    	}
+
+
+		}catch(PDOException $e){
+			echo $e->getMessage();
+		}
+		
+	}
 	
 }	

@@ -26,14 +26,24 @@ include("../../init.php");
     //argument for profile pic class
     $profile_pic=$generators->profile_pic();
     //add waste in data base
-    if(isset($_POST["Next"]))
+    if((isset($_POST["Next"])) OR isset($_POST['save']))
     {
+	$userinfo=$session->__get("save_return");
+	$session->__set("save_return1",$_POST);
+	$userinfo1=$session->__get("save_return1");
+	array_push($userinfo,$userinfo1);
+	$session->__set("save_return",$userinfo);
 	foreach($_POST as $key => $value){
 	$session->__set($key,$value);
-    	}
-//	print_r($session->__get("specific_hazards"));
-//	die;
+	}
+	    if(isset($_POST['save']))
+	    {
+		//$generators->save_return($session_save_return);
+	    }
+	    if(isset($_POST['Next']))
+	    {
 		$redirect->redirect("".BASE_URL."/generators/waste_composition");
+	    }
    	}
 //get a array value in session
 $specific_hazards=$session->__get("specific_hazards");
@@ -138,7 +148,7 @@ $waste_determination=$session->__get("waste_determination");
 				</tr>
 				<tr style="display: none;" class="click">
 				    <td ></td>
-				    <td><input type="file" name="file_name" required autofocus></td>
+				    <td><input type="file" name="file_name" required autofocus value="<?php echo $session->__get("file_name");?>"></td>
 				</tr>
 				<tr>
 				    <td>Unused or Virgin Material?</td>

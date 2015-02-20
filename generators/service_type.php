@@ -1,72 +1,51 @@
 <?php
 //including initial file
 include("../init.php");
-    //creating object of session class  
-    $session = $init->getSession();
+  //creating object of session class  
+  $session = $init->getSession();
 
-    //creating object of redirect class
-    $redirect = $init->getRedirect();
-    //creating object of vender class
-    $generators = Generators::getInstance();
-    //object for last login date
-    $result=$generators->lastdate();
-    //check session functionality
-    if(!$session->__get("roll")==2)
-    {
-	$redirect->redirect("../signin");
+  //creating object of redirect class
+  $redirect = $init->getRedirect();
+  //creating object of vender class
+  $generators = Generators::getInstance();
+  //object for last login date
+  $result=$generators->lastdate();
+  //check session functionality
+  if(!$session->__get("roll")==2)
+  {
+      $redirect->redirect("../signin");
+  }
+      elseif($session->__get("roll")==1)
+  {
+      $redirect->redirect("../admin");
+  }
+  elseif($session->__get("roll")==3)
+  {
+      $redirect->redirect("../vendors");
+  }
+  //argument for profile pic class
+  $profile_pic=$generators->profile_pic();
+  
+  //add waste in data base
+  if(isset($_POST['save']))
+  {
+    //save post value in session 
+    $session->__set("save_return",$_POST);
+    //save generator functionality
+      $generators->save_return();
+  }
+//redirect to next page
+  if(isset($_POST["Next"]))
+  {
+    //save post value in session 
+    $session->__set("save_return",$_POST);
+    //save post value in session 
+    foreach($_POST as $key => $value){
+      $session->__set($key,$value);
     }
-        elseif($session->__get("roll")==1)
-    {
-        $redirect->redirect("../admin");
-    }
-    elseif($session->__get("roll")==3)
-    {
-        $redirect->redirect("../vendors");
-    }
-    //argument for profile pic class
-    $profile_pic=$generators->profile_pic();
-    
-    //add waste in data base
-    if(isset($_POST["Next"]))
-    {
-      $session->__set("waste_name",$_POST["waste_name"]);
-      $session->__set("label_waste_name",'Waste Name');
-      $session->__set("process_generating",$_POST["process_generating"]);
-      $session->__set("label_process_generating","Process Generating Waste");
-      $session->__set("profile_no",$_POST["profile_no"]);
-      $session->__set("label_profile_no","Profile Number");
-      if($session->__get("service_id")==1){
-      $session->__set("source",$_POST["source"]);
-      $session->__set("label_source","Source");
-      $session->__set("sample_available",$_POST["sample_available"]);
-      $session->__set("label_sample_available","Sample Available");
-
-      }
-      $redirect->redirect("".BASE_URL."/generators/Texas");
-    }
-    if(isset($_POST['save']))
-    {
-      
-    }
-/*	$array = array(
-        "waste" => $_POST['waste'],
-        "process_generating" => $_POST['process_generating'],
-	"profile_no" => $_POST['profile_no'],
-        "source" => $_POST['source'],
-	"sample_available" => $_POST['sample_available']
-	);
-	//echo$session->__get('dispose');
-	//echo "<pre>"; print_r($array); die("here");
-	//echo $service_type;
-	//die("h");
-	$value=$generators->wests($session->__get('user_id'),$session->__get('dispose'),$service_type,$array);
-	if($value==1)
-	{
-	  die("here");
-	    $redirect->redirect("".BASE_URL."/generators/Texas");
-	}
-  */
-
+    //nextpage generator functionality
+    $redirect->redirect("".BASE_URL."/generators/Texas");
+  }
 $profile_no = substr(number_format(time() * rand(),0,'',''),0,16);
 // includding header portion
     include("../include/header.php");
@@ -122,7 +101,7 @@ $profile_no = substr(number_format(time() * rand(),0,'',''),0,16);
 	  </div>
 	  <br>
 	  <br>
-	    <?php 
+	    <?php
 	      if((isset($_REQUEST['service'])) && ($session->__get("service_id")==1))
 		include("questions/used_oil.php");
 	      else if((isset($_REQUEST['service'])) && ($session->__get("service_id")==2))

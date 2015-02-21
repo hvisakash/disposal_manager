@@ -2,58 +2,63 @@
 
 //including initial file
 include("../../init.php");
-    //creating object of session class  
-    $session = $init->getSession();
-    //creating object of redirect class
-    $redirect = $init->getRedirect();
-    //creating object of vender class
-    $generators = Generators::getInstance();
-    //object for last login date
-    $result=$generators->lastdate();
-    //check session functionality
-    if(!$session->__get("roll")==2)
-    {
-	$redirect->redirect("../signin");
-    }
-        elseif($session->__get("roll")==1)
-    {
-        $redirect->redirect("../admin");
-    }
-    elseif($session->__get("roll")==3)
-    {
-        $redirect->redirect("../vendors");
-    }
-    //argument for profile pic class
-    $profile_pic=$generators->profile_pic();
-    
-    //add waste in data base
-    if(isset($_POST["Next"]))
-    {
-	foreach($_POST as $key => $value){
+//creating object of session class  
+$session = $init->getSession();
+//creating object of redirect class
+$redirect = $init->getRedirect();
+//creating object of vender class
+$generators = Generators::getInstance();
+//object for last login date
+$result=$generators->lastdate();
+//check session functionality
+if(!$session->__get("roll")==2)
+{
+    $redirect->redirect("../signin");
+}
+    elseif($session->__get("roll")==1)
+{
+    $redirect->redirect("../admin");
+}
+elseif($session->__get("roll")==3)
+{
+    $redirect->redirect("../vendors");
+}
+//argument for profile pic class
+$profile_pic=$generators->profile_pic();
+//functionality for next or save data by generator
+if((isset($_POST["Next"])) OR isset($_POST['save']))
+{
+    //create array and store in previous value in array variable 
+    $userinfo=$session->__get("save_return");
+    //set current post value in session
+    $session->__set("save_return1",$_POST);
+    //get current post value in session
+    $userinfo1=$session->__get("save_return1");
+    //push previou and current value stored in array
+    array_push($userinfo,$userinfo1);
+    //again set a value in session
+    $session->__set("save_return",$userinfo);
+    // put all value in session
+    foreach($_POST as $key => $value){
 	$session->__set($key,$value);
-	}
- //   echo "<pre>";print_r($_POST);die;
-
-      $redirect->redirect("".BASE_URL."/generators/don_shipping_information");
-/*	$array = array(
-        "waste" => $_POST['waste'],
-        "process_generating" => $_POST['process_generating'],
-	"profile_no" => $_POST['profile_no'],
-        "source" => $_POST['source'],
-	"sample_available" => $_POST['sample_available']
-	);
-	//echo$session->__get('dispose');
-	//echo "<pre>"; print_r($array); die("here");
-	//echo $service_type;
-	//die("h");
-	$value=$generators->wests($session->__get('user_id'),$session->__get('dispose'),$service_type,$array);
-	if($value==1)
+    }
+    //data is save in database
+	if(isset($_POST['save']))
 	{
-	  die("here");
-	    $redirect->redirect("".BASE_URL."/generators/Texas");
+	    $data=$generators->save_return();
+	    if($data){
+		echo "Data is Save";
+	    }else{
+		echo "Data is Not Save";
+	    }
 	}
-  */
-   }
+    //redirect to next page
+    if(isset($_POST['Next']))
+    {
+      $redirect->redirect("".BASE_URL."/generators/don_shipping_information");
+    }
+}
+
 // includding header portion
     include("../../include/header.php");
     include("../../include/header_menu.php");

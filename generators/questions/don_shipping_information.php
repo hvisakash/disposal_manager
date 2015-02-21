@@ -26,39 +26,46 @@ include("../../init.php");
     //argument for profile pic class
     $profile_pic=$generators->profile_pic();
     
-    //add waste in data base
-    if(isset($_POST["Next"]))
+//functionality for next or save data by generator
+if((isset($_POST["Next"])) OR isset($_POST['save']))
+{
+    //create array and store in previous value in array variable 
+    $userinfo=$session->__get("save_return");
+    //set current post value in session
+    $session->__set("save_return1",$_POST);
+    //get current post value in session
+    $userinfo1=$session->__get("save_return1");
+    //push previou and current value stored in array
+    array_push($userinfo,$userinfo1);
+    //again set a value in session
+    $session->__set("save_return",$userinfo);
+    // put all value in session
+    if(isset($_POST['USDOT_hazardous_material'])=='yes')
     {
-	if(isset($_POST['USDOT_hazardous_material'])=='yes')
-	   {
 	foreach($_POST as $key => $value){
 	$session->__set($key,$value);
 	}
-//    echo "<pre>";print_r($_POST);die;
-	   }else{
+    }else{
 	    $session->__set("USDOT_hazardous_material",$_POST['USDOT_hazardous_material']);
-	   }
-	
-      $redirect->redirect("".BASE_URL."/generators/summry");
-/*	$array = array(
-        "waste" => $_POST['waste'],
-        "process_generating" => $_POST['process_generating'],
-	"profile_no" => $_POST['profile_no'],
-        "source" => $_POST['source'],
-	"sample_available" => $_POST['sample_available']
-	);
-	//echo$session->__get('dispose');
-	//echo "<pre>"; print_r($array); die("here");
-	//echo $service_type;
-	//die("h");
-	$value=$generators->wests($session->__get('user_id'),$session->__get('dispose'),$service_type,$array);
-	if($value==1)
-	{
-	  die("here");
-	    $redirect->redirect("".BASE_URL."/generators/Texas");
 	}
-  */
-   }
+    
+    //data is save in database
+    if(isset($_POST['save']))
+    {
+	$data=$generators->save_return();
+	if($data){
+	    echo "Data is Save";
+	}else{
+	    echo "Data is Not Save";
+	}
+    }
+    //redirect to next page    
+    if(isset($_POST['Next']))
+    {
+      $redirect->redirect("".BASE_URL."/generators/summry");
+    }
+}   
+   
 // includding header portion
     include("../../include/header.php");
     include("../../include/header_menu.php");

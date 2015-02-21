@@ -1,38 +1,43 @@
 <?php
 //including initial file
 include("../init.php");
-  //creating object of session class  
-  $session = $init->getSession();
+//creating object of session class  
+$session = $init->getSession();
 
-  //creating object of redirect class
-  $redirect = $init->getRedirect();
-  //creating object of vender class
-  $generators = Generators::getInstance();
-  //object for last login date
-  $result=$generators->lastdate();
-  //check session functionality
-  if(!$session->__get("roll")==2)
-  {
-      $redirect->redirect("../signin");
-  }
-      elseif($session->__get("roll")==1)
-  {
-      $redirect->redirect("../admin");
-  }
-  elseif($session->__get("roll")==3)
-  {
-      $redirect->redirect("../vendors");
-  }
-  //argument for profile pic class
-  $profile_pic=$generators->profile_pic();
-  
-  //add waste in data base
-  if(isset($_POST['save']))
-  {
-    //save post value in session 
-    $session->__set("save_return",$_POST);
-    //save generator functionality
-      $generators->save_return();
+//creating object of redirect class
+$redirect = $init->getRedirect();
+//creating object of vender class
+$generators = Generators::getInstance();
+//object for last login date
+$result=$generators->lastdate();
+//check session functionality
+if(!$session->__get("roll")==2)
+{
+    $redirect->redirect("../signin");
+}
+    elseif($session->__get("roll")==1)
+{
+    $redirect->redirect("../admin");
+}
+elseif($session->__get("roll")==3)
+{
+    $redirect->redirect("../vendors");
+}
+//argument for profile pic class
+$profile_pic=$generators->profile_pic();
+//add waste in data base
+if(isset($_POST['save']))
+{
+  //save post value in session 
+  $session->__set("save_return",$_POST);
+  //save generator functionality
+  $values=$generators->save_and_return();
+  //check a value true or false
+    if($values){
+    echo "Data Is Save";
+    }else{
+    echo "Data is Not Save";
+    }
   }
 //redirect to next page
   if(isset($_POST["Next"]))

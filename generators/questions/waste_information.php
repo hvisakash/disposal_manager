@@ -2,49 +2,61 @@
 
 //including initial file
 include("../../init.php");
-    //creating object of session class  
-    $session = $init->getSession();
-    //creating object of redirect class
-    $redirect = $init->getRedirect();
-    //creating object of vender class
-    $generators = Generators::getInstance();
-    //object for last login date
-    $result=$generators->lastdate();
-    //check session functionality
-    if(!$session->__get("roll")==2)
-    {
-	$redirect->redirect("../signin");
+//creating object of session class  
+$session = $init->getSession();
+//creating object of redirect class
+$redirect = $init->getRedirect();
+//creating object of vender class
+$generators = Generators::getInstance();
+//object for last login date
+$result=$generators->lastdate();
+//check session functionality
+if(!$session->__get("roll")==2)
+{
+    $redirect->redirect("../signin");
+}
+    elseif($session->__get("roll")==1)
+{
+    $redirect->redirect("../admin");
+}
+elseif($session->__get("roll")==3)
+{
+    $redirect->redirect("../vendors");
+}
+//argument for profile pic class
+$profile_pic=$generators->profile_pic();
+//add waste in data base
+if((isset($_POST["Next"])) OR isset($_POST['save']))
+{
+//create array and store in previous value in array variable 
+$userinfo=$session->__get("save_return");
+//set current post value in session
+$session->__set("save_return1",$_POST);
+//get current post value in session
+$userinfo1=$session->__get("save_return1");
+//push previou and current value stored in array
+array_push($userinfo,$userinfo1);
+//again set a value in session
+$session->__set("save_return",$userinfo);
+foreach($_POST as $key => $value){
+    $session->__set($key,$value);
     }
-        elseif($session->__get("roll")==1)
-    {
-        $redirect->redirect("../admin");
-    }
-    elseif($session->__get("roll")==3)
-    {
-        $redirect->redirect("../vendors");
-    }
-    //argument for profile pic class
-    $profile_pic=$generators->profile_pic();
-    //add waste in data base
-    if((isset($_POST["Next"])) OR isset($_POST['save']))
-    {
-	$userinfo=$session->__get("save_return");
-	$session->__set("save_return1",$_POST);
-	$userinfo1=$session->__get("save_return1");
-	array_push($userinfo,$userinfo1);
-	$session->__set("save_return",$userinfo);
-	foreach($_POST as $key => $value){
-	$session->__set($key,$value);
+//data is save in database
+	if(isset($_POST['save']))
+	{
+	    $data=$generators->save_return();
+	    if($data){
+		echo "Data is Save";
+	    }else{
+		echo "Data is Not Save";
+	    }
 	}
-	    if(isset($_POST['save']))
-	    {
-		//$generators->save_return($session_save_return);
-	    }
-	    if(isset($_POST['Next']))
-	    {
-		$redirect->redirect("".BASE_URL."/generators/waste_composition");
-	    }
-   	}
+//redirect to next page
+	if(isset($_POST['Next']))
+	{
+	    $redirect->redirect("".BASE_URL."/generators/waste_composition");
+	}
+    }
 //get a array value in session
 $specific_hazards=$session->__get("specific_hazards");
 $disposal_restriction=$session->__get("disposal_restriction");

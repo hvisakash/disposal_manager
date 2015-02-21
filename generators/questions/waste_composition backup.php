@@ -198,44 +198,22 @@ if($session->__get("component"))
 				    <?php
 				    if($session->__get("component"))
 				    {
-$i=0;
+					
+//echo "<pre>"; var_dump($component);//die("jere");
 					foreach($component as $key=>$value)
 					{
-				    echo "<tr>";
+					    //echo $key;die;
 					    foreach($value as $keys=>$val )
 					    {
-					     echo "<td>";
-					     echo $keys;
-					     echo "</td>";
-					    }
-				   echo "</tr>";
-					}
 
+//					    echo ."<br>";
+//					    echo $val;
+					    //echo $component[0][1];
+					    }
+				   echo "<br>";
+					}
 				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
+//check 				   
 					foreach($component as $key=>$value)
 					{
 					    echo "<tr>";

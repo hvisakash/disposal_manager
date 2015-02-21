@@ -45,16 +45,18 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
   foreach($_POST as $key => $value){
   $session->__set($key,$value);
   }
-  //echo "<pre>";
-  //print_r($session->__get("save_return",$userinfo));
-//  die("here");
   if(isset($_POST['save']))
   {
-    $generators->save_return($session->__get("save_return",$userinfo));
+    $check=$generators->save_return();
+      //check a value true or false
+    if($check){
+      echo "Data Is Save";
+    }else{
+      echo "Data is Not Save";
+    }
   }
-  if(isset($_POST['Next']))
-  {
-$redirect->redirect("".BASE_URL."/generators/waste_information");
+  if(isset($_POST['Next'])){
+    $redirect->redirect("".BASE_URL."/generators/waste_information");
   }
 }
 // includding header portion

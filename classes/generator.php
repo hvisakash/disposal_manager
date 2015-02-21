@@ -798,48 +798,75 @@ class Generators
 			}
 		
 	}
+	//Functionality for Insert qustion in data base 
 	public function save_return()
 	{
 		try{
 			$session= Session::getInstance();
 			$userinfo=$session->__get("save_return");
-			echo sizeof($userinfo);
-echo "<pre>";
-print_r($userinfo);
-die("aa");
-	if(sizeof($userinfo)==4)
-	{
-		foreach($userinfo as $key => $value)
-		{
-			if($value == "Save & Return"){
-				continue;
-			}else{
-			$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."'");
-			}
-		}
-    	}
-	else if(sizeof($userinfo)==2)
-	{
-		foreach($userinfo as $keys => $val)
-		{
-			foreach($val as $key => $value)
+			echo sizeof($userinfo)."<br>";
+			echo "<pre>";print_r($userinfo);
+			
+			if((sizeof($userinfo)==2) OR(sizeof($userinfo)==3) OR sizeof($userinfo)==4 OR sizeof($userinfo)==5 OR sizeof($userinfo)==6 OR sizeof($userinfo)==7 OR sizeof($userinfo)==8)
 			{
-				if($value == "Save & Return"){
-				continue;
-				}else if ($value == "Next"){
-				continue;
-				}else{
-				$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."'");
+				foreach($userinfo as $keys => $vals)
+				{
+					foreach($vals as $key => $value)
+					{
+						if(($value == "Save & Return") OR ($value == "Next")){
+						continue;
+						}else if($value==is_array($value)){
+							if(is_array($value)){
+									foreach($value as $key1 => $value1)
+									{
+										$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value1."'");
+									}
+								}else{
+									continue;
+								}
+						}else{
+						$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."'");
+						}
+					}
 				}
+			return true;
+			}
+			else{
+				return false;
 			}
 		}
-    	}
-
-
-		}catch(PDOException $e){
+		catch(PDOException $e){
 			echo $e->getMessage();
+			}
+	}
+	public function save_and_return()
+	{
+		try{
+			$session= Session::getInstance();
+			$userinfo=$session->__get("save_return");
+			//functionality for first page
+			if(sizeof($userinfo)==4)
+			{
+				foreach($userinfo as $key => $value)
+				{
+						if(($value == "Save & Return") OR ($value == "Next")){
+						continue;
+						}else{
+						$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."'");
+						}
+				}
+			return true;
+			}
+			else{
+				return false;
+			}
+		
 		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+			}
 		
 	}
+	
 	
 }	

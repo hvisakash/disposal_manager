@@ -26,16 +26,40 @@ include("../../init.php");
     //argument for profile pic class
     $profile_pic=$generators->profile_pic();
     
-    //add waste in data base
-    if(isset($_POST["Next"]))
-    {
-	foreach($_POST as $key => $value){
+//add waste in data base
+if((isset($_POST["Next"])) OR isset($_POST['save']))
+{
+    //create array and store in previous value in array variable 
+    $userinfo=$session->__get("save_return");
+    //set current post value in session
+    $session->__set("save_return1",$_POST);
+    //get current post value in session
+    $userinfo1=$session->__get("save_return1");
+    //push previou and current value stored in array
+    array_push($userinfo,$userinfo1);
+    //again set a value in session
+    $session->__set("save_return",$userinfo);
+    // put all value in session
+    foreach($_POST as $key => $value){
 	$session->__set($key,$value);
+    }
+	//data is save in database
+	if(isset($_POST['save']))
+	{
+	    $data=$generators->save_return();
+	    if($data){
+		echo "Data is Save";
+	    }else{
+		echo "Data is Not Save";
+	    }
 	}
-//    echo "<pre>";print_r($_POST);die;
+	//redirect to next page
+	if(isset($_POST['Next']))
+	{
+	    $redirect->redirect("".BASE_URL."/generators/shipping_volume");
+	}
+}
 
-      $redirect->redirect("".BASE_URL."/generators/shipping_volume");
-   }
 //get a value in array session
 $layers=$session->__get("layers");
    

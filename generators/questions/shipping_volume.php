@@ -122,7 +122,7 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
 					    <input name="bulk_liquid" type="radio" value="yes"> Yes &nbsp;
 					    <input name="bulk_liquid" type="radio" value="no" checked="checked"> No
 					<?php }else{?>
-					    <input name="bulk_liquid" type="radio" value="yes"> Yes &nbsp;
+					    <input name="bulk_liquid" type="radio" value="yes" required autofocus> Yes &nbsp;
 					    <input name="bulk_liquid" type="radio" value="no"> No
 
 					<?php }?>					    	
@@ -138,7 +138,7 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
 					    <input name="bulk_solids" type="radio" value="yes"> Yes &nbsp;
 					    <input name="bulk_solids" type="radio" value="no" checked="checked"> No
 					<?php }else{?>
-					    <input name="bulk_solids" type="radio" value="yes"> Yes &nbsp;
+					    <input name="bulk_solids" type="radio" value="yes" required autofocus> Yes &nbsp;
 					    <input name="bulk_solids" type="radio" value="no"> No
 					<?php }?>					    	
 				    </td>
@@ -204,7 +204,7 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
 					    <input name="return_of_tote" type="radio" value="yes"> Yes &nbsp;
 					    <input name="return_of_tote" type="radio" value="no" checked="checked"> No
 					    <?php }else{?>
-					    <input name="return_of_tote" type="radio" value="yes"> Yes &nbsp;
+					    <input name="return_of_tote" type="radio" value="yes" required autofocus> Yes &nbsp;
 					    <input name="return_of_tote" type="radio" value="no"> No
 					    <?php } ?>   
 					    
@@ -220,7 +220,7 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
 					    <input name="skids" type="radio" value="yes"> Yes &nbsp;
 					    <input name="skids" type="radio" value="no" checked="checked"> No
 					    <?php }else{?>
-					    <input name="skids" type="radio" value="yes"> Yes &nbsp;
+					    <input name="skids" type="radio" value="yes" required autofocus> Yes &nbsp;
 					    <input name="skids" type="radio" value="no"> No
 					    <?php } ?>   
 				    </td>

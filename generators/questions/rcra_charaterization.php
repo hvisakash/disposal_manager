@@ -139,7 +139,7 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
 					    <input name="universal" type="radio" value="yes"> Yes &nbsp;
 					    <input name="universal" type="radio" value="no" checked="checked"> No
 					<?php }else{?>
-					    <input name="universal" type="radio" value="yes"> Yes &nbsp;
+					    <input name="universal" type="radio" value="yes" required autofocus> Yes &nbsp;
 					    <input name="universal" type="radio" value="no"> No
 					<?php }?>
     
@@ -184,7 +184,7 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
 					    <input name="texas_state_waste_code" type="radio" value="no" class="texas_code_no" value="no" checked="checked"> No
 
 					<?php }else{?>
-					    <input name="texas_state_waste_code" type="radio" value="yes" class="texas_code_yes" value="yes" > Yes &nbsp;
+					    <input name="texas_state_waste_code" type="radio" value="yes" class="texas_code_yes" value="yes" required autofocus> Yes &nbsp;
 					    <input name="texas_state_waste_code" type="radio" value="no" class="texas_code_no" value="no"> No
 
 					<?php }?>

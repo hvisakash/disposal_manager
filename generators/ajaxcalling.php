@@ -34,6 +34,10 @@ if(isset($_POST['v_unban']))
 }
 if(isset($_POST['old_sites_id']))
 {
+    //create session and store site id
+    //echo $value["id"];
+    $session->__set("site_id",$_POST['old_sites_id']);
+    //echo $_POST['old_sites_id'];
     $value=$generator->select_edit_sites($_POST['old_sites_id']);
  echo json_encode($value);
 

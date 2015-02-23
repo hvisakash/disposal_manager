@@ -185,9 +185,40 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
 				    <td><input name="rq" type="text" value="<?php echo $session->__get('rq')?>"></td>
 				</tr>
 				<tr>
-				    <td>Inhalation Hazard: Zone</td>
-				    <td><input name="inhalation_hazard" type="text" value="<?php echo $session->__get('inhalation_hazard')?>"></td>
-				</tr>				
+				    <td>Inhalation Hazard</td>
+				    <?php if(($session->__get("inhalation_hazard"))=='yes') { ?>
+					<td><input name="inhalation_hazard" type="radio" value="yes" checked="checked" class="yes">&nbsp;&nbsp; Yes &nbsp;&nbsp;&nbsp;&nbsp;
+					<input name="inhalation_hazard" type="radio" value="no" class="no">&nbsp;&nbsp; No</td>
+				    
+				    <?php }else if(($session->__get("inhalation_hazard"))=='no') {?>
+				    <td><input name="inhalation_hazard" type="radio" value="yes" class="yes">&nbsp;&nbsp; Yes &nbsp;&nbsp;&nbsp;&nbsp;
+				    <input name="inhalation_hazard" type="radio" value="no" checked="checked" class="no">&nbsp;&nbsp; No</td>
+				    
+				    <?}else{?>
+				    
+				    <td><input name="inhalation_hazard" type="radio" value="yes" class="yes">&nbsp;&nbsp; Yes &nbsp;&nbsp;&nbsp;&nbsp;
+				    <input name="inhalation_hazard" type="radio" value="no" class="no">&nbsp;&nbsp; No</td>
+				    
+				    <?php }?>
+				    </tr>
+				</table>
+				<table class="table table-bordered display" id="" vspace="50" hspace="50" style="display: none;">
+			        <tr>
+					<td>Zone</td>
+					<td>
+					    <select style="width:175px;" name="zone">
+						<?php if($session->__get("zone")){?>
+						    <option value="<?php echo $session->__get("zone");?>">
+						    <?php echo $session->__get("zone");?></option>
+						<?php }else{ ?>
+						    <option value="">Select</option>
+						<?php } ?>
+						<option value="A">A</option>
+						<option value="B">B</option>
+						<option value="C">C</option>
+					    </select>
+					</td>
+				    </tr>
 			    </table>
 			    </br>
 			    </br>
@@ -204,3 +235,14 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
     </div>
 </div>
   <?php include("../../include/footer.php");?>
+
+<script>
+      $(document).ready(function(){
+      $(".yes").click(function(){
+	   $(".display").show();
+      });
+      $(".no").click(function(){
+	   $(".display").hide();
+      });
+});
+</script>

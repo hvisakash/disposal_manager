@@ -1,57 +1,48 @@
 <?php
 //including initial file
 include("../../init.php");
-//creating object of session class  
-$session = $init->getSession();
-//creating object of redirect class
-$redirect = $init->getRedirect();
-//creating object of vender class
-$generators = Generators::getInstance();
-//object for last login date
-$result=$generators->lastdate();
-//check session functionality
-if(!$session->__get("roll")==2)
-{
-    $redirect->redirect("../signin");
-}
-    elseif($session->__get("roll")==1)
-{
-    $redirect->redirect("../admin");
-}
-elseif($session->__get("roll")==3)
-{
-    $redirect->redirect("../vendors");
-}
-//argument for profile pic class
-$profile_pic=$generators->profile_pic();
-
-//add waste in data base
-if((isset($_POST["Next"])) OR isset($_POST['save']))
-{
-    //create array and store in previous value in array variable 
+    //creating object of session class  
+    $session = $init->getSession();
+    //creating object of redirect class
+    $redirect = $init->getRedirect();
+    //creating object of vender class
+    $generators = Generators::getInstance();
+    //object for last login date
+    $result=$generators->lastdate();
+    //check session functionality
+    if(!$session->__get("roll")==2)
+    {
+	$redirect->redirect("../signin");
+    }
+        elseif($session->__get("roll")==1)
+    {
+        $redirect->redirect("../admin");
+    }
+    elseif($session->__get("roll")==3)
+    {
+        $redirect->redirect("../vendors");
+    }
+    //argument for profile pic class
+    $profile_pic=$generators->profile_pic();
+    
+    //add waste in data base
+    if((isset($_POST["Next"])) OR isset($_POST['save']))
+    {
     $userinfo=$session->__get("save_return");
-    //set current post value in session
     $session->__set("save_return1",$_POST);
-    //get current post value in session
     $userinfo1=$session->__get("save_return1");
-    //push previou and current value stored in array
     array_push($userinfo,$userinfo1);
-    //again set a value in session
     $session->__set("save_return",$userinfo);
+    //echo "<pre>";
+    //print_r($userinfo);
+    //die;
     foreach($_POST as $key => $value){
-	$session->__set($key,$value);
-	}
-	//data is save in database
+    $session->__set($key,$value);
+    }
 	if(isset($_POST['save']))
 	{
-	    $data=$generators->save_return();
-	    if($data){
-		echo "Data is Save";
-	    }else{
-		echo "Data is Not Save";
-	    }
+	    $generators->save_return();
 	}
-	//redirect to next page
 	if(isset($_POST['Next']))
 	{
 	    $redirect->redirect("".BASE_URL."/generators/characteristics");
@@ -59,69 +50,6 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
     }
 //get a array value in session
 $metals=$session->__get("metals");
-if($session->__get("component"))
-{
-    $component_key=array();
-    $cas_key=array();
-    $minimum_key=array();
-    $min_unit_key=array();
-    $maximum_key=array();
-    $max_unit_key=array();
-    for($row=0; $row < sizeof($session->__get("component")); $row++)
-	{
-	    $component_key[$row]="component";
-	    
-	}
-    $component_value=$session->__get("component");
-    $component[] = array_combine($component_value,$component_key);
-
-    for($row=0; $row < sizeof($session->__get("cas")); $row++)
-	{
-	    $cas_key[$row]="cas";
-	    
-	}    
-    
-    $cas_value=$session->__get("cas");
-    $cas = array_combine($cas_value,$cas_key);
-
-    for($row=0; $row < sizeof($session->__get("minimum")); $row++)
-	{
-	    $minimum_key[$row]="minimum";
-	    
-	}    
-    
-    $minimum_value=$session->__get("minimum");
-    $minimum = array_combine($minimum_value,$minimum_key);
-
-    for($row=0; $row < sizeof($session->__get("min_unit")); $row++)
-    {
-	$min_unit_key[$row]="min_unit";
-	
-    }    
-
-    $min_unit_value=$session->__get("min_unit");
-    $min_unit = array_combine($min_unit_value,$min_unit_key);
-    
-    for($row=0; $row < sizeof($session->__get("maximum")); $row++)
-	{
-	    $maximum_key[$row]="maximum";
-	    
-	}    
-    
-    $maximum_value=$session->__get("maximum");
-    $maximum = array_combine($maximum_value,$maximum_key);
-
-    for($row=0; $row < sizeof($session->__get("max_unit")); $row++)
-    {
-	$max_unit_key[$row]="max_unit";
-	
-    }    
-
-    $max_unit_value=$session->__get("max_unit");
-    $max_unit = array_combine($max_unit_value,$max_unit_key);
-    array_push($component,$cas,$minimum,$min_unit,$maximum,$max_unit);
-
-}
 
 // includding header portion
     include("../../include/header.php");
@@ -180,6 +108,62 @@ if($session->__get("component"))
 			<form name="frm" method='post'>
 			    <h4><b>GENERAL WASTE COMPONENT</b></h4>
 			    <br><br>
+			    <?php if($session->__get("component")) { ?>
+			    <table class="table table-striped add_new" >
+				<thead>
+				    <tr>
+					<th>Component</th>
+					<th>CAS#</th>
+					<th>Minimum</th>
+					<th>Unit (%, ppm)</th>
+					<th>Maximum</th>
+					<th>Unit (%, ppm)</th>
+				    </tr>
+				    <tr>
+					<td><a href="javascript:void(0);" class='anc_add'><font size="+1"><b>+</b></font></a></td>
+				    </tr>
+				</thead>
+			    </table>
+				<div class="col-md-2">
+				    <?php foreach($session->__get("component") as $key=>$value )
+				    { ?>
+				    <input class="form-control" name="component[]" type="text" value="<?php echo $value;?>" required autofocus>
+				    <br>
+				    <br>
+				    <?php } ?>
+				</div>
+				<div class="col-md-2">
+				    <?php foreach($session->__get("cas") as $key=>$value ) { ?>
+				    <input class="form-control" name="cas[]" type="text" value="<?php echo $value; ?>" required autofocus>
+				    <br>
+				    <br>
+				    <?php } ?>
+				</div>
+				<div class="col-md-2">
+				    <?php foreach($session->__get("minimum") as $key=>$value ) { ?>
+				    <input class="form-control" name="minimum[]" type="text" value="<?php echo $value; ?>" required autofocus>
+				    <br><br>
+				    <?php } ?>
+				</div>
+				<div class="col-md-2">
+				    <?php foreach($session->__get("min_unit") as $key=>$value ) { ?>
+				    <input class="form-control" name="min_unit[]" type="text" value="<?php echo $value; ?>" required autofocus>
+				    <br><br>
+				    <?php } ?>
+				</div>
+				<div class="col-md-2">
+				    <?php foreach($session->__get("maximum") as $key=>$value ) { ?>
+				    <input class="form-control" name="maximum[]" type="text" value="<?php echo $value; ?>" required autofocus>
+				    <br><br>
+				    <?php } ?>
+				</div>
+				<div class="col-md-2">
+				    <?php foreach($session->__get("max_unit") as $key=>$value ) { ?>
+				    <input class="form-control" name="max_unit[]" type="text" value="<?php echo $value; ?>" required autofocus>
+				    <br><br>
+				    <?php } ?>
+				</div>
+				    <?php }else{ ?>
 			    <table class="table table-striped add_new" >
 				<thead>
 				    <tr>
@@ -195,78 +179,22 @@ if($session->__get("component"))
 				    </tr>
 				</thead>
 				<tbody>
-				    <?php
-				    if($session->__get("component"))
-				    {
-$i=0;
-					foreach($component as $key=>$value)
-					{
-				    echo "<tr>";
-					    foreach($value as $keys=>$val )
-					    {
-					     echo "<td>";
-					     echo $keys;
-					     echo "</td>";
-					    }
-				   echo "</tr>";
-					}
-
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-					foreach($component as $key=>$value)
-					{
-					    echo "<tr>";
-					    foreach($value as $keys=>$val )
-					    {
-	
-						echo "<td><input name='".$val."[]' type='' value=".$keys."></td>";
-	
-					    }
-					    echo "</tr>";
-					}
-				    }else{?>
 				<tr>
-				    <td><input name="component[]" type="text"></td>
-				    <td><input name="cas[]" type="text"></td>
-				    <td><input type="text" name="minimum[]"></td>
-				    <td><input type="text" name="min_unit[]"></td>
-				    <td><input type="text" name="maximum[]"></td>
-				    <td><input type="text" name="max_unit[]"></td>
+				    <td><input name="component[]" type="text" required autofocus></td>
+				    <td><input name="cas[]" type="text" required autofocus></td>
+				    <td><input type="text" name="minimum[]" required autofocus></td>
+				    <td><input type="text" name="min_unit[]" required autofocus></td>
+				    <td><input type="text" name="maximum[]" required autofocus></td>
+				    <td><input type="text" name="max_unit[]" required autofocus></td>
 				</tr>
-					
-					
-				    <?php }
-				?>
-				</tbody>
 				</table>
+			    <?php } ?>
 			    <h4><b>DOCUMENTATION (MSDS, Analysis, Etc.)</b></h4>
 			    <table width="100%" class="table table-striped">
 				    <tr>
 					<td>Type of document</td>
-					<td><input type="file" name="documentation" value="<?php echo $session->__get("documentation");?>"></td>
+					
+					<td><input type="file" name="documentation" value="<?php echo $session->__get("documentation");?>" required autofocus></td>
 				    </tr>
 			    <tr>
 				<td>METALS PRESENT (Check Boxes: Yes or No)</td>
@@ -493,7 +421,7 @@ $i=0;
 			    <div>
 				<a href="<?php echo BASE_URL;?>/generators/waste_information" class="btn btn-success">Previous</a>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
-				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
+				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success" onclick="myFunction(this.value)"/> 
 			    </div>
 			</form>
 		    </div>
@@ -524,4 +452,9 @@ cnt++;
 //alert(cnt);
 });
 });
+/*function myFunction() {
+if (confirm("Are you Sure ?") == true) {
+    alert("yes");
+    }
+} */
 </script>

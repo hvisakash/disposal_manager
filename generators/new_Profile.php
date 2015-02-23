@@ -26,6 +26,17 @@ include("../init.php");
     $profile_pic=$generators->profile_pic();
     //search site argument
     $value=$generators->search_site($session->__get('user_id'));
+    
+    //create session and store site id
+    //echo $value["id"];
+    //$session->__set("site_id",$value['id']);
+//echo $session->__get("site_id");
+// die;
+    
+  //  echo "<pre>";
+   // print_r($value);
+   // die;
+
     if(isset($_POST['next']))
     {
 	$redirect->redirect("".BASE_URL."/generators/Services");

@@ -804,9 +804,9 @@ class Generators
 		try{
 			$session= Session::getInstance();
 			$userinfo=$session->__get("save_return");
-			echo sizeof($userinfo)."<br>";
+			//echo sizeof($userinfo)."<br>";
 			echo "<pre>";print_r($userinfo);
-			
+			die;
 			if((sizeof($userinfo)==2) OR(sizeof($userinfo)==3) OR sizeof($userinfo)==4 OR sizeof($userinfo)==5 OR sizeof($userinfo)==6 OR sizeof($userinfo)==7 OR sizeof($userinfo)==8)
 			{
 				foreach($userinfo as $keys => $vals)
@@ -819,13 +819,13 @@ class Generators
 							if(is_array($value)){
 									foreach($value as $key1 => $value1)
 									{
-										$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value1."'");
+										$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value1."',sites_id='".$session->__get("site_id")."'");
 									}
 								}else{
 									continue;
 								}
 						}else{
-						$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."'");
+						$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."',sites_id='".$session->__get("site_id")."'");
 						}
 					}
 				}
@@ -849,11 +849,11 @@ class Generators
 			{
 				foreach($userinfo as $key => $value)
 				{
-						if(($value == "Save & Return") OR ($value == "Next")){
-						continue;
-						}else{
-						$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."'");
-						}
+					if(($value == "Save & Return") OR ($value == "Next")){
+					continue;
+					}else{
+					$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."',sites_id='".$session->__get("site_id")."'");
+					}
 				}
 			return true;
 			}

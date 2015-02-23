@@ -29,11 +29,35 @@ include("../../init.php");
     //argument for profile pic class
     $profile_pic=$generators->profile_pic();
     
-    //add waste in data base
-    if(isset($_POST["Next"]))
-    {
-      $redirect->redirect("".BASE_URL."/generators");
-   }
+if(isset($_POST['save']))
+{
+ //   echo "<pre>";
+ //   print_r($_POST);
+ //   die;
+//create array and store in previous value in array variable 
+$userinfo=$session->__get("save_return");
+//set current post value in session
+$session->__set("save_return1",$_POST);
+//get current post value in session
+$userinfo1=$session->__get("save_return1");
+//push previou and current value stored in array
+array_push($userinfo,$userinfo1);
+//again set a value in session
+$session->__set("save_return",$userinfo);
+foreach($_POST as $key => $value){
+    $session->__set($key,$value);
+    }
+//data is save in database
+    //$data=$generators->save_return();
+   // if($data){
+   // $redirect->redirect("".BASE_URL."/generators");
+   // }else{
+//	echo "Data is Not Save";
+  //  }
+    $redirect->redirect("".BASE_URL."/generators");
+	
+//redirect to next page
+    }
 // includding header portion
     include("../../include/header.php");
     include("../../include/header_menu.php");
@@ -92,6 +116,8 @@ include("../../init.php");
 		    </table>	
 		</div>
 		<div class="col-lg-6">
+		</br>
+	    </br>
 		    <table class="table table-bordered">
 			<tr>
 			    <td>Name of Waste</td>
@@ -319,10 +345,15 @@ include("../../init.php");
 			    <td><?php echo $session->__get('rq');?></td>
 			</tr>
 			<tr>
-			    <td>Inhalation Hazard: Zone</td>
+			    <td>Inhalation Hazard</td>
 			    <td><?php echo $session->__get('inhalation_hazard');?></td>
 			</tr>
-			<?php } ?>
+			<?php if(($session->__get("inhalation_hazard"))=="yes") { ?>
+			<tr>
+			    <td>Inhalation Hazard</td>
+			    <td><?php echo $session->__get('zone');?></td>
+			</tr>
+			<?php } } ?>
 			<tr>
 			    <td></td>
 			    <td><a href="<?php echo BASE_URL;?>/generators/don_shipping_information" class="btn btn-success">Edit</a></td>
@@ -494,7 +525,45 @@ include("../../init.php");
 			</tr>
 		    </table>
 
-		</div>    
+		</div>
+		<div class="col-lg-12">
+		    <h4><strong>Generator's Certification Page</strong></h4>
+		    <form name="frm" method='post'>
+		    <table width="100%" class="table table-striped table-bordered" >
+			<tr>
+			    <td><h4><strong>Material to be profiled</strong></h4></td>
+			    <td>
+				<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<?php  echo $session->__get("service_material");?></h5>
+			    </td>
+			</tr>
+			<tr>
+				<td>Process Generating Waste</td>
+				<td><input name="" type="text" value="" required autofocus></td>
+			</tr>
+			<tr>
+				<td>Full Name</td>
+				<td><input name="fullname" type="text" value="" required autofocus></td>
+			</tr>
+			<tr>
+				<td>Title</td>
+				<td><input name="title" type="text" value="" required autofocus></td>
+			</tr>
+			<tr>
+				<td>Electronic Signature</td>
+				<td><input name="electronic_signature" type="text" value="" required autofocus></td>
+			</tr>
+			<tr>
+				<td>Date</td>
+				<td><input name="date" type="text" value="" class="date_pic" required autofocus></td>
+			</tr>
+			<tr>
+			    <td></td>
+			    <td><input name="save" type="submit" value="Save & Return" class="btn btn-success"></td>
+			</tr>
+		    </table>
+		  </form>
+		</div>
 	    </div>
 	</div>
     </div>

@@ -108,7 +108,7 @@ include("../include/header_menu.php");
 		<div class="col-lg-12">
 		  </br>
 		  <div>
-		    <form name="frm" method='post'>
+		   <form name="frm" method='post' class="frm">
 		      <h3>Is the site located within the state of Texas ?</h3>
 		      </br>
 		      </br>
@@ -140,8 +140,7 @@ include("../include/header_menu.php");
 			<a href="<?php echo BASE_URL;?>/generator/Services/<?php echo $session->__get('service_id');?>" class="btn btn-success">Previous</a>
 			&nbsp;&nbsp;
 			<input name="Next" type="submit" value='Next' class="btn btn-success" />
-			&nbsp;&nbsp;
-			<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
+			&nbsp;&nbsp;<input name="save" type="button" value='Save & Return' class="btn btn-success save"/> 
 		      </div>
 		    </form>
 		  </div>

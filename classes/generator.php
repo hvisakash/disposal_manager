@@ -805,8 +805,7 @@ class Generators
 			$session= Session::getInstance();
 			$userinfo=$session->__get("save_return");
 			//echo sizeof($userinfo)."<br>";
-			echo "<pre>";print_r($userinfo);
-			die;
+			//echo "<pre>";print_r($userinfo);die;
 			if((sizeof($userinfo)==2) OR(sizeof($userinfo)==3) OR sizeof($userinfo)==4 OR sizeof($userinfo)==5 OR sizeof($userinfo)==6 OR sizeof($userinfo)==7 OR sizeof($userinfo)==8)
 			{
 				foreach($userinfo as $keys => $vals)

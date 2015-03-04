@@ -31,7 +31,7 @@
 		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		    <input name="Next" type="submit" value='Next' class="btn btn-success"/ >
 		     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		     <input name="save" type="submit" value='Save & Return' class="btn btn-success"/ > 
+		     <input name="save" type="submit" value='Save & Return' class="btn btn-success save"/ > 
 		</div>
 	</div>
 </form>

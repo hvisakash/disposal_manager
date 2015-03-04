@@ -205,7 +205,7 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
 			    <div>
 				<a href="<?php echo BASE_URL;?>/generators/shipping_volume" class="btn btn-success">Previous</a>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
-				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
+				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success save"/> 
 			    </div>
 			</form>
 		    </div>

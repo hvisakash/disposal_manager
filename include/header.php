@@ -55,6 +55,8 @@ include_once(dirname(__DIR__)."/init.php");
 	});
     });
     </script>
+    <!-- popup show the msg save and return page-->
+    
 
     <script>
 	$(document).ready(function(){
@@ -73,6 +75,23 @@ include_once(dirname(__DIR__)."/init.php");
 	color:#900;	
     }
     </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+	 $(document).ready(function(){
+	    $(".save").click(function(){
+		if (confirm("Are you sure you want to Save and Return")) {
+		    var input = $("<input>")
+			.attr("type", "hidden")
+			.attr("name", "save").val("Submit");
+		    $('.frm').append($(input));
+		    $(".frm").submit();
+		}
+		else{
+		    //alert('no');
+		}
+	    });
+	});    
+    </script>
 </head>
 <body>
 <div class="header_top">

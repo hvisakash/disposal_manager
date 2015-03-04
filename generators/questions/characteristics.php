@@ -268,7 +268,7 @@ $layers=$session->__get("layers");
 			    <div>
 				<a href="<?php echo BASE_URL;?>/generators/waste_composition" class="btn btn-success">Previous</a>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
-				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
+				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success save"/> 
 			    </div>
 			</form>
 		    </div>

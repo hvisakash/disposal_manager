@@ -105,7 +105,7 @@ $metals=$session->__get("metals");
 		<div class="col-lg-12">
 		    </br>
 		    <div>
-			<form name="frm" method='post'>
+			<form name="frm" method='post' class="frm">
 			    <h4><b>GENERAL WASTE COMPONENT</b></h4>
 			    <br><br>
 			    <?php if($session->__get("component")) { ?>
@@ -199,229 +199,225 @@ $metals=$session->__get("metals");
 			    <tr>
 				<td>METALS PRESENT (Check Boxes: Yes or No)</td>
 				<td>
-				    
-					    <?php
-					    if (is_array($metals) && in_array("METALS PRESENT", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="METALS PRESENT" checked="checked" class="check1"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="METALS PRESENT" class="check1"> &nbsp;&nbsp;';						
-						}    
-					    ?>
-
+				    <?php
+				    if (is_array($metals) && in_array("METALS PRESENT", $metals))
+				    {
+					echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="METALS PRESENT" checked="checked" class="check1"> &nbsp;&nbsp;';						
+				    }else{
+					echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="METALS PRESENT" class="check1"> &nbsp;&nbsp;';						
+					}    
+				    ?>
 				</td>
 			    </table>
-			    
-			    
-				<table width="100%" class="table table-striped matals_show" style="display:none">
-				    <tr>
-					<td>Aluminium</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Aluminium", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Aluminium" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Aluminium" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-					<td>Cadmium</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Cadmium", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Cadmium" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Cadmium" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-					<td>Lead</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Lead", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Lead" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Lead" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-					<td>Selenium</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Selenium", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Selenium" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Selenium" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-				    </tr>
-				    <tr>
-					<td>Antimony</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Antimony", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Antimony" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Antimony" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-					<td>Chromium</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Chromium", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Chromium" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Chromium" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-					<td>Manganese</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Manganese", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Manganese" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Manganese" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-					<td>Silver</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Silver", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Silver" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Silver" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-				    </tr>
-				    
-				    <tr>
-					<td>Arsenic</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Arsenic", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Arsenic" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Arsenic" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-					<td>Cobalt</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Cobalt", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Cobalt" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Cobalt" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-					<td>Mercury</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Mercury", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Mercury" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Mercury" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-					<td>Thallium</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Beryllium", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Thallium" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Thallium" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-				    </tr>
-				     <tr>
-					<td>Barium</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Barium", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Barium" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Barium" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-					<td>Copper</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Copper", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Copper" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Copper" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-					<td>Nickel</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Nickel", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Nickel" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Nickel" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-					<td>Zinc</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Zinc", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Zinc" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Zinc" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-				    </tr>
-				    <tr>
-					<td>
-					    Beryllium
-					</td>
-					<td>
-					    <?php
-					    if (is_array($metals) && in_array("Beryllium", $metals))
-					    {
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Beryllium" checked="checked"> &nbsp;&nbsp;';						
-					    }else{
-						echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Beryllium" class=""> &nbsp;&nbsp;';						
-						}    
-					    ?>
-					</td>
-				    </tr> 
-				</table>
+			    <table width="100%" class="table table-striped matals_show" style="display:none">
+				<tr>
+				    <td>Aluminium</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Aluminium", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Aluminium" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Aluminium" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				    <td>Cadmium</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Cadmium", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Cadmium" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Cadmium" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				    <td>Lead</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Lead", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Lead" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Lead" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				    <td>Selenium</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Selenium", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Selenium" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Selenium" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				</tr>
+				<tr>
+				    <td>Antimony</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Antimony", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Antimony" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Antimony" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				    <td>Chromium</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Chromium", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Chromium" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Chromium" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				    <td>Manganese</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Manganese", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Manganese" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Manganese" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				    <td>Silver</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Silver", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Silver" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Silver" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				</tr>
+				
+				<tr>
+				    <td>Arsenic</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Arsenic", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Arsenic" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Arsenic" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				    <td>Cobalt</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Cobalt", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Cobalt" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Cobalt" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				    <td>Mercury</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Mercury", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Mercury" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Mercury" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				    <td>Thallium</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Beryllium", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Thallium" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Thallium" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				</tr>
+				 <tr>
+				    <td>Barium</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Barium", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Barium" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Barium" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				    <td>Copper</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Copper", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Copper" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Copper" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				    <td>Nickel</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Nickel", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Nickel" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Nickel" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				    <td>Zinc</td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Zinc", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Zinc" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Zinc" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				</tr>
+				<tr>
+				    <td>
+					Beryllium
+				    </td>
+				    <td>
+					<?php
+					if (is_array($metals) && in_array("Beryllium", $metals))
+					{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Beryllium" checked="checked"> &nbsp;&nbsp;';						
+					}else{
+					    echo '&nbsp;&nbsp;<input name="metals[]" type="checkbox" value="Beryllium" class=""> &nbsp;&nbsp;';						
+					    }    
+					?>
+				    </td>
+				</tr> 
+			    </table>
 			    </br>
 			    </br>
 			    
 			    <div>
 				<a href="<?php echo BASE_URL;?>/generators/waste_information" class="btn btn-success">Previous</a>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
-				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success" onclick="myFunction(this.value)"/> 
+				&nbsp;&nbsp;<input name="save" type="button" value='Save & Return' class="btn btn-success save"/>
 			    </div>
 			</form>
 		    </div>

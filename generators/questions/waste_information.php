@@ -1,5 +1,4 @@
 <?php
-
 //including initial file
 include("../../init.php");
 //creating object of session class  
@@ -42,21 +41,26 @@ foreach($_POST as $key => $value){
     $session->__set($key,$value);
     }
 //data is save in database
-	if(isset($_POST['save']))
-	{
-	    $data=$generators->save_return();
-	    if($data){
-		echo "Data is Save";
-	    }else{
-		echo "Data is Not Save";
+	    if(isset($_POST['save']))
+	    {
+		$data=$generators->save_return();
+		if($data){
+		    echo "Data is Save";
+		}else{
+		    echo "Data is Not Save";
+		}
 	    }
-	}
 //redirect to next page
 	if(isset($_POST['Next']))
 	{
 	    $redirect->redirect("".BASE_URL."/generators/waste_composition");
 	}
     }
+?>
+
+<?php 
+
+
 //get a array value in session
 $specific_hazards=$session->__get("specific_hazards");
 $disposal_restriction=$session->__get("disposal_restriction");
@@ -160,7 +164,7 @@ $waste_determination=$session->__get("waste_determination");
 				</tr>
 				<tr style="display: none;" class="click">
 				    <td ></td>
-				    <td><input type="file" name="file_name" required autofocus value="<?php echo $session->__get("file_name");?>"></td>
+				    <td><input type="file" name="file_name" value="<?php echo $session->__get("file_name");?>"></td>
 				</tr>
 				<tr>
 				    <td>Unused or Virgin Material?</td>
@@ -264,9 +268,9 @@ $waste_determination=$session->__get("waste_determination");
 					    <?php
 					    if (is_array($specific_hazards) && in_array("Explosive", $specific_hazards))
 					    {
-						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Explosive" checked="checked"> &nbsp;&nbsp;';						
+						echo '&nbsp;&nbsp;<input class="Explosive" name="specific_hazards[]" type="checkbox" value="Explosive" checked="checked" > &nbsp;&nbsp;';						
 					    }else{
-						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Explosive" class=""> &nbsp;&nbsp;';						
+						echo '&nbsp;&nbsp;<input class="Explosive" name="specific_hazards[]" type="checkbox" value="Explosive" > &nbsp;&nbsp;';						
 						}    
 					    ?>
 					    Explosive
@@ -352,20 +356,20 @@ $waste_determination=$session->__get("waste_determination");
 					    <?php
 					    if (is_array($specific_hazards) && in_array("Organic Peroxide", $specific_hazards))
 					    {
-						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Organic Peroxide" checked="checked"> &nbsp;&nbsp;';						
+						echo '&nbsp;&nbsp;<input class="Organic_Peroxide" name="specific_hazards[]" type="checkbox" value="Organic Peroxide" checked="checked"> &nbsp;&nbsp;';						
 					    }else{
-						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Organic Peroxide" class=""> &nbsp;&nbsp;';						
+						echo '&nbsp;&nbsp;<input class="Organic_Peroxide" name="specific_hazards[]" type="checkbox" value="Organic Peroxide" > &nbsp;&nbsp;';						
 						}    
 					    ?>
 
 					    Organic Peroxide
 					</td><td>
 					    <?php
-					    if (is_array($specific_hazards) && in_array("Reactive Cyanides", $specific_hazards))
+					    if (is_array($specific_hazards) && in_array("Organic Peroxide", $specific_hazards))
 					    {
-						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Reactive Cyanides" checked="checked"> &nbsp;&nbsp;';						
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Organic Peroxide" checked="checked"> &nbsp;&nbsp;';						
 					    }else{
-						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Reactive Cyanides" class=""> &nbsp;&nbsp;';						
+						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Organic Peroxide" class=""> &nbsp;&nbsp;';						
 						}    
 					    ?>
 					    Reactive Cyanides (if yes, list PPM)
@@ -373,9 +377,9 @@ $waste_determination=$session->__get("waste_determination");
 					    <?php
 					    if (is_array($specific_hazards) && in_array("Radioactive", $specific_hazards))
 					    {
-						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Radioactive" checked="checked"> &nbsp;&nbsp;';						
+						echo '&nbsp;&nbsp;<input class="reactive_cyanides" name="specific_hazards[]" type="checkbox" value="Radioactive" checked="checked"> &nbsp;&nbsp;';						
 					    }else{
-						echo '&nbsp;&nbsp;<input name="specific_hazards[]" type="checkbox" value="Radioactive" class=""> &nbsp;&nbsp;';						
+						echo '&nbsp;&nbsp;<input class="reactive_cyanides" name="specific_hazards[]" type="checkbox" value="Radioactive" > &nbsp;&nbsp;';						
 						}    
 					    ?>
 
@@ -504,13 +508,21 @@ $waste_determination=$session->__get("waste_determination");
 					    Temperature Sensitive
 					</td>
 				    </tr>
+				    <tr style="display: none;" class="click_explosive">
+					<td>Stabilization Certificate</td>
+					<td><input name="stabilization_certificate" class="" type="file"></td>
+				    </tr>
+				    <tr style="display: none;" class="click_reactive_cyanides">
+					<td>Stabilization Certificate</td>
+					<td><input name="stabilization_certificate" class="" type="file"></td>
+				    </tr>				    
 				</table>
 			    </br>
 			    </br>
 			    <div>
 				<a href="<?php echo BASE_URL;?>/generators/Texas" class="btn btn-success">Previous</a>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success next" />
-				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success"/> 
+				&nbsp;&nbsp;<input name="save" type="button" value='Save & Return' class="btn btn-success save"/> 
 			    </div>
 			</form>
 		    </div>
@@ -530,6 +542,18 @@ $( ".check1,.check2" ).change(function() {
 	 $(".click").hide();
     }
 }).change();
+$( ".Explosive,.Organic_Peroxide" ).change(function() {
+    var $input = $(this);
+    if(($input.is( ":checked" ))==true){
+     $(".click_explosive").show();
+    }else{
+	 $(".click_explosive").hide();
+    }
+
+}).change();
+
+
+
 </script>
     
     

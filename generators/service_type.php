@@ -34,9 +34,9 @@ if(isset($_POST['save']))
   $values=$generators->save_and_return();
   //check a value true or false
     if($values){
-    echo "Data Is Save";
+    $redirect->redirect("".BASE_URL."/generators/New_Profile");
     }else{
-    echo "Data is Not Save";
+    //echo "Data is Not Save";
     }
   }
 //redirect to next page

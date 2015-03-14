@@ -27,7 +27,7 @@ include("../../init.php");
     $profile_pic=$generators->profile_pic();
     
 //functionality for next or save data by generator
-if((isset($_POST["Next"])) OR isset($_POST['save']))
+if((isset($_POST["Next"])))
 {
     //create array and store in previous value in array variable 
     $userinfo=$session->__get("save_return");
@@ -37,6 +37,7 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
     $userinfo1=$session->__get("save_return1");
     //push previou and current value stored in array
     array_push($userinfo,$userinfo1);
+    
     //again set a value in session
     $session->__set("save_return",$userinfo);
     // put all value in session
@@ -48,17 +49,6 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
     }else{
 	    $session->__set("USDOT_hazardous_material",$_POST['USDOT_hazardous_material']);
 	}
-    
-    //data is save in database
-    if(isset($_POST['save']))
-    {
-	$data=$generators->save_return();
-	if($data){
-	    echo "Data is Save";
-	}else{
-	    echo "Data is Not Save";
-	}
-    }
     //redirect to next page    
     if(isset($_POST['Next']))
     {
@@ -237,12 +227,38 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
   <?php include("../../include/footer.php");?>
 
 <script>
-      $(document).ready(function(){
-      $(".yes").click(function(){
-	   $(".display").show();
-      });
-      $(".no").click(function(){
-	   $(".display").hide();
-      });
+    $(document).ready(function(){
+    $(".yes").click(function(){
+	$(".display").show();
+    });
+    $(".no").click(function(){
+	$(".display").hide();
+    });
+});
+$(".save").click(function(e){
+    if (confirm("Are you sure you want to Save and Return")) {
+	$(".don_shipping").submit(function(e){
+	var count = $("form .error:visible").length;
+	if (count==0) {
+	e.preventDefault();
+	var _this = $(e.target);
+	var formData = $(this).serialize();
+	var formdata= formData+"&action=action";
+	$.ajax
+	    ({
+	    type: "POST",
+	     url: "save.php",
+	    data: formdata,
+	    dataType: 'json',
+	    success: function(data)
+		{
+		    if (data==1){
+			window.location = "<?php echo BASE_URL;?>/generators/New_Profile";
+		    }
+		}
+	    });
+	}
+	});
+    }
 });
 </script>

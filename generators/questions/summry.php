@@ -31,11 +31,30 @@ include("../../init.php");
     
 if(isset($_POST['save']))
 {
- //   echo "<pre>";
- //   print_r($_POST);
- //   die;
 //create array and store in previous value in array variable 
 $userinfo=$session->__get("save_return");
+//echo '<pre>'; print_r($userinfo); die("ss");
+$array=array(
+	    "wast"=>$_POST['wast'],
+	    "fullname"=>$_POST['fullname'],
+	    "title"=>$_POST['title'],
+	    "electronic_signature"=>$_POST['electronic_signature'],
+	    "date"=>$_POST['date']
+	    );
+//print_r($array);
+//die("aa");
+   /*$array = array(
+        "email" => $_POST['email'],
+        "password" => $_POST['password']
+    );
+*/
+   
+    //data is save in database
+    $data=$generators->summry($array);
+
+
+
+/*
 //set current post value in session
 $session->__set("save_return1",$_POST);
 //get current post value in session
@@ -47,6 +66,7 @@ $session->__set("save_return",$userinfo);
 foreach($_POST as $key => $value){
     $session->__set($key,$value);
     }
+*/
 //data is save in database
     //$data=$generators->save_return();
    // if($data){
@@ -54,9 +74,10 @@ foreach($_POST as $key => $value){
    // }else{
 //	echo "Data is Not Save";
   //  }
-    $redirect->redirect("".BASE_URL."/generators");
+//    $redirect->redirect("".BASE_URL."/generators");
 	
-//redirect to next page
+
+
     }
 // includding header portion
     include("../../include/header.php");
@@ -143,7 +164,7 @@ foreach($_POST as $key => $value){
 			<?php } ?>
 			<tr>
 			    <td></td>
-			    <td><a href="<?php echo BASE_URL;?>/generator/Services/<?php echo $session->__get("service_id")?>" class="btn btn-success">Edit</a></td>
+			    <td><a href="<?php echo BASE_URL;?>/generator/Services/<?php echo $session->__get("service_id")?>?page_id=1" class="btn btn-success">Edit</a></td>
 			</tr>
 		    </table>
     		  <table class="table table-bordered">
@@ -153,7 +174,7 @@ foreach($_POST as $key => $value){
 		      </tr>
 			<tr>
 			    <td></td>
-			    <td><a href="<?php echo BASE_URL;?>/generators/Texas" class="btn btn-success">Edit</a></td>
+			    <td><a href="<?php echo BASE_URL;?>/generators/Texas?page_id=2" class="btn btn-success">Edit</a></td>
 			</tr>
 		    </table>	
 <!-- GENERAL WASTE COMPONENT Page -->		    
@@ -539,7 +560,7 @@ foreach($_POST as $key => $value){
 			</tr>
 			<tr>
 				<td>Process Generating Waste</td>
-				<td><input name="" type="text" value="" required autofocus></td>
+				<td><input name="wast" type="text" value="" required autofocus></td>
 			</tr>
 			<tr>
 				<td>Full Name</td>

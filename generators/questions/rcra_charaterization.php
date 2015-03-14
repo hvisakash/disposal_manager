@@ -26,7 +26,7 @@ elseif($session->__get("roll")==3)
 //argument for profile pic class
 $profile_pic=$generators->profile_pic();
 //functionality for next or save data by generator
-if((isset($_POST["Next"])) OR isset($_POST['save']))
+if(isset($_POST["Next"]))
 {
     //create array and store in previous value in array variable 
     $userinfo=$session->__get("save_return");
@@ -42,21 +42,8 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
     foreach($_POST as $key => $value){
 	$session->__set($key,$value);
     }
-    //data is save in database
-	if(isset($_POST['save']))
-	{
-	    $data=$generators->save_return();
-	    if($data){
-		echo "Data is Save";
-	    }else{
-		echo "Data is Not Save";
-	    }
-	}
     //redirect to next page
-    if(isset($_POST['Next']))
-    {
-      $redirect->redirect("".BASE_URL."/generators/don_shipping_information");
-    }
+    $redirect->redirect("".BASE_URL."/generators/don_shipping_information");
 }
 
 // includding header portion
@@ -108,7 +95,7 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
 		<div class="col-lg-12">
 		    </br>
 		    <div>
-			<form name="frm" method='post'>
+			<form name="frm" method='post' class="rcra">
 			    <h4><b>RCRA CHARACTERIZATION</b></h4>
 			    <br>
 			    <table class="table table-bordered" vspace="50" hspace="50">
@@ -219,11 +206,36 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
 
 <!-- RCRA CHARACTERIZATION Texas State Waste Codes (if Generator is in Texas)-->
     <script>
-	$(".texas_code_yes").click(function(){
-	    $(".texas_code").show();
+$(".texas_code_yes").click(function(){
+    $(".texas_code").show();
+    });
+$(".texas_code_no").click(function(){
+    $(".texas_code").hide();
+    });
+$(".save").click(function(e){
+    if (confirm("Are you sure you want to Save and Return")) {
+	$(".rcra").submit(function(e){
+	var count = $("form .error:visible").length;
+	if (count==0) {
+	e.preventDefault();
+	var _this = $(e.target);
+	var formData = $(this).serialize();
+	var formdata= formData+"&action=action";
+	$.ajax
+	    ({
+	    type: "POST",
+	     url: "save.php",
+	    data: formdata,
+	    dataType: 'json',
+	    success: function(data)
+		{
+		    if (data==1){
+			window.location = "<?php echo BASE_URL;?>/generators/New_Profile";
+		    }
+		}
 	    });
-	$(".texas_code_no").click(function(){
-	    $(".texas_code").hide();
-	    });
-
+	}
+	});
+    }
+});
     </script> 

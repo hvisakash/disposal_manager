@@ -55,15 +55,15 @@ include("../init.php");
                         <span class="profile_options">Create New Profile</span>
                     </div>
                 </div>
-		<!---
-		<a href="<?php echo BASE_URL?>/generators/vendors-banned"> --->
+		</a>
+		<a href="<?php echo BASE_URL?>/generators/View-Profile">
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 optionbox">
 		    <div class="options">
 			<img src="../images/setting.png" alt="setting">
 			<span class="profile_options">View Existing Profiles</span>
 		    </div>
 		</div>
-		
+		</a>
 		</div>
 	    </div>
         </div>

@@ -1,4 +1,4 @@
-<form name="frm" method='post'>
+<form name="frm" method='post' class="wast">
 	<div>
 		<br><br>
 		<table>

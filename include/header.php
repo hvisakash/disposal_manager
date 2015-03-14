@@ -75,10 +75,9 @@ include_once(dirname(__DIR__)."/init.php");
 	color:#900;	
     }
     </style>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
 	 $(document).ready(function(){
-	    $(".save").click(function(){
+	    $(".save1").click(function(){
 		if (confirm("Are you sure you want to Save and Return")) {
 		    var input = $("<input>")
 			.attr("type", "hidden")

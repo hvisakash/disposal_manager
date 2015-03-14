@@ -27,7 +27,7 @@ include("../init.php");
     //
     if(isset($_POST["next"]))
     {
-	$service=$generators->service_type($_POST['radio']);
+
 	$session->__set("service_id",$service['mat_id']);
 	 $session->__set("service_material",$service['material']);
 	//echo $session->__get("service_material");

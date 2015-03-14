@@ -24,29 +24,25 @@ include("../../init.php");
     }
     //argument for profile pic class
     $profile_pic=$generators->profile_pic();
-    
     //add waste in data base
-    if((isset($_POST["Next"])) OR isset($_POST['save']))
+    if(isset($_POST["Next"]))
     {
-    $userinfo=$session->__get("save_return");
-    $session->__set("save_return1",$_POST);
-    $userinfo1=$session->__get("save_return1");
-    array_push($userinfo,$userinfo1);
-    $session->__set("save_return",$userinfo);
-    //echo "<pre>";
-    //print_r($userinfo);
-    //die;
-    foreach($_POST as $key => $value){
-    $session->__set($key,$value);
-    }
-	if(isset($_POST['save']))
-	{
-	    $generators->save_return();
+	//create array and store in previous value in array variable 
+	$userinfo=$session->__get("save_return");
+	//set current post value in session
+	$session->__set("save_return1",$_POST);
+	//get current post value in session
+	$userinfo1=$session->__get("save_return1");
+	//push previou and current value stored in array
+	array_push($userinfo,$userinfo1);
+	//again set a value in session
+	$session->__set("save_return",$userinfo);
+	// put all value in session
+	foreach($_POST as $key => $value){
+	    $session->__set($key,$value);
 	}
-	if(isset($_POST['Next']))
-	{
-	    $redirect->redirect("".BASE_URL."/generators/characteristics");
-	}
+	//redirect to next page
+	$redirect->redirect("".BASE_URL."/generators/characteristics");
     }
 //get a array value in session
 $metals=$session->__get("metals");
@@ -105,7 +101,7 @@ $metals=$session->__get("metals");
 		<div class="col-lg-12">
 		    </br>
 		    <div>
-			<form name="frm" method='post' class="frm">
+			<form name="frm" method='post' class="frm component">
 			    <h4><b>GENERAL WASTE COMPONENT</b></h4>
 			    <br><br>
 			    <?php if($session->__get("component")) { ?>
@@ -417,7 +413,7 @@ $metals=$session->__get("metals");
 			    <div>
 				<a href="<?php echo BASE_URL;?>/generators/waste_information" class="btn btn-success">Previous</a>
 				&nbsp;&nbsp;<input name="Next" type="submit" value='Next' class="btn btn-success" />
-				&nbsp;&nbsp;<input name="save" type="button" value='Save & Return' class="btn btn-success save"/>
+				&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success save"/>
 			    </div>
 			</form>
 		    </div>
@@ -448,9 +444,33 @@ cnt++;
 //alert(cnt);
 });
 });
-/*function myFunction() {
-if (confirm("Are you Sure ?") == true) {
-    alert("yes");
+$(".save").click(function(e){
+    if (confirm("Are you sure you want to Save and Return")) {
+	$(".component").submit(function(e){
+	var count = $("form .error:visible").length;
+	if (count==0) {
+	e.preventDefault();
+	var _this = $(e.target);
+	var formData = $(this).serialize();
+	var formdata= formData+"&action=action";
+	$.ajax
+	    ({
+	    type: "POST",
+	     url: "save.php",
+	    data: formdata,
+	    dataType: 'json',
+	    success: function(data)
+		{
+		    if (data==1){
+			window.location = "<?php echo BASE_URL;?>/generators/New_Profile";
+		    }
+		}
+	    });
+	}
+	});
     }
-} */
+    
+});
+
+
 </script>

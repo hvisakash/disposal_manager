@@ -30,8 +30,13 @@ elseif($session->__get("roll")==3)
 $profile_pic=$generators->profile_pic();
 
 //Next and add waste in data base functionality
-if((isset($_POST["Next"])) OR isset($_POST['save']))
+if((isset($_POST["Next"])))
 {
+  if(isset($_GET["page_id"]))
+  {
+
+  }
+
   //create array and store in previous value in array variable 
   $userinfo[]=$session->__get("save_return");
   //set current post value in session
@@ -45,19 +50,7 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
   foreach($_POST as $key => $value){
   $session->__set($key,$value);
   }
-  if(isset($_POST['save']))
-  {
-    $check=$generators->save_return();
-      //check a value true or false
-    if($check){
-      echo "Data Is Save";
-    }else{
-      echo "Data is Not Save";
-    }
-  }
-  if(isset($_POST['Next'])){
     $redirect->redirect("".BASE_URL."/generators/waste_information");
-  }
 }
 // includding header portion
 include("../include/header.php");
@@ -108,7 +101,7 @@ include("../include/header_menu.php");
 		<div class="col-lg-12">
 		  </br>
 		  <div>
-		   <form name="frm" method='post' class="frm">
+		   <form name="frm" method='post' class="texas" >
 		      <h3>Is the site located within the state of Texas ?</h3>
 		      </br>
 		      </br>
@@ -140,7 +133,7 @@ include("../include/header_menu.php");
 			<a href="<?php echo BASE_URL;?>/generator/Services/<?php echo $session->__get('service_id');?>" class="btn btn-success">Previous</a>
 			&nbsp;&nbsp;
 			<input name="Next" type="submit" value='Next' class="btn btn-success" />
-			&nbsp;&nbsp;<input name="save" type="button" value='Save & Return' class="btn btn-success save"/> 
+			&nbsp;&nbsp;<input name="save" type="submit" value='Save & Return' class="btn btn-success save"/> 
 		      </div>
 		    </form>
 		  </div>
@@ -152,3 +145,35 @@ include("../include/header_menu.php");
 </div>
 </body>
 </html>
+<script>
+jQuery(document).ready(function()
+{
+    $(".save").click(function(e){
+	if (confirm("Are you sure you want to Save and Return")) {
+	    $(".texas").submit(function(e){
+	    var count = $("form .error:visible").length;
+	    if (count==0) {
+	    e.preventDefault();
+	    var _this = $(e.target);
+	    var formData = $(this).serialize();
+	    var formdata= formData+"&action1=action";
+	    $.ajax
+		({
+		type: "POST",
+		 url: "save.php",
+		data: formdata,
+		dataType: 'json',
+		success: function(data)
+		    {
+			if (data==1){
+			    window.location = "<?php echo BASE_URL;?>/generators/New_Profile";
+			}
+		    }
+		});
+	    }
+	    });
+	}
+	
+    });
+});
+</script>

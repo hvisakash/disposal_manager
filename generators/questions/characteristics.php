@@ -25,9 +25,8 @@ include("../../init.php");
     }
     //argument for profile pic class
     $profile_pic=$generators->profile_pic();
-    
 //add waste in data base
-if((isset($_POST["Next"])) OR isset($_POST['save']))
+if(isset($_POST["Next"]))
 {
     //create array and store in previous value in array variable 
     $userinfo=$session->__get("save_return");
@@ -43,23 +42,9 @@ if((isset($_POST["Next"])) OR isset($_POST['save']))
     foreach($_POST as $key => $value){
 	$session->__set($key,$value);
     }
-	//data is save in database
-	if(isset($_POST['save']))
-	{
-	    $data=$generators->save_return();
-	    if($data){
-		echo "Data is Save";
-	    }else{
-		echo "Data is Not Save";
-	    }
-	}
-	//redirect to next page
-	if(isset($_POST['Next']))
-	{
-	    $redirect->redirect("".BASE_URL."/generators/shipping_volume");
-	}
+    //redirect to next page
+    $redirect->redirect("".BASE_URL."/generators/shipping_volume");
 }
-
 //get a value in array session
 $layers=$session->__get("layers");
    
@@ -277,4 +262,36 @@ $layers=$session->__get("layers");
 	</div>
     </div>
 </div>
-  <?php include("../../include/footer.php");?>
+<?php include("../../include/footer.php");?>
+<script>
+jQuery(document).ready(function()
+{
+    $(".save").click(function(e){
+	if (confirm("Are you sure you want to Save and Return")) {
+	    $(".characterstics").submit(function(e){
+	    var count = $("form .error:visible").length;
+	    if (count==0) {
+	    e.preventDefault();
+	    var _this = $(e.target);
+	    var formData = $(this).serialize();
+	    var formdata= formData+"&action=action";
+	    $.ajax
+		({
+		type: "POST",
+		 url: "save.php",
+		data: formdata,
+		dataType: 'json',
+		success: function(data)
+		    {
+			if (data==1){
+			    window.location = "<?php echo BASE_URL;?>/generators/New_Profile";
+			}
+		    }
+		});
+	    }
+	    });
+	}
+	
+    });
+});
+</script>

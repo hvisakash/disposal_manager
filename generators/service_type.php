@@ -25,9 +25,12 @@ elseif($session->__get("roll")==3)
 }
 //argument for profile pic class
 $profile_pic=$generators->profile_pic();
+
+/*
 //add waste in data base
 if(isset($_POST['save']))
 {
+  die("here");
   //save post value in session 
   $session->__set("save_return",$_POST);
   //save generator functionality
@@ -39,17 +42,18 @@ if(isset($_POST['save']))
     //echo "Data is Not Save";
     }
   }
+*/
 //redirect to next page
   if(isset($_POST["Next"]))
   {
-    //save post value in session 
-    $session->__set("save_return",$_POST);
-    //save post value in session 
-    foreach($_POST as $key => $value){
-      $session->__set($key,$value);
-    }
-    //nextpage generator functionality
-    $redirect->redirect("".BASE_URL."/generators/Texas");
+  //save post value in session 
+  $session->__set("save_return",$_POST);
+  //save post value in session 
+  foreach($_POST as $key => $value){
+    $session->__set($key,$value);
+  }
+  //nextpage generator functionality
+  $redirect->redirect("".BASE_URL."/generators/Texas");
   }
 $profile_no = substr(number_format(time() * rand(),0,'',''),0,16);
 // includding header portion
@@ -130,3 +134,34 @@ $profile_no = substr(number_format(time() * rand(),0,'',''),0,16);
   </div>
   <?php include("../include/footer.php");?>
 </div>
+<script>
+jQuery(document).ready(function()
+{
+    $(".save").click(function(e){
+	if (confirm("Are you sure you want to Save and Return")) {
+	    $(".wast").submit(function(e){
+	    var count = $("form .error:visible").length;
+	    if (count==0) {
+	    e.preventDefault();
+	    var _this = $(e.target);
+	    var formData = $(this).serialize();
+	    var formdata= formData+"&action=action";
+	    $.ajax
+		({
+		type: "POST",
+		 url: "<?php echo BASE_URL;?>/generators/save_wast.php",
+		data: formdata,
+		dataType: 'json',
+		success: function(data)
+		    {
+			if (data==1){
+			    window.location = "<?php echo BASE_URL;?>/generators/New_Profile";
+			}
+		    }
+		});
+	    }
+	  });
+	}
+    });
+});
+</script>

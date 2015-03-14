@@ -806,6 +806,9 @@ class Generators
 			$userinfo=$session->__get("save_return");
 			//echo sizeof($userinfo)."<br>";
 			//echo "<pre>";print_r($userinfo);die;
+//			$session->__unset($userinfo);
+//			print_r($userinfo);
+//			die("jjjjj");
 			if((sizeof($userinfo)==2) OR(sizeof($userinfo)==3) OR sizeof($userinfo)==4 OR sizeof($userinfo)==5 OR sizeof($userinfo)==6 OR sizeof($userinfo)==7 OR sizeof($userinfo)==8)
 			{
 				foreach($userinfo as $keys => $vals)
@@ -814,20 +817,34 @@ class Generators
 					{
 						if(($value == "Save & Return") OR ($value == "Next")){
 						continue;
-						}else if($value==is_array($value)){
+						}else if($value=="action"){
+							continue;
+						}
+						else if($value==is_array($value)){
 							if(is_array($value)){
 									foreach($value as $key1 => $value1)
 									{
 										$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value1."',sites_id='".$session->__get("site_id")."'");
+											//unset session value
+												$session->__unset($key1);
+												$session->__unset($value1);
+					
 									}
 								}else{
 									continue;
 								}
 						}else{
 						$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."',sites_id='".$session->__get("site_id")."'");
+												$session->__unset($key);
+												$session->__unset($value);
+
 						}
 					}
 				}
+				//unset session service id
+				$session->__unset($session->__get("service_id"));
+				//unset session site id
+				$session->__unset($session->__get("site_id"));
 			return true;
 			}
 			else{
@@ -843,17 +860,31 @@ class Generators
 		try{
 			$session= Session::getInstance();
 			$userinfo=$session->__get("save_return");
+			//echo "<pre>";print_r($userinfo);die;
+			//echo sizeof($userinfo);die;
 			//functionality for first page
-			if(sizeof($userinfo)==4)
+			if((sizeof($userinfo)==4) OR (sizeof($userinfo)==6))
 			{
 				foreach($userinfo as $key => $value)
 				{
-					if(($value == "Save & Return") OR ($value == "Next")){
+					if($value=="action"){
+					continue;
+					} else if(($value == "Save & Return") OR ($value == "Next")){
 					continue;
 					}else{
 					$this->_dbh->exec("INSERT into material_type set mat_id='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."',sites_id='".$session->__get("site_id")."'");
+					//unset session value
+					$session->__unset($key);
+					$session->__unset($value);
+
 					}
 				}
+				$service_id=$session->__get("service_id");
+				//unset session service id
+				$session->__unset($service_id);
+				$service_material=$session->__get("service_material");
+				//unset session service_material 
+				$session->__unset($service_material);
 			return true;
 			}
 			else{
@@ -866,6 +897,38 @@ class Generators
 			}
 		
 	}
-	
-	
+	//view all profile in generator
+	public function view_profile($user_id){
+		try{
+			//echo $user_id; die;
+/*			$sql = "select * from material_type where  user_id='$user_id'";
+			$res=$this->_dbh->query($sql);
+			$value= $res->fetchall();
+*/
+//			$sql = "select * from material_type where  user_id='$user_id'";
+			$sql = "select * from material_type where  user_id='$user_id'";
+			$res=$this->_dbh->query($sql);
+			$value= $res->fetchall();
+			
+//			echo "<pre>";print_r($value);die;
+			return($value);
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+			}
+		
+	}
+		//view all profile in generator
+	public function summry($array){
+		try{
+			//print_r($array);
+			//die("ll");
+			//$this->_dbh->exec("INSERT into material_type set mat_name='".$session->__get("service_id")."',user_id='".$session->__get("user_id")."',mate_label='".$key."',mate_value='".$value."',sites_id='".$session->__get("site_id")."'");
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+			}
+		
+	}
+
 }	
